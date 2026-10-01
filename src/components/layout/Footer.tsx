@@ -30,7 +30,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-xs text-slate-500 leading-relaxed mb-4 max-w-sm">
-              Votre référence en matériaux de gros œuvre, aciers certifiés, ciment, plomberie, électricité et quincaillerie professionnelle à Abomey-Calavi et au Bénin.
+              Votre référence en matériaux de gros œuvre, aciers certifiés, ciment, plomberie, électricité et quincaillerie professionnelle à Abomey-Calavi (Allègléta / Tankpè) et au Bénin.
             </p>
             <div className="flex flex-wrap gap-2 text-[11px] text-slate-500">
               <span className="bg-white border border-slate-200 px-2 py-0.5 rounded font-mono">
@@ -99,7 +99,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-emerald-700 hover:text-emerald-800 font-bold hover:underline"
                 >
-                  01 96 53 84 55 (WhatsApp Direct)
+                  +229 96 53 84 55 (WhatsApp Direct)
                 </a>
               </div>
               <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-500">

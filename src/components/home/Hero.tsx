@@ -42,15 +42,15 @@ export default function Hero() {
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 text-brand-900 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Magasin & Entrepôt ouverts • Abomey-Calavi (Carrefour Arconville)</span>
+              <span>Magasin & Entrepôt ouverts • Abomey-Calavi (Allègléta / Pavé de Tankpè)</span>
             </div>
 
             <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-[1.15] tracking-tight">
-              Matériaux de construction & quincaillerie de référence au <span className="text-brand-900">Bénin</span>
+              Quincaillerie, Ciments & Matériaux de Construction à <span className="text-brand-900">Abomey-Calavi</span>
             </h1>
 
             <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
-              Ciments certifiés, fers à béton haute adhérence, plomberie et outillage professionnel. Consultez nos tarifs en FCFA et transmettez votre liste à notre équipe sur <strong>WhatsApp en 1 geste</strong>.
+              Achat et vente d&apos;articles de quincaillerie, ciments d&apos;usine, fers à béton certifiés et outillage professionnel. Consultez nos tarifs en FCFA et transmettez votre liste à notre équipe sur <strong>WhatsApp (+229 96 53 84 55)</strong> en 1 clic.
             </p>
 
             {/* Moteur de recherche clair et épuré */}

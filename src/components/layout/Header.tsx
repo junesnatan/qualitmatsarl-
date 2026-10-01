@@ -61,7 +61,7 @@ export default function Header() {
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 font-medium tracking-wide">
-                Quincaillerie & Matériaux de Construction — Abomey-Calavi
+                Quincaillerie & Matériaux de Construction — Allègléta / Tankpè (Calavi)
               </p>
             </div>
           </Link>

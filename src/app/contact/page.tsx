@@ -192,8 +192,7 @@ export default function ContactPage() {
                   <p className="text-brand-900 font-bold mt-0.5">
                     <a href={`tel:${cleanPhone}`} className="hover:underline">
                       {initialSettings.telephonePrincipal}
-                    </a>{" "}
-                    / <span className="text-slate-600 font-normal">{initialSettings.telephoneSecondaire}</span>
+                    </a>
                   </p>
                 </div>
               </div>
@@ -208,7 +207,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="text-emerald-700 font-semibold hover:underline inline-block mt-0.5"
                   >
-                    +{initialSettings.whatsappNumber} (Cliquer pour échanger)
+                    +229 96 53 84 55 (Cliquer pour échanger sur WhatsApp)
                   </a>
                 </div>
               </div>

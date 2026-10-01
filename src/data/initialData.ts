@@ -1,16 +1,16 @@
 import { Category, Product, Promotion, SiteSettings, Testimonial } from "@/types";
 
 export const initialSettings: SiteSettings = {
-  whatsappNumber: "2290196538455",
-  telephonePrincipal: "+229 01 96 53 84 55",
-  telephoneSecondaire: "+229 01 96 53 84 55",
+  whatsappNumber: "22996538455",
+  telephonePrincipal: "+229 96 53 84 55",
+  telephoneSecondaire: "+229 96 53 84 55",
   email: "contact@qualitmatsarl.bj",
-  adresse: "Carrefour Arconville, Face Pharmacie de l'Amitié, Abomey-Calavi",
-  ville: "Abomey-Calavi, Bénin",
+  adresse: "Allègléta / Pavé de Tankpè, Abomey-Calavi",
+  ville: "Abomey-Calavi, Atlantique, Bénin",
   horairesSemaine: "Lundi au Samedi : 07h30 — 18h30",
   horairesDimanche: "Dimanche : 08h00 — 13h00 (Urgences chantiers)",
   facebookUrl: "https://facebook.com/qualitmatsarl",
-  googleMapsUrl: "https://maps.google.com/?q=Abomey-Calavi+Qualimat",
+  googleMapsUrl: "https://maps.google.com/?q=Qualitmat+Sarl+Allegleta+Tankpe+Abomey-Calavi",
   ifu: "3202112345678",
   rccm: "RB/ABC/21 B 1234",
 };
@@ -613,7 +613,7 @@ export const initialTestimonials: Testimonial[] = [
     id: "test-1",
     auteur: "Paul Dossou",
     role: "Artisan Maçon & Chef d'équipe, Tankpè (Abomey-Calavi)",
-    texte: "Avec Qualimat, plus besoin de perdre 2 heures au carrefour pour vérifier les prix. J'envoie ma liste sur WhatsApp le matin et quand mon camion arrive, les sacs de ciment et les barres de fer sont déjà prêts.",
+    texte: "Avec QUALITMATSARL, plus besoin de perdre 2 heures pour vérifier les prix. J'envoie ma liste sur WhatsApp le matin et quand mon camion arrive au pavé de Tankpè, les sacs de ciment et les barres de fer sont déjà prêts.",
     note: 5,
     date: "Il y a 2 semaines",
   },
@@ -628,7 +628,7 @@ export const initialTestimonials: Testimonial[] = [
   {
     id: "test-3",
     auteur: "Sidoine K.",
-    role: "Propriétaire particulier en construction à Arconville",
+    role: "Propriétaire particulier en construction à Allègléta (Tankpè)",
     texte: "C'est la première fois que je vois une quincaillerie aussi claire au Bénin. J'ai calculé mon budget sans stress et le personnel m'a bien orienté sur le choix de la plomberie.",
     note: 5,
     date: "Il y a 3 semaines",

@@ -6,8 +6,8 @@ import { Building2, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 export default function RealisationsPage() {
   const chantiers = [
     {
-      titre: "Immeuble Résidentiel R+3 à Arconville",
-      lieu: "Abomey-Calavi, quartier Arconville",
+      titre: "Immeuble Résidentiel R+3 à Allègléta",
+      lieu: "Abomey-Calavi, quartier Allègléta / Pavé de Tankpè",
       image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
       materiaux: "3 200 sacs de ciment CPJ 45, 28 tonnes de fer à béton HA FE E500",
       duree: "Chantier livré sur 6 mois",

@@ -34,7 +34,7 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         className="relative group w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 border-2 border-white"
-        title="Discuter sur WhatsApp avec QUALITMATSARL (01 96 53 84 55)"
+        title="Discuter sur WhatsApp avec QUALITMATSARL (+229 96 53 84 55)"
         aria-label="Contacter QUALITMATSARL sur WhatsApp"
       >
         {/* Anneau de pulsation subtil */}

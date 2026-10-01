@@ -279,7 +279,7 @@ export default function MaListePage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Ex : Tankpè, Arconville, Godomey, Zoundja..."
+                  placeholder="Ex : Tankpè, Allègléta, Godomey, Calavi Centre, Zoundja..."
                   value={quartier}
                   onChange={(e) => setQuartier(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900 focus:bg-white"
@@ -288,8 +288,8 @@ export default function MaListePage() {
             </div>
 
             {/* Total estimatif corporate */}
-            <div className="bg-slate-900 text-white p-5 rounded-xl mb-6 shadow-sm">
-              <div className="flex items-center justify-between text-xs text-slate-300 pb-2.5 border-b border-slate-800">
+            <div className="bg-brand-900 text-white p-5 rounded-xl mb-6 shadow-sm border border-brand-800">
+              <div className="flex items-center justify-between text-xs text-slate-200 pb-2.5 border-b border-brand-800">
                 <span>Total des articles :</span>
                 <span className="font-bold text-white">{totalItems} unité(s)</span>
               </div>

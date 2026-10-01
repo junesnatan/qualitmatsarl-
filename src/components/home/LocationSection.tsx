@@ -29,7 +29,7 @@ export default function LocationSection() {
                   <div>
                     <h4 className="font-bold text-xs uppercase text-slate-900">Adresse officielle</h4>
                     <p className="text-xs text-slate-700 mt-0.5 font-medium">{initialSettings.adresse}</p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">Repère : À proximité immédiate de la Pharmacie de l&apos;Amitié, Carrefour Arconville.</p>
+                    <p className="text-[11px] text-slate-500 mt-0.5">Repère : Quartier Allègléta / Pavé de Tankpè, Abomey-Calavi (Atlantique, Bénin).</p>
                   </div>
                 </div>
 
@@ -49,9 +49,7 @@ export default function LocationSection() {
                     <p className="text-xs font-bold text-slate-900 mt-0.5">
                       <a href={`tel:${cleanPhone}`} className="hover:text-brand-900 text-brand-900">
                         {initialSettings.telephonePrincipal}
-                      </a>{" "}
-                      /{" "}
-                      <span className="text-slate-600 font-normal">{initialSettings.telephoneSecondaire}</span>
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -91,15 +89,15 @@ export default function LocationSection() {
                 </div>
                 <div>
                   <h3 className="font-heading font-extrabold text-base text-slate-900">
-                    Qualimat SARL
+                    QUALITMATSARL
                   </h3>
-                  <p className="text-xs text-slate-500">Abomey-Calavi, Bénin</p>
+                  <p className="text-xs text-slate-500">Allègléta / Tankpè, Abomey-Calavi</p>
                 </div>
               </div>
 
               <p className="text-xs text-slate-600 mb-4 leading-relaxed">
-                Carrefour Arconville, Route Inter-États Cotonou — Abomey-Calavi.
-                Facilement accessible avec parking clients & zone de chargement véhicules.
+                Allègléta / Pavé de Tankpè, Abomey-Calavi (Atlantique, Bénin).
+                Facilement accessible avec parking clients & zone de chargement pour camions, tricycles et véhicules de chantier.
               </p>
 
               <div className="flex items-center gap-2 text-xs text-emerald-700 font-semibold mb-4">

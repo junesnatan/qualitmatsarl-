@@ -4,7 +4,7 @@ import { initialProducts, initialCategories, initialPromotions, initialSettings 
 const PRODUCTS_KEY = "qualimat_products_v3";
 const CATEGORIES_KEY = "qualimat_categories_v3";
 const PROMOTIONS_KEY = "qualimat_promotions_v3";
-const SETTINGS_KEY = "qualimat_settings_v3";
+const SETTINGS_KEY = "qualimat_settings_v4";
 const QUOTES_KEY = "qualimat_quotes";
 const PRO_REQUESTS_KEY = "qualimat_pro_requests";
 
