@@ -21,7 +21,7 @@ export const initialCategories: Category[] = [
     slug: "gros-oeuvre",
     nom: "Gros Œuvre & Ciment",
     description: "Ciment CPJ 35 et 45, fer à béton haute adhérence, parpaings, agrégats et fil recuit.",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
     position: 1,
     count: 8,
   },
@@ -39,7 +39,7 @@ export const initialCategories: Category[] = [
     slug: "plomberie",
     nom: "Plomberie & Sanitaire",
     description: "Tubes PVC assainissement & pression, raccords, vannes, robinetterie et réserves d'eau.",
-    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80",
     position: 3,
     count: 7,
   },
@@ -90,7 +90,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
     ],
     ficheTechnique: {
       "Norme": "Bénin Norme / EN 197-1",
@@ -115,7 +115,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=800&q=80",
     ],
     ficheTechnique: {
       "Classe": "42.5 R (Haute résistance)",
@@ -139,7 +139,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80",
     ],
     ficheTechnique: {
       "Diamètre": "10 mm",
@@ -163,7 +163,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
@@ -182,7 +182,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
@@ -260,7 +260,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80",
     ],
     ficheTechnique: {
       "Diamètre": "100 mm extérieur",
@@ -284,7 +284,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
@@ -341,7 +341,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
     ],
   },
 
@@ -386,7 +386,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
@@ -405,7 +405,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
@@ -483,7 +483,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80",
     ],
   },
   {
@@ -502,7 +502,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80",
     ],
   },
 
@@ -582,7 +582,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80",
     ],
   },
 ];

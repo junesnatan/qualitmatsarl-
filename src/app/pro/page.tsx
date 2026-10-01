@@ -57,7 +57,7 @@ export default function EspaceProPage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* Bannière Corporate Pro */}
-      <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-12 mb-12 border border-slate-800 shadow-xl relative overflow-hidden">
+      <div className="bg-brand-900 text-white rounded-2xl p-6 sm:p-12 mb-12 border border-brand-800 shadow-xl relative overflow-hidden">
         <div className="max-w-3xl relative z-10">
           <div className="inline-flex items-center gap-2 bg-brand-800 text-amber-400 border border-brand-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
             <Briefcase className="w-4 h-4" />

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/common/SafeImage";
 import { Product } from "@/types";
 import { formatFcfa } from "@/lib/storage";
 import { useCart } from "@/context/CartContext";
@@ -40,9 +40,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         href={`/produit/${product.slug}`}
         className="relative h-44 w-full bg-slate-100 overflow-hidden block"
       >
-        <Image
-          src={product.images[0] || "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80"}
+        <SafeImage
+          src={product.images?.[0]}
           alt={product.nom}
+          categorySlug={product.categoryId}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
           className="object-cover group-hover:scale-105 transition-transform duration-300"

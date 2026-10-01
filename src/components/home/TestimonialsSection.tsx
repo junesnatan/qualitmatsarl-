@@ -14,7 +14,7 @@ export default function TestimonialsSection() {
           La Confiance des Bâtisseurs de Calavi & Cotonou
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-slate-600">
-          Artisans maçons, plombiers, promoteurs immobiliers et particuliers témoignent de leur collaboration avec Qualimat SARL.
+          Artisans maçons, plombiers, promoteurs immobiliers et particuliers témoignent de leur collaboration avec QUALITMATSARL.
         </p>
       </div>
 

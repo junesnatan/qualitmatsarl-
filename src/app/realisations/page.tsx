@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import SafeImage from "@/components/common/SafeImage";
 import { Building2, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function RealisationsPage() {
@@ -8,7 +8,7 @@ export default function RealisationsPage() {
     {
       titre: "Immeuble Résidentiel R+3 à Arconville",
       lieu: "Abomey-Calavi, quartier Arconville",
-      image: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
       materiaux: "3 200 sacs de ciment CPJ 45, 28 tonnes de fer à béton HA FE E500",
       duree: "Chantier livré sur 6 mois",
       description: "Fourniture complète des armatures gros œuvre, ciment haute résistance et réseau d'assainissement PVC Ø 100/125 mm.",
@@ -24,7 +24,7 @@ export default function RealisationsPage() {
     {
       titre: "Complexe Commercial & Bureaux",
       lieu: "Zone Carrefour IITA, Calavi",
-      image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
       materiaux: "Tôles bac alu-zinc 0.35 mm, visserie étanche, cuves 2 000 L, adduction eau",
       duree: "Lots toiture & plomberie",
       description: "Mise hors d'eau et installation de l'infrastructure hydraulique avec réserves d'eau.",
@@ -39,7 +39,7 @@ export default function RealisationsPage() {
           <span>Références & Projets Réalisés</span>
         </span>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900">
-          Chantiers Approvisionnés par Qualimat
+          Chantiers Approvisionnés par QUALITMATSARL
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
           Découvrez quelques-uns des projets résidentiels et tertiaires approvisionnés par notre équipe à Abomey-Calavi et dans le Grand Cotonou.
@@ -53,7 +53,7 @@ export default function RealisationsPage() {
             className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:border-slate-300 hover:shadow-md transition"
           >
             <div className="relative h-48 w-full bg-slate-100">
-              <Image src={c.image} alt={c.titre} fill className="object-cover" />
+              <SafeImage src={c.image} alt={c.titre} fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-3 left-3 flex items-center gap-1 text-white text-xs font-medium">
                 <MapPin className="w-3.5 h-3.5 text-amber-400" />

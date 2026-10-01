@@ -164,7 +164,7 @@ export default function AdminDashboardPage() {
       nom: formNom,
       categoryId: formCategory,
       categoryName: selectedCat ? selectedCat.nom : "Gros Œuvre",
-      marque: formMarque || "Qualimat",
+      marque: formMarque || "QUALITMATSARL",
       reference: formRef || undefined,
       unite: formUnite,
       prixFcfa: formModePrix === "sur_devis" || !formPrix ? null : parseInt(formPrix, 10),
@@ -172,7 +172,7 @@ export default function AdminDashboardPage() {
       description: formDescription || "Matériau de haute qualité certifié pour le bâtiment.",
       images: [
         formImage ||
-          "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
       ],
       enStock: formEnStock,
       vedette: formVedette,

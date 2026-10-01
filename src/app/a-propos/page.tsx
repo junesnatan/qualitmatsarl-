@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import SafeImage from "@/components/common/SafeImage";
 import { initialSettings } from "@/data/initialData";
 import { Building2, ShieldCheck, Target, Award, MapPin } from "lucide-react";
 
@@ -17,7 +17,7 @@ export default function AProposPage() {
           L&apos;Exigence des Matériaux pour Bâtir Durable
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-3xl">
-          Implantée à Abomey-Calavi, Qualimat SARL distribue des matériaux de construction et de la quincaillerie générale auprès des professionnels du BTP, artisans et maîtres d&apos;ouvrage.
+          Implantée à Abomey-Calavi, QUALITMATSARL distribue des matériaux de construction et de la quincaillerie générale auprès des professionnels du BTP, artisans et maîtres d&apos;ouvrage.
         </p>
       </div>
 
@@ -27,19 +27,19 @@ export default function AProposPage() {
             Notre Mission : Fluidifier l&apos;approvisionnement de vos chantiers
           </h2>
           <p>
-            Sur un chantier, la régularité et la conformité des approvisionnements conditionnent directement le calendrier et la pérennité de l&apos;ouvrage. Chez Qualimat, nous garantissons :
+            Sur un chantier, la régularité et la conformité des approvisionnements conditionnent directement le calendrier et la pérennité de l&apos;ouvrage. Chez QUALITMATSARL, nous garantissons :
           </p>
           <ul className="space-y-2.5 pl-4 border-l-2 border-brand-900 text-slate-700">
-            <li><strong>Des prix clairs et compétitifs :</strong> Transparence tarifaire pour maîtriser vos budgets sans coûts cachés.</li>
+            <li><strong>Des prix clairs et compétitifs :</strong> Transparence tarifaire en FCFA pour maîtriser vos budgets sans coûts cachés.</li>
             <li><strong>Des matériaux strictement conformes :</strong> Fers certifiés FE E500, ciments d&apos;usines aux normes, câbles 100% cuivre pur.</li>
             <li><strong>Des outils digitaux efficaces :</strong> Devis instantanés préparés en ligne et confirmés sur WhatsApp en temps record.</li>
           </ul>
         </div>
 
         <div className="lg:col-span-6 relative h-80 rounded-2xl overflow-hidden shadow-md border border-slate-200">
-          <Image
-            src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"
-            alt="Entrepôt et équipe Qualimat SARL"
+          <SafeImage
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+            alt="Entrepôt et équipe QUALITMATSARL"
             fill
             className="object-cover"
           />
@@ -68,7 +68,7 @@ export default function AProposPage() {
             2. Réactivité & Logistique
           </h3>
           <p className="text-xs text-slate-600 leading-relaxed">
-            Écoute active, réponse rapide par messagerie instantanée et capacité de livraison programmée selon les phases de coulage.
+            Écoute active, réponse rapide par WhatsApp (01 96 53 84 55) et capacité de livraison programmée selon les phases de coulage.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export default function AProposPage() {
       <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h3 className="font-heading font-bold text-xl text-slate-900 mb-1">
-            Qualimat SARL — Identité Entreprise
+            QUALITMATSARL — Identité Entreprise
           </h3>
           <p className="text-xs text-slate-500">
             RCCM : {initialSettings.rccm} • IFU : {initialSettings.ifu} • Siège social : {initialSettings.adresse}

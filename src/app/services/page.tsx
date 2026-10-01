@@ -67,7 +67,7 @@ export default function ServicesPage() {
             Des prestations conçues pour fluidifier vos opérations de chantier
           </h1>
           <p className="mt-3 text-xs sm:text-base text-slate-600 leading-relaxed">
-            Au-delà de la vente de matériaux, Qualimat SARL est un partenaire logistique et technique fiable à chaque étape de votre construction.
+            Au-delà de la vente de matériaux, QUALITMATSARL est un partenaire logistique et technique fiable à chaque étape de votre construction.
           </p>
         </div>
       </div>

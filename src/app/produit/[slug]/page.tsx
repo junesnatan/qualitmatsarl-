@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/common/SafeImage";
 import { notFound, useParams } from "next/navigation";
 import { initialProducts, initialCategories } from "@/data/initialData";
 import { formatFcfa } from "@/lib/storage";
@@ -89,9 +89,10 @@ export default function ProductDetailPage() {
           {/* Galerie Photos (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
-              <Image
+              <SafeImage
                 src={product.images[selectedImage] || product.images[0]}
                 alt={product.nom}
+                categorySlug={product.categoryId}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -128,7 +129,7 @@ export default function ProductDetailPage() {
                       selectedImage === idx ? "border-brand-900" : "border-slate-200 opacity-70"
                     }`}
                   >
-                    <Image src={img} alt={`Photo ${idx + 1}`} fill className="object-cover" />
+                    <SafeImage src={img} alt={`Photo ${idx + 1}`} fill className="object-cover" />
                   </button>
                 ))}
               </div>

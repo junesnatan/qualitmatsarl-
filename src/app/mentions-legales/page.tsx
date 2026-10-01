@@ -26,7 +26,7 @@ export default function MentionsLegalesPage() {
             <span>1. Informations Légales sur la Société</span>
           </h2>
           <div className="space-y-1.5 pl-4 border-l-2 border-brand-900 text-slate-700">
-            <p><strong>Dénomination sociale :</strong> Qualimat SARL (Société à Responsabilité Limitée)</p>
+            <p><strong>Dénomination sociale :</strong> QUALITMATSARL (Société à Responsabilité Limitée)</p>
             <p><strong>Activité :</strong> Commerce général de quincaillerie, vente et distribution de matériaux de construction et outillage</p>
             <p><strong>Siège social :</strong> {initialSettings.adresse}, {initialSettings.ville}</p>
             <p><strong>Numéro IFU :</strong> {initialSettings.ifu}</p>
@@ -43,7 +43,7 @@ export default function MentionsLegalesPage() {
             <span>2. Hébergement de la Plateforme</span>
           </h2>
           <p>
-            Le site internet de Qualimat SARL est hébergé sur des infrastructures cloud sécurisées conformes aux normes internationales de disponibilité et de chiffrement des données (protocoles SSL/TLS HTTPS).
+            Le site internet de QUALITMATSARL est hébergé sur des infrastructures cloud sécurisées conformes aux normes internationales de disponibilité et de chiffrement des données (protocoles SSL/TLS HTTPS).
           </p>
         </section>
 

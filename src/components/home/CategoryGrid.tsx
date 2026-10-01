@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/common/SafeImage";
 import { initialCategories } from "@/data/initialData";
 import { ArrowRight, Layers } from "lucide-react";
 
@@ -35,9 +35,10 @@ export default function CategoryGrid() {
           >
             {/* Image */}
             <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
-              <Image
-                src={cat.image || ""}
+              <SafeImage
+                src={cat.image}
                 alt={cat.nom}
+                categorySlug={cat.slug}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-300"

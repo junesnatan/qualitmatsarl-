@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/common/SafeImage";
 import { useCart } from "@/context/CartContext";
 import { formatFcfa, buildWhatsAppQuoteUrl, recordQuoteRequest } from "@/lib/storage";
 import { initialSettings } from "@/data/initialData";
@@ -146,9 +146,10 @@ export default function MaListePage() {
               {items.map(({ product, quantite }) => (
                 <div key={product.id} className="p-4 sm:p-5 flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-lg bg-slate-100 overflow-hidden shrink-0 border border-slate-200">
-                    <Image
-                      src={product.images[0] || ""}
+                    <SafeImage
+                      src={product.images?.[0]}
                       alt={product.nom}
+                      categorySlug={product.categoryId}
                       fill
                       className="object-cover"
                     />
