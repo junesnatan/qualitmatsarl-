@@ -151,7 +151,7 @@ export default function Hero() {
 
               <a
                 href={`https://wa.me/${initialSettings.whatsappNumber}?text=${encodeURIComponent(
-                  "Bonjour Qualimat SARL, je souhaite demander une cotation pour des matériaux."
+                  "Bonjour QUALITMATSARL, je souhaite demander une cotation pour des matériaux."
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

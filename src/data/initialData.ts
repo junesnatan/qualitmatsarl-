@@ -1,15 +1,15 @@
 import { Category, Product, Promotion, SiteSettings, Testimonial } from "@/types";
 
 export const initialSettings: SiteSettings = {
-  whatsappNumber: "22997001122",
-  telephonePrincipal: "+229 97 00 11 22",
-  telephoneSecondaire: "+229 65 00 33 44",
-  email: "contact@qualimat-sarl.bj",
+  whatsappNumber: "2290196538455",
+  telephonePrincipal: "+229 01 96 53 84 55",
+  telephoneSecondaire: "+229 01 96 53 84 55",
+  email: "contact@qualitmatsarl.bj",
   adresse: "Carrefour Arconville, Face Pharmacie de l'Amitié, Abomey-Calavi",
   ville: "Abomey-Calavi, Bénin",
   horairesSemaine: "Lundi au Samedi : 07h30 — 18h30",
   horairesDimanche: "Dimanche : 08h00 — 13h00 (Urgences chantiers)",
-  facebookUrl: "https://facebook.com/qualimatbénin",
+  facebookUrl: "https://facebook.com/qualitmatsarl",
   googleMapsUrl: "https://maps.google.com/?q=Abomey-Calavi+Qualimat",
   ifu: "3202112345678",
   rccm: "RB/ABC/21 B 1234",

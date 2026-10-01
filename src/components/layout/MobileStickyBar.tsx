@@ -25,7 +25,7 @@ export default function MobileStickyBar() {
         {/* Bouton WhatsApp direct */}
         <a
           href={`https://wa.me/${initialSettings.whatsappNumber}?text=${encodeURIComponent(
-            "Bonjour Qualimat SARL, je souhaite des renseignements sur vos matériaux."
+            "Bonjour QUALITMATSARL, je souhaite des renseignements sur vos matériaux."
           )}`}
           target="_blank"
           rel="noopener noreferrer"

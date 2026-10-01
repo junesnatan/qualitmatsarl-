@@ -50,7 +50,7 @@ export default function EspaceProPage() {
   };
 
   const handleSendWhatsAppFallback = () => {
-    const text = `Bonjour Qualimat SARL, je suis ${contact} (${societe}).\nChantier à : ${villeQuartier || "Calavi"}.\nType : ${typeChantier}.\nBesoins : ${besoinsTexte || description}\nContact : ${telephone}`;
+    const text = `Bonjour QUALITMATSARL, je suis ${contact} (${societe}).\nChantier à : ${villeQuartier || "Calavi"}.\nType : ${typeChantier}.\nBesoins : ${besoinsTexte || description}\nContact : ${telephone}`;
     window.open(`https://wa.me/${initialSettings.whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank");
   };
 

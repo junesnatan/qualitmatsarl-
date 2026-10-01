@@ -140,7 +140,7 @@ export function buildWhatsAppQuoteUrl(
   customerQuartier?: string,
   customerPhone?: string
 ): { url: string; isTooLong: boolean; rawText: string } {
-  let message = "Bonjour Qualimat, je souhaite un devis pour :\n";
+  let message = "Bonjour QUALITMATSARL, je souhaite un devis pour :\n";
 
   for (const item of items) {
     message += `- ${item.product.nom} (${item.product.unite}) x ${item.quantite}\n`;
@@ -156,7 +156,7 @@ export function buildWhatsAppQuoteUrl(
     message += `\nQuartier : ${customerQuartier.trim()} (Abomey-Calavi / environs)`;
   }
 
-  message += "\n\nEnvoyé depuis le site Qualimat";
+  message += "\n\nEnvoyé depuis le site QUALITMATSARL";
 
   // Nettoyage du numéro : chiffres uniquement
   const cleanNumber = whatsappNumber.replace(/\D/g, "");

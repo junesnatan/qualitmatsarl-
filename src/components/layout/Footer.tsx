@@ -89,7 +89,7 @@ export default function Footer() {
                 <Building2 className="w-5 h-5" />
               </div>
               <span className="font-heading font-extrabold text-xl tracking-tight text-white">
-                QUALIMAT <span className="text-xs text-amber-400 font-bold">SARL</span>
+                QUALITMATSARL
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed mb-4">
@@ -185,7 +185,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-emerald-400 hover:underline font-semibold"
                 >
-                  +{initialSettings.whatsappNumber} (WhatsApp)
+                  01 96 53 84 55 (WhatsApp Direct)
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
@@ -207,7 +207,7 @@ export default function Footer() {
 
         {/* Bas de page légal */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Qualimat SARL. Tous droits réservés. Abomey-Calavi, République du Bénin.</p>
+          <p>© {new Date().getFullYear()} QUALITMATSARL. Tous droits réservés. Abomey-Calavi, République du Bénin.</p>
           <div className="flex items-center gap-4">
             <Link href="/mentions-legales" className="hover:text-slate-300">
               Mentions légales & Confidentialité
