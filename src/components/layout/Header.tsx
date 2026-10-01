@@ -14,9 +14,10 @@ import {
   Search,
   Menu,
   X,
-  HardHat,
+  Building2,
   ChevronRight,
   ShieldCheck,
+  Briefcase,
 } from "lucide-react";
 
 export default function Header() {
@@ -36,154 +37,150 @@ export default function Header() {
   const navLinks = [
     { label: "Accueil", href: "/" },
     { label: "Catalogue", href: "/catalogue" },
-    { label: "Espace Pro", href: "/pro", highlight: true },
+    { label: "Espace Pro BTP", href: "/pro", highlight: true },
     { label: "Services", href: "/services" },
     { label: "Réalisations", href: "/realisations" },
-    { label: "À propos", href: "/a-propos" },
+    { label: "L'Entreprise", href: "/a-propos" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full shadow-md">
-      {/* Liseré supérieur de chantier */}
-      <div className="h-1.5 stripe-accent w-full" />
-
-      {/* Topbar rapide infos pratiques */}
-      <div className="bg-acier text-acier-200 text-xs py-2 px-4 border-b border-acier-800">
+    <header className="sticky top-0 z-40 w-full bg-white shadow-sm">
+      {/* Topbar Corporate claire et épurée */}
+      <div className="bg-slate-900 text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-4 flex-wrap">
-            <span className="flex items-center gap-1.5 text-acier-100">
-              <MapPin className="w-3.5 h-3.5 text-jaune" />
+          <div className="flex items-center gap-5 flex-wrap">
+            <span className="flex items-center gap-1.5 text-slate-300">
+              <MapPin className="w-3.5 h-3.5 text-amber-400" />
               <span>{initialSettings.adresse}</span>
             </span>
-            <span className="hidden md:flex items-center gap-1.5 text-acier-300">
-              <Clock className="w-3.5 h-3.5 text-jaune" />
+            <span className="hidden md:flex items-center gap-1.5 text-slate-400">
+              <Clock className="w-3.5 h-3.5 text-amber-400" />
               <span>{initialSettings.horairesSemaine}</span>
             </span>
           </div>
 
-          <div className="flex items-center gap-4 ml-auto">
+          <div className="flex items-center gap-5 ml-auto">
             <a
               href={`tel:${initialSettings.telephonePrincipal.replace(/\s+/g, "")}`}
-              className="flex items-center gap-1.5 text-white hover:text-jaune font-medium transition"
+              className="flex items-center gap-1.5 text-white hover:text-amber-400 font-semibold transition"
             >
-              <Phone className="w-3.5 h-3.5 text-jaune" />
+              <Phone className="w-3.5 h-3.5 text-amber-400" />
               <span>{initialSettings.telephonePrincipal}</span>
             </a>
             <a
               href={`https://wa.me/${initialSettings.whatsappNumber}?text=${encodeURIComponent(
-                "Bonjour Qualimat, j'ai une question sur vos matériaux."
+                "Bonjour Qualimat SARL, je souhaite me renseigner sur vos matériaux."
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1 text-whatsapp font-semibold hover:underline"
+              className="hidden sm:flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-semibold"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-current" />
               <span>WhatsApp Direct</span>
             </a>
             <Link
               href="/admin"
-              className="text-[11px] text-acier-400 hover:text-jaune border-l border-acier-700 pl-3 transition"
-              title="Accès administration"
+              className="text-[11px] text-slate-400 hover:text-white border-l border-slate-700 pl-3 transition"
             >
-              Accès Pro / Admin
+              Espace Gestionnaire
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Barre Principale */}
-      <div className="bg-acier-900 border-b border-acier-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          {/* Logo & Identité */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="w-11 h-11 bg-jaune text-acier-900 flex items-center justify-center rounded font-heading font-black text-2xl tracking-tighter shadow-md group-hover:scale-105 transition-transform">
-              <HardHat className="w-7 h-7 text-acier-950" />
+      {/* Barre Principale : Logo, Recherche, Devis */}
+      <div className="border-b border-slate-200 py-3.5 px-4 bg-white">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
+          {/* Logo Corporate */}
+          <Link href="/" className="flex items-center gap-3.5 shrink-0 group">
+            <div className="w-11 h-11 bg-brand-900 text-white flex items-center justify-center rounded-xl shadow-md group-hover:bg-brand-800 transition-colors">
+              <Building2 className="w-6 h-6 text-amber-400" />
             </div>
             <div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="font-heading font-extrabold text-2xl tracking-wider text-white">
+              <div className="flex items-center gap-2">
+                <span className="font-heading font-extrabold text-2xl tracking-tight text-slate-900">
                   QUALIMAT
                 </span>
-                <span className="text-xs font-bold text-jaune uppercase tracking-wider bg-acier-800 px-1.5 py-0.5 rounded">
+                <span className="text-[10px] font-bold text-brand-900 uppercase tracking-widest bg-brand-50 border border-brand-200 px-1.5 py-0.5 rounded">
                   SARL
                 </span>
               </div>
-              <p className="text-[11px] text-acier-300 font-medium tracking-wide uppercase">
-                Quincaillerie & Matériaux — Abomey-Calavi
+              <p className="text-[11px] text-slate-500 font-medium tracking-wide">
+                Quincaillerie & Matériaux de Construction — Abomey-Calavi
               </p>
             </div>
           </Link>
 
-          {/* Moteur de recherche rapide (Desktop / Tablette) */}
+          {/* Recherche centrale épurée (Desktop) */}
           <form
             onSubmit={handleSearch}
-            className="hidden md:flex flex-1 max-w-md mx-4 relative"
+            className="hidden md:flex flex-1 max-w-lg relative"
           >
             <input
               type="text"
-              placeholder="Rechercher ciment, fer, tuyau PVC, câble..."
+              placeholder="Rechercher un produit, ciment, fer, tuyau, câble..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-acier-800 text-white placeholder-acier-400 text-sm px-4 py-2.5 pl-10 rounded border border-acier-700 focus:outline-none focus:border-jaune focus:ring-1 focus:ring-jaune transition"
+              className="w-full bg-slate-50 text-slate-900 placeholder-slate-400 text-sm px-4 py-2.5 pl-10 rounded-lg border border-slate-300 focus:outline-none focus:bg-white focus:border-brand-900 focus:ring-1 focus:ring-brand-900 transition"
             />
-            <Search className="w-4 h-4 text-acier-400 absolute left-3 top-3" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
             <button
               type="submit"
-              className="bg-jaune hover:bg-jaune-hover text-acier-900 font-bold px-3 py-1.5 rounded-r absolute right-1 top-1 text-xs uppercase"
+              className="bg-brand-900 hover:bg-brand-800 text-white font-semibold px-4 py-1.5 rounded-md absolute right-1.5 top-1.5 text-xs transition"
             >
-              Trouver
+              Rechercher
             </button>
           </form>
 
-          {/* Actions Droite : Devis & Menu Mobile */}
+          {/* Actions : Bouton Panier Devis & Burger */}
           <div className="flex items-center gap-3">
             <Link
               href="/ma-liste"
-              className="btn-touch relative bg-jaune hover:bg-jaune-hover text-acier-950 font-bold px-4 py-2 rounded flex items-center gap-2 shadow-md transition-all active:scale-95"
+              className="btn-touch relative bg-brand-900 hover:bg-brand-800 text-white font-semibold px-4 py-2 rounded-lg flex items-center gap-2.5 shadow-sm transition active:scale-95"
             >
-              <ClipboardList className="w-5 h-5 text-acier-950" />
+              <ClipboardList className="w-5 h-5 text-amber-400" />
               <div className="flex flex-col text-left">
-                <span className="text-xs font-black uppercase leading-tight">
-                  Ma Liste Devis
+                <span className="text-xs font-bold leading-tight">
+                  Ma Liste de Devis
                 </span>
-                <span className="text-[10px] text-acier-800 font-semibold leading-none">
+                <span className="text-[10px] text-slate-300 leading-none">
                   Envoi WhatsApp
                 </span>
               </div>
-              <span className="ml-1 bg-acier-950 text-jaune text-xs font-black w-6 h-6 rounded-full flex items-center justify-center border border-jaune">
+              <span className="ml-1 bg-amber-400 text-brand-950 text-xs font-extrabold w-6 h-6 rounded-full flex items-center justify-center">
                 {totalItems}
               </span>
             </Link>
 
-            {/* Bouton burger mobile */}
+            {/* Menu burger mobile */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-white hover:text-jaune rounded focus:outline-none"
+              className="md:hidden p-2 text-slate-700 hover:text-brand-900 rounded-lg focus:outline-none border border-slate-200"
               aria-label="Ouvrir le menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-7 h-7" />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-7 h-7" />
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Barre de navigation principale (Desktop) */}
-      <nav className="hidden md:block bg-acier-950 border-b border-acier-800">
+      {/* Menu de navigation secondaire (Desktop) */}
+      <nav className="hidden md:block bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <ul className="flex items-center space-x-1 text-sm font-semibold">
+          <ul className="flex items-center space-x-1 text-xs font-semibold">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`inline-block py-2.5 px-3.5 transition-colors uppercase tracking-wider text-xs ${
+                  className={`inline-block py-3 px-4 transition-colors font-medium ${
                     link.highlight
-                      ? "text-jaune font-black bg-acier-800/80 border-b-2 border-jaune hover:bg-acier-700"
-                      : "text-acier-200 hover:text-white hover:bg-acier-900"
+                      ? "text-brand-900 font-bold bg-brand-50 border-b-2 border-brand-900 hover:bg-brand-100"
+                      : "text-slate-600 hover:text-brand-900 hover:bg-slate-50"
                   }`}
                 >
                   {link.label}
@@ -192,16 +189,16 @@ export default function Header() {
             ))}
           </ul>
 
-          <div className="flex items-center gap-2 text-xs text-acier-400 py-1">
-            <ShieldCheck className="w-4 h-4 text-jaune" />
-            <span>Matériaux certifiés — Prix au sac, barre et gros volumes</span>
+          <div className="flex items-center gap-2 text-xs text-slate-500 py-2">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>Matériaux certifiés — Gros & Détail</span>
           </div>
         </div>
       </nav>
 
-      {/* Menu mobile dépliant */}
+      {/* Menu mobile déroulant */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-acier-950 border-b-2 border-jaune p-4 animate-fade-in">
+        <div className="md:hidden bg-white border-b border-slate-200 p-4 shadow-xl animate-fade-in">
           {/* Recherche mobile */}
           <form onSubmit={handleSearch} className="mb-4 relative">
             <input
@@ -209,12 +206,12 @@ export default function Header() {
               placeholder="Rechercher un matériau..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-acier-900 text-white placeholder-acier-400 text-sm px-4 py-2.5 pl-10 rounded border border-acier-700 focus:outline-none focus:border-jaune"
+              className="w-full bg-slate-50 text-slate-900 placeholder-slate-400 text-sm px-4 py-2.5 pl-10 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-900"
             />
-            <Search className="w-4 h-4 text-acier-400 absolute left-3 top-3.5" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3.5" />
             <button
               type="submit"
-              className="bg-jaune text-acier-950 font-bold px-3 py-1.5 rounded absolute right-1.5 top-1.5 text-xs"
+              className="bg-brand-900 text-white font-semibold px-3 py-1.5 rounded absolute right-1.5 top-1.5 text-xs"
             >
               OK
             </button>
@@ -226,24 +223,24 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between py-3 px-3 rounded font-bold uppercase text-sm ${
+                  className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-sm font-medium ${
                     link.highlight
-                      ? "bg-jaune/10 text-jaune border-l-4 border-jaune"
-                      : "text-white hover:bg-acier-900"
+                      ? "bg-brand-50 text-brand-900 font-bold border-l-4 border-brand-900"
+                      : "text-slate-700 hover:bg-slate-100"
                   }`}
                 >
                   <span>{link.label}</span>
-                  <ChevronRight className="w-4 h-4 opacity-70" />
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
                 </Link>
               </li>
             ))}
-            <li className="pt-2 border-t border-acier-800">
+            <li className="pt-2 border-t border-slate-200">
               <Link
                 href="/admin"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 px-3 text-xs text-acier-400 hover:text-white"
+                className="block py-2 px-3 text-xs text-slate-500 hover:text-slate-900"
               >
-                Administration & Gestion de catalogue
+                Espace Gestionnaire / Administration
               </Link>
             </li>
           </ul>

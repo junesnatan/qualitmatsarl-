@@ -1,53 +1,53 @@
 import React from "react";
 import Link from "next/link";
-import { Truck, Scissors, MessageSquare, ShieldCheck, ArrowRight, HardHat } from "lucide-react";
+import { Truck, Scissors, MessageSquare, ShieldCheck, ArrowRight, Building2 } from "lucide-react";
 
 export default function ServicesPage() {
   const services = [
     {
       icon: Truck,
-      title: "Livraison sur Chantier",
+      title: "Livraison Directe sur Chantier",
       subtitle: "Abomey-Calavi, Godomey, Cotonou, Ouidah",
       description:
-        "Nous disposons d'une logistique adaptée avec camions bennes (gravier, sable) et camions plateaux pour la livraison sécurisée de vos palettes de ciment et paquets de fer à béton jusqu'au lieu exact de vos travaux.",
+        "Flotte logistique adaptée comprenant camions bennes (sable, gravier) et camions plateaux pour acheminer sans risque vos palettes de ciment et paquets de fer à béton jusqu'au pied de vos fondations.",
       features: [
-        "Déchargement soigné sur site",
-        "Créneaux horaires respectés pour coulage de béton",
-        "Livraison express sous 24h selon stock",
+        "Déchargement méthodique sur site",
+        "Créneaux horaires calés pour le coulage de béton",
+        "Livraison réactive selon disponibilité",
       ],
     },
     {
       icon: Scissors,
-      title: "Découpe & Façonnage de Fer",
+      title: "Découpe & Façonnage d'Aciers",
       subtitle: "Cadres, étriers, épingles sur mesure",
       description:
-        "Gagnez un temps précieux sur chantier : nos équipes d'atelier découpent et façonnent vos aciers selon vos plans de ferraillage pour accélérer le montage de vos armatures de poteaux et poutres.",
+        "Optimisez votre productivité sur chantier : nos équipes d'atelier découpent et façonnent vos barres de fer à béton selon vos plans de ferraillage pour accélérer le montage de vos armatures.",
       features: [
-        "Section de 6 mm à 16 mm",
-        "Précision millimétrique des dimensions",
-        "Ferraillage prêt à l'emploi",
+        "Sections de fer de 6 mm à 16 mm",
+        "Conformité rigoureuse aux cotes de pliage",
+        "Armatures prêtes à poser",
       ],
     },
     {
       icon: MessageSquare,
-      title: "Conseil Technique & Échantillonnage",
-      subtitle: "Accompagnement par des professionnels",
+      title: "Conseil & Accompagnement Technique",
+      subtitle: "Expertise quincaillerie & BTP",
       description:
-        "Doute sur le choix entre ciment CPJ 35 ou CPJ 45 ? Sur le dimensionnement d'un câble cuivre ou le débit d'un tuyau de pression ? Nos conseillers expérimentés vous guident avec franchise et expertise.",
+        "Besoin de trancher entre ciment CPJ 35 ou CPJ 45 ? De dimensionner un câble de cuivre pour climatisation ou un diamètre de PVC d'évacuation ? Nos conseillers expérimentés vous guident avec précision.",
       features: [
-        "Fiches techniques des fabricants",
-        "Estimation des quantités requises",
-        "Solutions adaptées à votre budget",
+        "Fiches techniques fabricants disponibles",
+        "Estimation réaliste des quantités",
+        "Conseils adaptés aux contraintes du sol",
       ],
     },
     {
       icon: ShieldCheck,
-      title: "Vente en Gros & Approvisionnement BTP",
-      subtitle: "Contrats et bordereaux pour promoteurs",
+      title: "Vente en Gros & Marchés Entreprises",
+      subtitle: "Partenariats pour promoteurs et majors",
       description:
-        "Pour les projets de grande envergure, nous négocions directement auprès des cimenteries et aciéries pour vous garantir les meilleurs prix du marché et un calendrier d'approvisionnement continu.",
+        "Approvisionnement continu pour programmes immobiliers et chantiers d'envergure. Négociations directes d'usines pour vous faire bénéficier de tarifs de volume très compétitifs.",
       features: [
-        "Tarifs dégressifs sur volumes importants",
+        "Grilles tarifaires dégressives",
         "Priorité d'attribution sur les stocks",
         "Facturation normalisée avec IFU",
       ],
@@ -57,19 +57,17 @@ export default function ServicesPage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* En-tête */}
-      <div className="bg-acier-900 text-white rounded-2xl p-6 sm:p-12 mb-12 border border-acier-800 shadow-xl relative overflow-hidden">
-        <div className="h-1.5 stripe-accent w-full absolute top-0 left-0" />
+      <div className="bg-white rounded-2xl p-6 sm:p-12 mb-12 border border-slate-200 shadow-sm relative overflow-hidden">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-jaune text-acier-950 text-xs font-black uppercase px-3 py-1 rounded tracking-wider mb-4">
-            <HardHat className="w-4 h-4" />
-            <span>Nos Services d&apos;Accompagnement</span>
+          <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-900 border border-brand-200 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+            <Building2 className="w-4 h-4" />
+            <span>Nos Services aux Professionnels & Particuliers</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black uppercase text-white leading-tight">
-            Des services pensés pour faciliter <br />
-            <span className="text-jaune">la vie sur le chantier</span>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
+            Des prestations conçues pour fluidifier vos opérations de chantier
           </h1>
-          <p className="mt-4 text-xs sm:text-base text-acier-200 leading-relaxed">
-            Parce qu&apos;une quincaillerie moderne ne se limite pas à vendre du matériel, Qualimat vous accompagne de la préparation de vos besoins jusqu&apos;à la livraison finale.
+          <p className="mt-3 text-xs sm:text-base text-slate-600 leading-relaxed">
+            Au-delà de la vente de matériaux, Qualimat SARL est un partenaire logistique et technique fiable à chaque étape de votre construction.
           </p>
         </div>
       </div>
@@ -81,39 +79,39 @@ export default function ServicesPage() {
           return (
             <div
               key={idx}
-              className="bg-white rounded-xl border border-beton-dark p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:border-jaune transition"
+              className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:border-slate-300 hover:shadow-md transition"
             >
               <div>
-                <div className="w-12 h-12 bg-jaune/10 border border-jaune/30 rounded-lg flex items-center justify-center text-jaune mb-4">
-                  <Icon className="w-6 h-6 text-jaune-hover" />
+                <div className="w-12 h-12 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center text-brand-900 mb-4">
+                  <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-heading font-black text-2xl text-acier uppercase mb-1">
+                <h3 className="font-heading font-bold text-xl text-slate-900 mb-1">
                   {srv.title}
                 </h3>
-                <p className="text-xs text-bleu font-bold uppercase mb-4 tracking-wide">
+                <p className="text-xs text-amber-600 font-semibold mb-4">
                   {srv.subtitle}
                 </p>
-                <p className="text-xs sm:text-sm text-acier-600 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                   {srv.description}
                 </p>
 
-                <ul className="space-y-2 text-xs text-acier-700 mb-6">
+                <ul className="space-y-2 text-xs text-slate-700 mb-6">
                   {srv.features.map((feat, i) => (
-                    <li key={i} className="flex items-center gap-2 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-jaune" />
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-900" />
                       <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-4 border-t border-beton">
+              <div className="pt-4 border-t border-slate-100">
                 <Link
                   href="/contact"
-                  className="text-xs font-bold text-acier-900 hover:text-bleu uppercase tracking-wider inline-flex items-center gap-1.5"
+                  className="text-xs font-semibold text-brand-900 hover:underline inline-flex items-center gap-1.5"
                 >
-                  <span>Demander ce service</span>
-                  <ArrowRight className="w-4 h-4 text-jaune-hover" />
+                  <span>Demander un renseignement</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>

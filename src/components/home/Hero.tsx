@@ -8,9 +8,10 @@ import {
   MessageCircle,
   Truck,
   CheckCircle2,
-  HardHat,
+  Building2,
   ArrowRight,
-  ShieldAlert,
+  ShieldCheck,
+  Phone,
 } from "lucide-react";
 import { initialSettings } from "@/data/initialData";
 
@@ -30,138 +31,141 @@ export default function Hero() {
     { label: "Fer à béton Ø10", href: "/catalogue?q=fer" },
     { label: "Tuyau PVC Ø100", href: "/catalogue?q=pvc" },
     { label: "Câble 2.5 mm²", href: "/catalogue?q=cable" },
-    { label: "Brouette chantier", href: "/catalogue?q=brouette" },
+    { label: "Peinture Façade", href: "/catalogue?q=peinture" },
   ];
 
   return (
-    <section className="relative bg-acier-900 text-white overflow-hidden border-b border-acier-800">
-      {/* Texture d'arrière-plan avec dégradé industriel */}
-      <div className="absolute inset-0 bg-radial-gradient opacity-40 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-jaune/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Colonne Gauche : Accroche & Recherche */}
-          <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 bg-acier-800/90 border border-jaune/40 text-jaune px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-              <span className="w-2 h-2 rounded-full bg-jaune animate-ping" />
-              <span>Magasin ouvert • Abomey-Calavi (Carrefour Arconville)</span>
+    <section className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100/70 border-b border-slate-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Colonne Gauche : Titre Corporate & Recherche */}
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 text-brand-900 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Magasin & Entrepôt ouverts • Abomey-Calavi (Carrefour Arconville)</span>
             </div>
 
-            <h1 className="font-heading font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white leading-none">
-              Gagnez du temps sur <br />
-              <span className="text-jaune">vos chantiers & rénovations</span>
+            <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-[1.15] tracking-tight">
+              Matériaux de construction & quincaillerie de référence au <span className="text-brand-900">Bénin</span>
             </h1>
 
-            <p className="mt-4 text-acier-200 text-base sm:text-lg max-w-2xl leading-relaxed">
-              Tout le matériel de quincaillerie et gros œuvre en stock immédiat. Préparez votre liste de matériaux en ligne et envoyez-la à Qualimat sur <strong>WhatsApp en un geste</strong>.
+            <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+              Ciments certifiés, fers à béton haute adhérence, plomberie et outillage professionnel. Consultez nos tarifs en FCFA et transmettez votre liste à notre équipe sur <strong>WhatsApp en 1 geste</strong>.
             </p>
 
-            {/* Moteur de recherche principal ultra visible */}
+            {/* Moteur de recherche clair et épuré */}
             <form
               onSubmit={handleSearch}
-              className="mt-6 bg-acier-950 p-2 rounded-lg border-2 border-jaune shadow-2xl flex flex-col sm:flex-row gap-2 max-w-2xl"
+              className="mt-7 bg-white p-2 rounded-xl border border-slate-300 shadow-md flex flex-col sm:flex-row gap-2 max-w-xl"
             >
               <div className="relative flex-1 flex items-center">
-                <Search className="w-5 h-5 text-jaune absolute left-3 shrink-0" />
+                <Search className="w-5 h-5 text-slate-400 absolute left-3 shrink-0" />
                 <input
                   type="text"
-                  placeholder="Que cherchez-vous ? Ciment, fer, tuyau, câble, peinture..."
+                  placeholder="Rechercher ciment, fer, tuyau PVC, câble..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="w-full bg-transparent text-white placeholder-acier-400 pl-11 pr-3 py-3 text-base focus:outline-none"
+                  className="w-full bg-transparent text-slate-900 placeholder-slate-400 pl-11 pr-3 py-2.5 text-sm focus:outline-none"
                 />
               </div>
               <button
                 type="submit"
-                className="bg-jaune hover:bg-jaune-hover text-acier-950 font-black uppercase text-sm px-6 py-3 rounded tracking-wider flex items-center justify-center gap-2 transition active:scale-95 shadow-lg"
+                className="bg-brand-900 hover:bg-brand-800 text-white font-semibold text-xs uppercase px-5 py-3 rounded-lg tracking-wider flex items-center justify-center gap-2 transition active:scale-95 shadow-sm"
               >
-                <span>Chercher</span>
+                <span>Rechercher</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
 
-            {/* Tags rapides de recherche */}
-            <div className="mt-3 flex items-center gap-2 flex-wrap text-xs text-acier-300">
-              <span className="font-semibold text-acier-400">Recherches fréquentes :</span>
+            {/* Mots-clés fréquents */}
+            <div className="mt-3 flex items-center gap-2 flex-wrap text-xs text-slate-500">
+              <span className="font-medium text-slate-400">Suggestions :</span>
               {fastTags.map((tag) => (
                 <Link
                   key={tag.label}
                   href={tag.href}
-                  className="bg-acier-800 hover:bg-acier-700 text-acier-200 hover:text-white px-2.5 py-1 rounded transition"
+                  className="bg-white hover:bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md border border-slate-200 transition text-[11px] font-medium"
                 >
                   {tag.label}
                 </Link>
               ))}
             </div>
 
-            {/* CTAs Secondaires */}
+            {/* Boutons d'action principaux */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="/catalogue"
-                className="btn-touch bg-white hover:bg-acier-100 text-acier-950 font-bold px-6 py-3 rounded text-sm uppercase tracking-wider flex items-center gap-2 shadow transition"
+                className="btn-touch bg-brand-900 hover:bg-brand-800 text-white font-semibold px-6 py-3 rounded-lg text-sm flex items-center gap-2 shadow-sm transition"
               >
-                <span>Voir tout le catalogue</span>
-                <ArrowRight className="w-4 h-4 text-acier-900" />
+                <span>Accéder au catalogue complet</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
 
               <Link
                 href="/pro"
-                className="btn-touch bg-acier-800 hover:bg-acier-700 text-jaune font-bold px-6 py-3 rounded text-sm uppercase tracking-wider flex items-center gap-2 border border-acier-700 transition"
+                className="btn-touch bg-white hover:bg-slate-50 text-slate-800 font-semibold px-6 py-3 rounded-lg text-sm border border-slate-300 shadow-sm transition"
               >
-                <HardHat className="w-4 h-4 text-jaune" />
-                <span>Espace Pro & Gros Chantiers</span>
+                <Building2 className="w-4 h-4 text-brand-900" />
+                <span>Espace Pro & Entreprises BTP</span>
               </Link>
             </div>
           </div>
 
-          {/* Colonne Droite : Carte d'action express WhatsApp & Magasin */}
-          <div className="lg:col-span-4">
-            <div className="bg-acier-800/90 border border-acier-700 rounded-xl p-6 shadow-2xl relative">
-              <div className="absolute -top-3 right-4 bg-jaune text-acier-950 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow">
-                Service Express
+          {/* Colonne Droite : Carte Corporate Devis Rapide */}
+          <div className="lg:col-span-5">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-lg">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+                <div>
+                  <h3 className="font-heading font-bold text-lg text-slate-900">
+                    Service Devis Instantané
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Réponse tarifaire officielle sur votre téléphone
+                  </p>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 fill-current" />
+                </div>
               </div>
 
-              <h3 className="font-heading text-xl text-white font-bold uppercase mb-3 flex items-center gap-2">
-                <MessageCircle className="w-5 h-5 text-whatsapp" />
-                <span>Devis Chantier en 1 clic</span>
-              </h3>
-
-              <p className="text-xs text-acier-300 leading-relaxed mb-4">
-                Pas le temps d&apos;attendre au comptoir ? Composez votre panier de matériaux et recevez une réponse tarifaire officielle directement sur votre téléphone.
-              </p>
-
-              <div className="space-y-2.5 text-xs text-acier-200 mb-6 bg-acier-900/60 p-3.5 rounded border border-acier-700/60">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-jaune shrink-0" />
-                  <span>Prix fermes au sac, à la barre ou au camion</span>
+              <div className="space-y-3.5 mb-6 text-xs text-slate-700">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Tarifs transparents :</strong> Prix fermes au sac, à la barre ou au camion.
+                  </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Truck className="w-4 h-4 text-jaune shrink-0" />
-                  <span>Livraison disponible à Calavi et environs</span>
+                <div className="flex items-start gap-3">
+                  <Truck className="w-4 h-4 text-brand-900 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Livraison sur site :</strong> Camions bennes et plateaux sur Calavi et environs.
+                  </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-jaune shrink-0" />
-                  <span>Factures normalisées avec IFU</span>
+                <div className="flex items-start gap-3">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Régularité fiscale :</strong> Factures normalisées avec IFU pour entreprises.
+                  </span>
                 </div>
               </div>
 
               <a
                 href={`https://wa.me/${initialSettings.whatsappNumber}?text=${encodeURIComponent(
-                  "Bonjour Qualimat, j'ai besoin d'une cotation rapide pour mon chantier."
+                  "Bonjour Qualimat SARL, je souhaite demander une cotation pour des matériaux."
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full btn-touch bg-whatsapp hover:bg-whatsapp-hover text-white font-bold py-3 px-4 rounded text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition active:scale-95"
+                className="w-full btn-touch bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow transition active:scale-95"
               >
-                <MessageCircle className="w-5 h-5 fill-current" />
-                <span>Contacter sur WhatsApp</span>
+                <MessageCircle className="w-4 h-4 fill-current" />
+                <span>Demander un devis sur WhatsApp</span>
               </a>
 
-              <div className="mt-3 text-center">
-                <span className="text-[11px] text-acier-400">
-                  Ou par appel direct au{" "}
-                  <strong className="text-white">{initialSettings.telephonePrincipal}</strong>
+              <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-slate-500">
+                <Phone className="w-3.5 h-3.5 text-brand-900" />
+                <span>
+                  Ou contactez le magasin au{" "}
+                  <strong className="text-slate-900 font-semibold">{initialSettings.telephonePrincipal}</strong>
                 </span>
               </div>
             </div>

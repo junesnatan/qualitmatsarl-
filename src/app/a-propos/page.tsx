@@ -2,44 +2,44 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { initialSettings } from "@/data/initialData";
-import { HardHat, ShieldCheck, Target, Award, ArrowRight, MapPin } from "lucide-react";
+import { Building2, ShieldCheck, Target, Award, MapPin } from "lucide-react";
 
 export default function AProposPage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* En-tête */}
-      <div className="border-b-2 border-acier-200 pb-6 mb-8">
-        <div className="text-xs font-bold text-bleu uppercase tracking-widest flex items-center gap-1.5 mb-1">
-          <HardHat className="w-4 h-4 text-jaune-hover" />
-          <span>Qui sommes-nous</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-acier uppercase">
+      <div className="border-b border-slate-200 pb-6 mb-8">
+        <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+          <Building2 className="w-4 h-4 text-amber-500" />
+          <span>L&apos;Entreprise</span>
+        </span>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900">
           L&apos;Exigence des Matériaux pour Bâtir Durable
         </h1>
-        <p className="text-xs sm:text-sm text-acier-600 mt-1 max-w-3xl">
-          Implantée au cœur de la commune d&apos;Abomey-Calavi, Qualimat SARL est née d&apos;une volonté claire : rendre l&apos;approvisionnement en matériaux de construction rapide, transparent et fiable pour tous les bâtisseurs béninois.
+        <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-3xl">
+          Implantée à Abomey-Calavi, Qualimat SARL distribue des matériaux de construction et de la quincaillerie générale auprès des professionnels du BTP, artisans et maîtres d&apos;ouvrage.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
-        <div className="lg:col-span-6 space-y-4 text-xs sm:text-sm text-acier-700 leading-relaxed">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl text-acier uppercase">
-            Notre Mission : Faire gagner du temps à ceux qui construisent
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
+        <div className="lg:col-span-6 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <h2 className="font-heading font-bold text-2xl text-slate-900">
+            Notre Mission : Fluidifier l&apos;approvisionnement de vos chantiers
           </h2>
           <p>
-            Sur un chantier, chaque heure perdue à attendre un camion ou à négocier des prix introuvables coûte cher. Chez Qualimat, nous avons repensé la quincaillerie :
+            Sur un chantier, la régularité et la conformité des approvisionnements conditionnent directement le calendrier et la pérennité de l&apos;ouvrage. Chez Qualimat, nous garantissons :
           </p>
-          <ul className="space-y-2 pl-4 border-l-2 border-jaune">
-            <li><strong>Des prix clairs et affichés :</strong> Fini le flou tarifaire. Nos prix sont nets et transparents.</li>
-            <li><strong>Zéro compromis sur la solidité :</strong> Nous ne vendons aucun fer sous-dosé ou ciment altéré. Seuls les produits certifiés entrent dans nos entrepôts.</li>
-            <li><strong>Le numérique au service du terrain :</strong> Avec notre outil de devis WhatsApp, vous préparez votre liste depuis votre téléphone sur le chantier, et notre équipe prépare le chargement avant même votre arrivée.</li>
+          <ul className="space-y-2.5 pl-4 border-l-2 border-brand-900 text-slate-700">
+            <li><strong>Des prix clairs et compétitifs :</strong> Transparence tarifaire pour maîtriser vos budgets sans coûts cachés.</li>
+            <li><strong>Des matériaux strictement conformes :</strong> Fers certifiés FE E500, ciments d&apos;usines aux normes, câbles 100% cuivre pur.</li>
+            <li><strong>Des outils digitaux efficaces :</strong> Devis instantanés préparés en ligne et confirmés sur WhatsApp en temps record.</li>
           </ul>
         </div>
 
-        <div className="lg:col-span-6 relative h-80 rounded-2xl overflow-hidden shadow-xl border-2 border-acier-800">
+        <div className="lg:col-span-6 relative h-80 rounded-2xl overflow-hidden shadow-md border border-slate-200">
           <Image
             src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"
-            alt="Entrepôt et équipe Qualimat"
+            alt="Entrepôt et équipe Qualimat SARL"
             fill
             className="object-cover"
           />
@@ -48,60 +48,60 @@ export default function AProposPage() {
 
       {/* Valeurs piliers */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <div className="bg-white p-6 rounded-xl border border-beton-dark shadow-sm">
-          <div className="w-12 h-12 bg-jaune/10 border border-jaune/30 rounded-lg flex items-center justify-center text-jaune mb-4">
-            <ShieldCheck className="w-6 h-6 text-jaune-hover" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div className="w-12 h-12 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center text-brand-900 mb-4">
+            <ShieldCheck className="w-6 h-6" />
           </div>
-          <h3 className="font-heading font-black text-xl text-acier uppercase mb-2">
-            1. Conformité & Qualité
+          <h3 className="font-heading font-bold text-lg text-slate-900 mb-2">
+            1. Qualité & Conformité
           </h3>
-          <p className="text-xs text-acier-600 leading-relaxed">
-            Fers haute adhérence FE E500 contrôlés, ciments d&apos;usines certifiées, câbleries cuivre pur. Nous garantissons la pérennité de vos ouvrages.
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Contrôle rigoureux des origines de nos produits auprès des industriels du ciment et de la sidérurgie pour garantir la sécurité des ouvrages.
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-beton-dark shadow-sm">
-          <div className="w-12 h-12 bg-jaune/10 border border-jaune/30 rounded-lg flex items-center justify-center text-jaune mb-4">
-            <Target className="w-6 h-6 text-jaune-hover" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div className="w-12 h-12 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center text-brand-900 mb-4">
+            <Target className="w-6 h-6" />
           </div>
-          <h3 className="font-heading font-black text-xl text-acier uppercase mb-2">
-            2. Réactivité Chantier
+          <h3 className="font-heading font-bold text-lg text-slate-900 mb-2">
+            2. Réactivité & Logistique
           </h3>
-          <p className="text-xs text-acier-600 leading-relaxed">
-            Réponse WhatsApp rapide, chargement fluide des camions au magasin et livraisons coordonnées selon vos étapes de coulage.
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Écoute active, réponse rapide par messagerie instantanée et capacité de livraison programmée selon les phases de coulage.
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border border-beton-dark shadow-sm">
-          <div className="w-12 h-12 bg-jaune/10 border border-jaune/30 rounded-lg flex items-center justify-center text-jaune mb-4">
-            <Award className="w-6 h-6 text-jaune-hover" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div className="w-12 h-12 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center text-brand-900 mb-4">
+            <Award className="w-6 h-6" />
           </div>
-          <h3 className="font-heading font-black text-xl text-acier uppercase mb-2">
-            3. Rigueur Fiscale & Légale
+          <h3 className="font-heading font-bold text-lg text-slate-900 mb-2">
+            3. Rigueur Légale
           </h3>
-          <p className="text-xs text-acier-600 leading-relaxed">
-            Entreprise formelle enregistrée au RCCM d&apos;Abomey-Calavi avec IFU actif. Délivrance systématique de factures normalisées pour entreprises.
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Société formelle immatriculée au RCCM d&apos;Abomey-Calavi avec IFU en règle et délivrance systématique de factures normalisées.
           </p>
         </div>
       </div>
 
       {/* Cadre légal */}
-      <div className="bg-acier-900 text-white rounded-xl p-8 border border-acier-800 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <h3 className="font-heading font-black text-2xl uppercase mb-1">
+          <h3 className="font-heading font-bold text-xl text-slate-900 mb-1">
             Qualimat SARL — Identité Entreprise
           </h3>
-          <p className="text-xs text-acier-300">
-            RCCM : {initialSettings.rccm} • IFU : {initialSettings.ifu} • Siège : {initialSettings.adresse}
+          <p className="text-xs text-slate-500">
+            RCCM : {initialSettings.rccm} • IFU : {initialSettings.ifu} • Siège social : {initialSettings.adresse}
           </p>
         </div>
 
         <Link
           href="/contact"
-          className="btn-touch bg-jaune hover:bg-jaune-hover text-acier-950 font-black uppercase text-xs px-6 py-3 rounded tracking-wider flex items-center gap-2 shrink-0 shadow"
+          className="btn-touch bg-brand-900 hover:bg-brand-800 text-white font-semibold text-xs px-6 py-2.5 rounded-lg flex items-center gap-2 shrink-0 shadow-sm"
         >
           <MapPin className="w-4 h-4" />
-          <span>Venir au magasin</span>
+          <span>Localiser le magasin</span>
         </Link>
       </div>
     </div>

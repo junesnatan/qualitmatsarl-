@@ -11,8 +11,7 @@ import {
   X,
   PackageOpen,
   ArrowUpDown,
-  Tag,
-  Check,
+  Layers,
 } from "lucide-react";
 
 function CatalogueContent() {
@@ -27,7 +26,6 @@ function CatalogueContent() {
   const [sortBy, setSortBy] = useState<"pertinence" | "prix-asc" | "prix-desc" | "nom">("pertinence");
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
-  // Extraire les marques uniques
   const allBrands = useMemo(() => {
     const brands = new Set<string>();
     initialProducts.forEach((p) => {
@@ -36,10 +34,8 @@ function CatalogueContent() {
     return Array.from(brands).sort();
   }, []);
 
-  // Filtrage et Tri
   const filteredProducts = useMemo(() => {
     return initialProducts.filter((product) => {
-      // Recherche textuelle insensible à la casse et tolérante
       if (search.trim()) {
         const q = search.toLowerCase().trim();
         const inNom = product.nom.toLowerCase().includes(q);
@@ -50,17 +46,14 @@ function CatalogueContent() {
         if (!inNom && !inDesc && !inRef && !inBrand && !inCat) return false;
       }
 
-      // Filtre catégorie
       if (selectedCategory !== "all" && product.categoryId !== selectedCategory) {
         return false;
       }
 
-      // Filtre marque
       if (selectedBrand !== "all" && product.marque !== selectedBrand) {
         return false;
       }
 
-      // Filtre stock
       if (onlyInStock && !product.enStock) {
         return false;
       }
@@ -90,72 +83,72 @@ function CatalogueContent() {
 
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
-      {/* En-tête de page & Titre */}
-      <div className="mb-8 border-b-2 border-acier-200 pb-6">
-        <div className="text-xs font-bold text-bleu uppercase tracking-widest flex items-center gap-1.5 mb-1">
-          <Tag className="w-4 h-4 text-jaune-hover" />
-          <span>Matériaux disponibles immédiatement</span>
-        </div>
+      {/* En-tête de page épuré */}
+      <div className="mb-8 pb-6 border-b border-slate-200">
+        <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+          <Layers className="w-4 h-4 text-amber-500" />
+          <span>Matériaux & Quincaillerie en Stock</span>
+        </span>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-acier uppercase">
-              Catalogue Quincaillerie & Matériaux
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900">
+              Catalogue Général des Matériaux
             </h1>
-            <p className="text-xs sm:text-sm text-acier-600 mt-1">
-              Consultez nos prix en FCFA ou demandez un devis direct. {filteredProducts.length} référence(s) trouvée(s).
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
+              Consultez nos prix unitaires indicatifs en FCFA et préparez votre devis direct. {filteredProducts.length} référence(s) disponible(s).
             </p>
           </div>
 
           <button
             onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-            className="md:hidden btn-touch bg-acier text-jaune px-4 py-2 rounded text-xs font-bold uppercase tracking-wider flex items-center gap-2 self-start"
+            className="md:hidden btn-touch bg-white text-slate-800 border border-slate-300 px-4 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 self-start"
           >
-            <SlidersHorizontal className="w-4 h-4" />
+            <SlidersHorizontal className="w-4 h-4 text-brand-900" />
             <span>Filtres & Tri ({filteredProducts.length})</span>
           </button>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Barre latérale des Filtres (Desktop) */}
+        {/* Barre latérale des Filtres */}
         <aside
-          className={`lg:col-span-3 bg-white p-5 rounded-xl border border-beton-dark shadow-sm space-y-6 ${
+          className={`lg:col-span-3 bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-6 ${
             mobileFilterOpen ? "block" : "hidden lg:block"
           }`}
         >
-          <div className="flex items-center justify-between pb-3 border-b border-beton">
-            <span className="font-heading font-bold text-lg text-acier uppercase flex items-center gap-2">
-              <Filter className="w-4 h-4 text-jaune-hover" />
-              <span>Filtres</span>
+          <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <span className="font-heading font-bold text-base text-slate-900 flex items-center gap-2">
+              <Filter className="w-4 h-4 text-brand-900" />
+              <span>Filtrer les produits</span>
             </span>
             {(search || selectedCategory !== "all" || selectedBrand !== "all" || onlyInStock) && (
               <button
                 onClick={resetFilters}
-                className="text-xs text-rose-600 hover:underline font-semibold"
+                className="text-xs text-brand-900 hover:underline font-semibold"
               >
                 Réinitialiser
               </button>
             )}
           </div>
 
-          {/* Recherche textuelle instantanée */}
+          {/* Recherche textuelle */}
           <div>
-            <label className="block text-xs font-bold uppercase text-acier-700 mb-2">
+            <label className="block text-xs font-bold uppercase text-slate-700 mb-2">
               Mot-clé / Référence
             </label>
             <div className="relative">
-              <Search className="w-4 h-4 text-acier-400 absolute left-3 top-2.5" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
               <input
                 type="text"
                 placeholder="Ex : ciment, 2.5 mm, 100mm..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-beton-light border border-beton-dark text-acier text-xs px-3 py-2 pl-9 rounded focus:outline-none focus:border-jaune"
+                className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xs px-3 py-2 pl-9 rounded-lg focus:outline-none focus:border-brand-900 focus:bg-white"
               />
               {search && (
                 <button
                   onClick={() => setSearch("")}
-                  className="absolute right-2 top-2 text-acier-400 hover:text-acier"
+                  className="absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -165,16 +158,16 @@ function CatalogueContent() {
 
           {/* Catégories */}
           <div>
-            <label className="block text-xs font-bold uppercase text-acier-700 mb-2">
-              Rayon / Catégorie
+            <label className="block text-xs font-bold uppercase text-slate-700 mb-2">
+              Rayon Spécialisé
             </label>
             <div className="space-y-1">
               <button
                 onClick={() => setSelectedCategory("all")}
-                className={`w-full text-left px-3 py-1.5 rounded text-xs font-semibold flex items-center justify-between transition ${
+                className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition ${
                   selectedCategory === "all"
-                    ? "bg-acier text-jaune"
-                    : "text-acier-700 hover:bg-beton-light"
+                    ? "bg-brand-900 text-white font-semibold"
+                    : "text-slate-600 hover:bg-slate-50"
                 }`}
               >
                 <span>Toutes les catégories</span>
@@ -186,10 +179,10 @@ function CatalogueContent() {
                   <button
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
-                    className={`w-full text-left px-3 py-1.5 rounded text-xs font-semibold flex items-center justify-between transition ${
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition ${
                       selectedCategory === cat.id
-                        ? "bg-acier text-jaune"
-                        : "text-acier-700 hover:bg-beton-light"
+                        ? "bg-brand-900 text-white font-semibold"
+                        : "text-slate-600 hover:bg-slate-50"
                     }`}
                   >
                     <span className="truncate pr-2">{cat.nom}</span>
@@ -202,13 +195,13 @@ function CatalogueContent() {
 
           {/* Marques */}
           <div>
-            <label className="block text-xs font-bold uppercase text-acier-700 mb-2">
-              Marques & Fabricants
+            <label className="block text-xs font-bold uppercase text-slate-700 mb-2">
+              Marque & Fabricant
             </label>
             <select
               value={selectedBrand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="w-full bg-beton-light border border-beton-dark text-acier text-xs px-3 py-2 rounded focus:outline-none focus:border-jaune"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-xs px-3 py-2 rounded-lg focus:outline-none focus:border-brand-900"
             >
               <option value="all">Toutes les marques</option>
               {allBrands.map((b) => (
@@ -220,41 +213,41 @@ function CatalogueContent() {
           </div>
 
           {/* Disponibilité */}
-          <div>
-            <label className="flex items-center gap-2 cursor-pointer text-xs font-bold uppercase text-acier-700">
+          <div className="pt-2 border-t border-slate-100">
+            <label className="flex items-center gap-2 cursor-pointer text-xs font-medium text-slate-700">
               <input
                 type="checkbox"
                 checked={onlyInStock}
                 onChange={(e) => setOnlyInStock(e.target.checked)}
-                className="w-4 h-4 text-jaune rounded border-beton-dark focus:ring-jaune"
+                className="w-4 h-4 text-brand-900 rounded border-slate-300 focus:ring-brand-900"
               />
               <span>En stock uniquement</span>
             </label>
           </div>
         </aside>
 
-        {/* Section Principale : Barre de tri & Grille de produits */}
+        {/* Section Principale */}
         <div className="lg:col-span-9">
           {/* Barre de tri supérieure */}
-          <div className="bg-white p-3.5 rounded-lg border border-beton-dark mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-            <span className="text-acier-600 font-medium">
-              Affichage de <strong className="text-acier font-bold">{filteredProducts.length}</strong> produit(s)
+          <div className="bg-white p-3.5 rounded-xl border border-slate-200 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+            <span className="text-slate-500">
+              Affichage de <strong className="text-slate-900 font-semibold">{filteredProducts.length}</strong> produit(s)
             </span>
 
             <div className="flex items-center gap-2 w-full sm:w-auto">
-              <span className="text-acier-500 font-semibold flex items-center gap-1 shrink-0">
-                <ArrowUpDown className="w-3.5 h-3.5 text-jaune-hover" />
+              <span className="text-slate-500 font-medium flex items-center gap-1 shrink-0">
+                <ArrowUpDown className="w-3.5 h-3.5 text-brand-900" />
                 <span>Trier par :</span>
               </span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-beton-light border border-beton-dark text-acier font-semibold text-xs px-3 py-1.5 rounded focus:outline-none focus:border-jaune w-full sm:w-auto"
+                className="bg-slate-50 border border-slate-200 text-slate-800 font-medium text-xs px-3 py-1.5 rounded-lg focus:outline-none focus:border-brand-900 w-full sm:w-auto"
               >
-                <option value="pertinence">Phare / Nouveautés</option>
+                <option value="pertinence">Produits phares d&apos;abord</option>
                 <option value="prix-asc">Prix croissant (FCFA)</option>
                 <option value="prix-desc">Prix décroissant (FCFA)</option>
-                <option value="nom">Nom de A à Z</option>
+                <option value="nom">Nom alphabétique (A-Z)</option>
               </select>
             </div>
           </div>
@@ -267,17 +260,17 @@ function CatalogueContent() {
               ))}
             </div>
           ) : (
-            <div className="bg-white rounded-xl border border-beton-dark p-12 text-center max-w-lg mx-auto">
-              <PackageOpen className="w-12 h-12 text-acier-300 mx-auto mb-3" />
-              <h3 className="font-heading font-black text-xl text-acier uppercase">
+            <div className="bg-white rounded-xl border border-slate-200 p-12 text-center max-w-lg mx-auto shadow-sm">
+              <PackageOpen className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+              <h3 className="font-heading font-bold text-lg text-slate-900">
                 Aucun produit ne correspond à ces critères
               </h3>
-              <p className="text-xs text-acier-500 mt-2 mb-6">
-                Essayez d&apos;élargir vos filtres ou contactez-nous directement sur WhatsApp pour vérifier la disponibilité en réserve.
+              <p className="text-xs text-slate-500 mt-2 mb-6">
+                Essayez d&apos;élargir vos filtres ou contactez-nous directement sur WhatsApp pour vérifier notre stock en entrepôt.
               </p>
               <button
                 onClick={resetFilters}
-                className="btn-touch bg-jaune hover:bg-jaune-hover text-acier-950 font-bold uppercase text-xs px-5 py-2.5 rounded tracking-wider shadow"
+                className="btn-touch bg-brand-900 hover:bg-brand-800 text-white font-semibold text-xs px-5 py-2.5 rounded-lg shadow-sm"
               >
                 Réinitialiser les filtres
               </button>
@@ -291,7 +284,7 @@ function CatalogueContent() {
 
 export default function CataloguePage() {
   return (
-    <Suspense fallback={<div className="p-12 text-center text-sm">Chargement du catalogue...</div>}>
+    <Suspense fallback={<div className="p-12 text-center text-sm text-slate-500">Chargement du catalogue...</div>}>
       <CatalogueContent />
     </Suspense>
   );

@@ -9,34 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        acier: {
-          DEFAULT: "#16222B",
-          50: "#f3f5f6",
-          100: "#e4e8eb",
-          200: "#ccd4d9",
-          300: "#a6b6c0",
-          400: "#7992a2",
-          500: "#597587",
-          600: "#445d6e",
-          700: "#384c5a",
-          800: "#233440",
-          900: "#16222B",
-          950: "#0e161c",
+        brand: {
+          50: "#f0f6ff",
+          100: "#e0edfe",
+          200: "#bae0fd",
+          300: "#7cc8fb",
+          400: "#36abf6",
+          500: "#0c8ee7",
+          600: "#0170c6",
+          700: "#0259a0",
+          800: "#064b84",
+          900: "#0f2c59", // Corporate Navy Principal
+          950: "#0a1c38",
         },
-        jaune: {
-          DEFAULT: "#F2B705",
-          hover: "#D9A404",
-          light: "#FFF4D4",
+        accent: {
+          DEFAULT: "#D97706",
+          hover: "#B45309",
+          light: "#FEF3C7",
         },
-        bleu: {
-          DEFAULT: "#1F4E6B",
-          light: "#2B6B92",
-          dark: "#143346",
-        },
-        beton: {
-          DEFAULT: "#ECEDEE",
-          dark: "#D6D8DA",
-          light: "#F7F8F9",
+        surface: {
+          DEFAULT: "#FFFFFF",
+          muted: "#F8FAFC",
+          subtle: "#F1F5F9",
+          border: "#E2E8F0",
         },
         whatsapp: {
           DEFAULT: "#25D366",
@@ -45,14 +40,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ["Barlow Condensed", "Impact", "sans-serif"],
-        sans: ["Barlow", "system-ui", "-apple-system", "sans-serif"],
-      },
-      backgroundImage: {
-        "stripes-warning":
-          "repeating-linear-gradient(45deg, #F2B705, #F2B705 14px, #16222B 14px, #16222B 28px)",
-        "stripes-subtle":
-          "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(22, 34, 43, 0.03) 10px, rgba(22, 34, 43, 0.03) 20px)",
+        heading: ["'Plus Jakarta Sans'", "sans-serif"],
+        sans: ["'Plus Jakarta Sans'", "'Inter'", "system-ui", "-apple-system", "sans-serif"],
       },
     },
   },

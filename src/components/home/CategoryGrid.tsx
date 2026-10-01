@@ -2,27 +2,27 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { initialCategories } from "@/data/initialData";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Layers } from "lucide-react";
 
 export default function CategoryGrid() {
   return (
     <section className="py-12 px-4 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b-2 border-acier-200 pb-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 pb-4 border-b border-slate-200">
         <div>
-          <div className="text-xs font-bold text-bleu uppercase tracking-widest flex items-center gap-1.5 mb-1">
-            <span className="w-2.5 h-2.5 bg-jaune inline-block rounded-sm" />
-            <span>Organisation par spécialité</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-black text-acier uppercase">
-            Nos Rayons & Matériaux
+          <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+            <Layers className="w-4 h-4 text-amber-500" />
+            <span>Catalogue Organisé</span>
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">
+            Nos Rayons & Matériaux Spécialisés
           </h2>
         </div>
         <Link
           href="/catalogue"
-          className="text-xs font-bold text-acier-800 hover:text-bleu uppercase tracking-wider flex items-center gap-1 group self-start md:self-auto"
+          className="text-xs font-semibold text-brand-900 hover:text-brand-700 flex items-center gap-1 group self-start md:self-auto"
         >
           <span>Consulter toutes les catégories</span>
-          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
@@ -31,10 +31,10 @@ export default function CategoryGrid() {
           <Link
             key={cat.id}
             href={`/catalogue/${cat.slug}`}
-            className="group bg-white rounded-lg overflow-hidden border border-beton-dark hover:border-jaune shadow-sm hover:shadow-xl transition-all duration-200 flex flex-col"
+            className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-brand-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col"
           >
-            {/* Image avec ratio 16:9 et zoom au hover */}
-            <div className="relative h-48 w-full bg-acier-800 overflow-hidden">
+            {/* Image */}
+            <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
               <Image
                 src={cat.image || ""}
                 alt={cat.nom}
@@ -42,31 +42,31 @@ export default function CategoryGrid() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-acier-950/80 via-acier-950/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
-                <span className="text-xs font-bold bg-jaune text-acier-950 px-2 py-0.5 rounded uppercase tracking-wider">
-                  {cat.count || 5}+ produits
+                <span className="text-[11px] font-bold bg-white text-slate-900 px-2.5 py-0.5 rounded-full shadow-sm">
+                  {cat.count || 5}+ références
                 </span>
-                <span className="text-xs bg-acier-900/80 text-acier-200 px-2 py-0.5 rounded backdrop-blur-sm">
-                  Qualité Pro
+                <span className="text-[11px] font-medium text-slate-200">
+                  En stock
                 </span>
               </div>
             </div>
 
-            {/* Contenu textuel */}
+            {/* Contenu textuel épuré */}
             <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-heading font-extrabold text-2xl text-acier group-hover:text-bleu transition-colors uppercase leading-tight mb-2">
+                <h3 className="font-heading font-bold text-lg text-slate-900 group-hover:text-brand-900 transition-colors mb-2">
                   {cat.nom}
                 </h3>
-                <p className="text-xs text-acier-600 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
                   {cat.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-beton flex items-center justify-between text-xs font-bold text-bleu group-hover:text-jaune-hover">
-                <span className="uppercase tracking-wider">Découvrir les références</span>
-                <ArrowUpRight className="w-4 h-4" />
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-900 group-hover:text-brand-700">
+                <span>Découvrir les produits</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </Link>

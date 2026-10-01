@@ -10,7 +10,6 @@ import {
   Clock,
   Send,
   Navigation,
-  CheckCircle2,
   Check,
 } from "lucide-react";
 
@@ -33,35 +32,35 @@ export default function ContactPage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* En-tête */}
-      <div className="border-b-2 border-acier-200 pb-6 mb-8">
-        <div className="text-xs font-bold text-bleu uppercase tracking-widest flex items-center gap-1.5 mb-1">
-          <MapPin className="w-4 h-4 text-jaune-hover" />
-          <span>Toujours à votre écoute</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black text-acier uppercase">
-          Contact & Accès au Magasin
+      <div className="border-b border-slate-200 pb-6 mb-8">
+        <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+          <MapPin className="w-4 h-4 text-amber-500" />
+          <span>Service Client & Magasin</span>
+        </span>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900">
+          Contact & Accès Magasin
         </h1>
-        <p className="text-xs sm:text-sm text-acier-600 mt-1 max-w-2xl">
-          Une question sur nos stocks, un itinéraire pour votre camion ou un besoin de conseil ? Joignez-nous par téléphone, WhatsApp ou directement en rayon à Abomey-Calavi.
+        <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
+          Une question sur nos stocks, un itinéraire pour votre camion ou une demande de devis spécifique ? Nos conseillers sont à votre disposition par téléphone, WhatsApp ou au comptoir.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
         {/* Colonne Gauche : Formulaire de contact (6 cols) */}
-        <div className="lg:col-span-6 bg-white rounded-2xl border border-beton-dark shadow-sm p-6 sm:p-8">
-          <h2 className="font-heading font-black text-2xl text-acier uppercase mb-2">
-            Envoyer un message à l&apos;équipe
+        <div className="lg:col-span-6 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+          <h2 className="font-heading font-bold text-xl text-slate-900 mb-1">
+            Transmettre un Message
           </h2>
-          <p className="text-xs text-acier-500 mb-6">
-            Remplissez ce formulaire pour toute demande de renseignement ou réclamation.
+          <p className="text-xs text-slate-500 mb-6">
+            Remplissez ce formulaire pour toute demande de cotation ou renseignement logistique.
           </p>
 
           {sent ? (
-            <div className="bg-emerald-50 border border-emerald-300 rounded-xl p-6 text-center">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
               <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-3">
                 <Check className="w-6 h-6 stroke-[3]" />
               </div>
-              <h3 className="font-heading font-black text-xl text-emerald-950 uppercase mb-2">
+              <h3 className="font-heading font-bold text-lg text-emerald-950 mb-1">
                 Message envoyé avec succès !
               </h3>
               <p className="text-xs text-emerald-800 mb-6 leading-relaxed">
@@ -69,7 +68,7 @@ export default function ContactPage() {
               </p>
               <button
                 onClick={() => setSent(false)}
-                className="btn-touch bg-acier-900 text-white font-bold uppercase text-xs px-5 py-2.5 rounded"
+                className="btn-touch bg-brand-900 text-white font-semibold text-xs px-5 py-2.5 rounded-lg shadow-sm"
               >
                 Envoyer un autre message
               </button>
@@ -78,8 +77,8 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-bold uppercase text-acier-700 mb-1">
-                    Votre Nom complet *
+                  <label className="block font-semibold text-slate-700 mb-1">
+                    Nom complet *
                   </label>
                   <input
                     type="text"
@@ -87,13 +86,13 @@ export default function ContactPage() {
                     placeholder="Ex : M. Paul Dossou"
                     value={nom}
                     onChange={(e) => setNom(e.target.value)}
-                    className="w-full bg-beton-light border border-beton-dark rounded p-2.5 text-xs text-acier focus:outline-none focus:border-jaune"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900 focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold uppercase text-acier-700 mb-1">
-                    Téléphone (avec WhatsApp si possible) *
+                  <label className="block font-semibold text-slate-700 mb-1">
+                    Téléphone de contact *
                   </label>
                   <input
                     type="tel"
@@ -101,13 +100,13 @@ export default function ContactPage() {
                     placeholder="Ex : +229 97 00 00 00"
                     value={telephone}
                     onChange={(e) => setTelephone(e.target.value)}
-                    className="w-full bg-beton-light border border-beton-dark rounded p-2.5 text-xs text-acier focus:outline-none focus:border-jaune"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900 focus:bg-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold uppercase text-acier-700 mb-1">
+                <label className="block font-semibold text-slate-700 mb-1">
                   Adresse e-mail (facultatif)
                 </label>
                 <input
@@ -115,18 +114,18 @@ export default function ContactPage() {
                   placeholder="votre-email@domaine.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-beton-light border border-beton-dark rounded p-2.5 text-xs text-acier focus:outline-none focus:border-jaune"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900 focus:bg-white"
                 />
               </div>
 
               <div>
-                <label className="block font-bold uppercase text-acier-700 mb-1">
+                <label className="block font-semibold text-slate-700 mb-1">
                   Objet de la demande
                 </label>
                 <select
                   value={sujet}
                   onChange={(e) => setSujet(e.target.value)}
-                  className="w-full bg-beton-light border border-beton-dark rounded p-2.5 text-xs text-acier focus:outline-none focus:border-jaune"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900"
                 >
                   <option value="Information produit & disponibilité">Information produit & disponibilité en stock</option>
                   <option value="Renseignement sur les livraisons chantier">Renseignement sur les livraisons chantier</option>
@@ -136,7 +135,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="block font-bold uppercase text-acier-700 mb-1">
+                <label className="block font-semibold text-slate-700 mb-1">
                   Votre message *
                 </label>
                 <textarea
@@ -145,13 +144,13 @@ export default function ContactPage() {
                   placeholder="Écrivez votre message ici..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-beton-light border border-beton-dark rounded p-2.5 text-xs text-acier focus:outline-none focus:border-jaune"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900 focus:bg-white"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full btn-touch bg-jaune hover:bg-jaune-hover text-acier-950 font-black uppercase text-xs sm:text-sm px-6 py-3 rounded tracking-wider flex items-center justify-center gap-2 shadow-lg transition active:scale-95"
+                className="w-full btn-touch bg-brand-900 hover:bg-brand-800 text-white font-semibold text-xs uppercase tracking-wider px-6 py-3 rounded-lg shadow-sm transition active:scale-95 flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 <span>Envoyer le message</span>
@@ -160,87 +159,87 @@ export default function ContactPage() {
           )}
         </div>
 
-        {/* Colonne Droite : Coordonnées, Horaires & Accès direct (6 cols) */}
+        {/* Colonne Droite : Coordonnées (6 cols) */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="bg-acier-900 text-white rounded-2xl border border-acier-800 p-6 sm:p-8 shadow-xl">
-            <h3 className="font-heading font-black text-2xl uppercase mb-6 text-jaune">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+            <h3 className="font-heading font-bold text-xl text-slate-900 mb-6">
               Coordonnées Officielles
             </h3>
 
             <div className="space-y-4 text-xs sm:text-sm">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-brand-900 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white uppercase text-xs">Magasin & Entrepôt</h4>
-                  <p className="text-acier-300 mt-0.5">{initialSettings.adresse}</p>
-                  <p className="text-[11px] text-acier-400 mt-0.5">{initialSettings.ville}</p>
+                  <h4 className="font-bold text-slate-900 uppercase text-xs">Magasin & Entrepôt</h4>
+                  <p className="text-slate-600 mt-0.5">{initialSettings.adresse}</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">{initialSettings.ville}</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-brand-900 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white uppercase text-xs">Heures d&apos;ouverture</h4>
-                  <p className="text-acier-200 font-semibold mt-0.5">{initialSettings.horairesSemaine}</p>
-                  <p className="text-acier-400 text-xs">{initialSettings.horairesDimanche}</p>
+                  <h4 className="font-bold text-slate-900 uppercase text-xs">Horaires d&apos;ouverture</h4>
+                  <p className="text-slate-900 font-semibold mt-0.5">{initialSettings.horairesSemaine}</p>
+                  <p className="text-slate-500 text-xs">{initialSettings.horairesDimanche}</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-brand-900 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white uppercase text-xs">Lignes Téléphoniques</h4>
-                  <p className="text-acier-200 font-bold mt-0.5">
-                    <a href={`tel:${cleanPhone}`} className="hover:text-jaune">
+                  <h4 className="font-bold text-slate-900 uppercase text-xs">Lignes Téléphoniques</h4>
+                  <p className="text-brand-900 font-bold mt-0.5">
+                    <a href={`tel:${cleanPhone}`} className="hover:underline">
                       {initialSettings.telephonePrincipal}
                     </a>{" "}
-                    / {initialSettings.telephoneSecondaire}
+                    / <span className="text-slate-600 font-normal">{initialSettings.telephoneSecondaire}</span>
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <MessageCircle className="w-5 h-5 text-whatsapp shrink-0 mt-0.5" />
+                <MessageCircle className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white uppercase text-xs">WhatsApp Commercial</h4>
+                  <h4 className="font-bold text-slate-900 uppercase text-xs">WhatsApp Commercial</h4>
                   <a
                     href={`https://wa.me/${initialSettings.whatsappNumber}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-whatsapp font-bold hover:underline inline-block mt-0.5"
+                    className="text-emerald-700 font-semibold hover:underline inline-block mt-0.5"
                   >
-                    +{initialSettings.whatsappNumber} (Cliquer pour démarrer la discussion)
+                    +{initialSettings.whatsappNumber} (Cliquer pour échanger)
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-brand-900 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white uppercase text-xs">E-mail Officiel</h4>
-                  <a href={`mailto:${initialSettings.email}`} className="text-acier-300 hover:text-white mt-0.5 block">
+                  <h4 className="font-bold text-slate-900 uppercase text-xs">E-mail Officiel</h4>
+                  <a href={`mailto:${initialSettings.email}`} className="text-slate-600 hover:text-brand-900 mt-0.5 block">
                     {initialSettings.email}
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-acier-800 flex flex-wrap gap-4">
+            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap gap-4">
               <a
                 href={initialSettings.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-touch bg-jaune hover:bg-jaune-hover text-acier-950 font-bold uppercase text-xs px-5 py-2.5 rounded tracking-wider flex items-center gap-2"
+                className="btn-touch bg-brand-900 hover:bg-brand-800 text-white font-semibold text-xs px-5 py-2.5 rounded-lg flex items-center gap-2 shadow-sm"
               >
                 <Navigation className="w-4 h-4" />
-                <span>Itinéraire Google Maps</span>
+                <span>Ouvrir Google Maps</span>
               </a>
 
               <a
                 href={`tel:${cleanPhone}`}
-                className="btn-touch bg-acier-800 hover:bg-acier-700 text-white font-bold uppercase text-xs px-5 py-2.5 rounded flex items-center gap-2 border border-acier-700"
+                className="btn-touch bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs px-5 py-2.5 rounded-lg flex items-center gap-2"
               >
-                <Phone className="w-4 h-4 text-jaune" />
+                <Phone className="w-4 h-4 text-brand-900" />
                 <span>Appeler maintenant</span>
               </a>
             </div>

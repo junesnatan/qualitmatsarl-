@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound, useParams } from "next/navigation";
-import { initialProducts, initialCategories, initialSettings } from "@/data/initialData";
+import { initialProducts, initialCategories } from "@/data/initialData";
 import { formatFcfa } from "@/lib/storage";
 import { useCart } from "@/context/CartContext";
 import ProductCard from "@/components/common/ProductCard";
@@ -13,20 +13,17 @@ import {
   Plus,
   Minus,
   Check,
-  Share2,
   MessageCircle,
-  Truck,
-  ShieldCheck,
-  ArrowLeft,
   PackageCheck,
   AlertCircle,
   Copy,
+  Layers,
 } from "lucide-react";
 
 export default function ProductDetailPage() {
   const params = useParams();
   const slug = params?.slug as string;
-  const { addToCart, items } = useCart();
+  const { addToCart } = useCart();
 
   const product = initialProducts.find((p) => p.slug === slug);
 
@@ -41,7 +38,6 @@ export default function ProductDetailPage() {
 
   const category = initialCategories.find((c) => c.id === product.categoryId);
 
-  // Produits liés (même catégorie, sauf lui-même)
   const relatedProducts = initialProducts
     .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
     .slice(0, 4);
@@ -54,7 +50,7 @@ export default function ProductDetailPage() {
 
   const handleShareWhatsApp = () => {
     const url = typeof window !== "undefined" ? window.location.href : "";
-    const text = `Regarde ce produit chez Qualimat SARL (${product.nom}) : ${url}`;
+    const text = `Consultez ce produit chez Qualimat SARL (${product.nom}) : ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
   };
 
@@ -69,30 +65,30 @@ export default function ProductDetailPage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* Fil d'ariane */}
-      <nav className="flex items-center gap-2 text-xs text-acier-500 mb-6 flex-wrap">
-        <Link href="/" className="hover:text-bleu">Accueil</Link>
-        <ChevronRight className="w-3.5 h-3.5 text-acier-400" />
-        <Link href="/catalogue" className="hover:text-bleu">Catalogue</Link>
+      <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6 flex-wrap">
+        <Link href="/" className="hover:text-brand-900">Accueil</Link>
+        <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+        <Link href="/catalogue" className="hover:text-brand-900">Catalogue</Link>
         {category && (
           <>
-            <ChevronRight className="w-3.5 h-3.5 text-acier-400" />
-            <Link href={`/catalogue/${category.slug}`} className="hover:text-bleu">
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <Link href={`/catalogue/${category.slug}`} className="hover:text-brand-900">
               {category.nom}
             </Link>
           </>
         )}
-        <ChevronRight className="w-3.5 h-3.5 text-acier-400" />
-        <span className="font-bold text-acier truncate max-w-[200px] uppercase">
+        <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+        <span className="font-semibold text-slate-900 truncate max-w-[200px]">
           {product.nom}
         </span>
       </nav>
 
       {/* Fiche Produit Principale */}
-      <div className="bg-white rounded-2xl border border-beton-dark shadow-sm overflow-hidden p-6 sm:p-8 mb-12">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-6 sm:p-8 mb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Galerie Photos (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden bg-acier-100 border border-beton-dark shadow-inner">
+            <div className="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
               <Image
                 src={product.images[selectedImage] || product.images[0]}
                 alt={product.nom}
@@ -103,17 +99,17 @@ export default function ProductDetailPage() {
               />
               <div className="absolute top-3 left-3 flex flex-col gap-1.5">
                 {product.vedette && (
-                  <span className="bg-jaune text-acier-950 text-xs font-black uppercase px-2.5 py-0.5 rounded shadow">
+                  <span className="bg-brand-900 text-white text-xs font-bold px-2.5 py-0.5 rounded shadow-sm">
                     Phare
                   </span>
                 )}
                 {product.enStock ? (
-                  <span className="bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded shadow flex items-center gap-1">
+                  <span className="bg-emerald-600 text-white text-[11px] font-semibold px-2.5 py-0.5 rounded shadow-sm flex items-center gap-1">
                     <PackageCheck className="w-3.5 h-3.5" />
                     <span>En stock</span>
                   </span>
                 ) : (
-                  <span className="bg-amber-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded shadow flex items-center gap-1">
+                  <span className="bg-amber-600 text-white text-[11px] font-semibold px-2.5 py-0.5 rounded shadow-sm flex items-center gap-1">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span>Sur commande</span>
                   </span>
@@ -129,7 +125,7 @@ export default function ProductDetailPage() {
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
                     className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition ${
-                      selectedImage === idx ? "border-jaune" : "border-beton-dark opacity-70"
+                      selectedImage === idx ? "border-brand-900" : "border-slate-200 opacity-70"
                     }`}
                   >
                     <Image src={img} alt={`Photo ${idx + 1}`} fill className="object-cover" />
@@ -144,65 +140,65 @@ export default function ProductDetailPage() {
             <div>
               {/* Marques & Référence */}
               <div className="flex items-center gap-3 text-xs mb-2">
-                <span className="bg-bleu/10 text-bleu font-black uppercase px-2.5 py-1 rounded tracking-wider">
+                <span className="bg-brand-50 text-brand-900 font-bold uppercase px-2.5 py-0.5 rounded">
                   {product.marque || "Qualimat"}
                 </span>
                 {product.reference && (
-                  <span className="font-mono text-acier-500 font-semibold">
+                  <span className="font-mono text-slate-500 font-medium">
                     Réf : {product.reference}
                   </span>
                 )}
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-acier uppercase leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 leading-snug">
                 {product.nom}
               </h1>
 
               {/* Bloc Prix */}
-              <div className="mt-4 p-4 rounded-xl bg-beton-light border border-beton flex items-center justify-between flex-wrap gap-4">
+              <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <span className="text-xs text-acier-500 font-bold uppercase block">
+                  <span className="text-xs text-slate-500 font-medium uppercase block">
                     Prix unitaire indicatif
                   </span>
-                  <div className="text-2xl sm:text-3xl font-black text-acier leading-none mt-1">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none mt-1">
                     {product.modePrix === "sur_devis" || !product.prixFcfa ? (
-                      <span className="text-bleu font-black">SUR DEVIS</span>
+                      <span className="text-brand-900 font-bold">Sur devis</span>
                     ) : (
-                      <span className="text-acier">{formatFcfa(product.prixFcfa)}</span>
+                      <span>{formatFcfa(product.prixFcfa)}</span>
                     )}
                   </div>
-                  <span className="text-xs text-acier-600 mt-1 block">
-                    Unité de vente : <strong className="text-acier font-bold">{product.unite}</strong>
+                  <span className="text-xs text-slate-600 mt-1 block">
+                    Unité : <strong className="text-slate-900">{product.unite}</strong>
                   </span>
                 </div>
 
-                <div className="text-right text-xs text-acier-500">
-                  <p className="font-semibold text-acier-700">Prix direct magasin</p>
-                  <p className="text-[11px]">Tarifs dégressifs pour chantiers et gros volumes</p>
+                <div className="text-right text-xs text-slate-500">
+                  <p className="font-semibold text-slate-700">Tarif direct magasin</p>
+                  <p className="text-[11px]">Remises quantitatives pour chantiers & entreprises</p>
                 </div>
               </div>
 
               {/* Description */}
               <div className="mt-6">
-                <h3 className="font-heading font-bold text-sm uppercase text-acier mb-2">
-                  Description & Usages
+                <h3 className="font-heading font-bold text-sm text-slate-900 mb-2">
+                  Description & Spécifications
                 </h3>
-                <p className="text-xs sm:text-sm text-acier-700 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {product.description}
                 </p>
               </div>
 
               {/* Spécifications techniques */}
               {product.ficheTechnique && (
-                <div className="mt-6 pt-4 border-t border-beton">
-                  <h3 className="font-heading font-bold text-sm uppercase text-acier mb-3">
-                    Spécifications techniques
+                <div className="mt-6 pt-4 border-t border-slate-100">
+                  <h3 className="font-heading font-bold text-sm text-slate-900 mb-3">
+                    Fiche Technique
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                     {Object.entries(product.ficheTechnique).map(([cle, val]) => (
-                      <div key={cle} className="bg-white p-2.5 rounded border border-beton flex justify-between">
-                        <span className="text-acier-500 font-semibold">{cle} :</span>
-                        <span className="text-acier-900 font-bold text-right">{val}</span>
+                      <div key={cle} className="bg-slate-50 p-2.5 rounded-lg border border-slate-200 flex justify-between">
+                        <span className="text-slate-500 font-medium">{cle} :</span>
+                        <span className="text-slate-900 font-semibold text-right">{val}</span>
                       </div>
                     ))}
                   </div>
@@ -211,13 +207,13 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Actions : Quantité et Bouton Ajout Liste */}
-            <div className="mt-8 pt-6 border-t border-beton space-y-4">
+            <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 {/* Sélecteur de quantité */}
-                <div className="flex items-center border border-acier-300 rounded-lg overflow-hidden bg-white shrink-0 h-12">
+                <div className="flex items-center border border-slate-300 rounded-lg overflow-hidden bg-white shrink-0 h-12">
                   <button
                     onClick={() => setQuantite((prev) => Math.max(1, prev - 1))}
-                    className="w-12 h-full flex items-center justify-center hover:bg-acier-100 text-acier-700"
+                    className="w-12 h-full flex items-center justify-center hover:bg-slate-100 text-slate-600"
                     aria-label="Diminuer"
                   >
                     <Minus className="w-4 h-4" />
@@ -227,11 +223,11 @@ export default function ProductDetailPage() {
                     min="1"
                     value={quantite}
                     onChange={(e) => setQuantite(Math.max(1, parseInt(e.target.value) || 1))}
-                    className="w-16 h-full text-center font-bold text-sm focus:outline-none bg-transparent"
+                    className="w-16 h-full text-center font-bold text-sm focus:outline-none bg-transparent text-slate-900"
                   />
                   <button
                     onClick={() => setQuantite((prev) => prev + 1)}
-                    className="w-12 h-full flex items-center justify-center hover:bg-acier-100 text-acier-700"
+                    className="w-12 h-full flex items-center justify-center hover:bg-slate-100 text-slate-600"
                     aria-label="Augmenter"
                   >
                     <Plus className="w-4 h-4" />
@@ -241,32 +237,32 @@ export default function ProductDetailPage() {
                 {/* Bouton Ajout Devis */}
                 <button
                   onClick={handleAddToCart}
-                  className={`btn-touch flex-1 rounded-lg font-black uppercase text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 shadow-lg transition active:scale-95 h-12 ${
+                  className={`btn-touch flex-1 rounded-lg font-bold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-sm transition active:scale-95 h-12 ${
                     added
                       ? "bg-emerald-600 text-white"
-                      : "bg-jaune hover:bg-jaune-hover text-acier-950"
+                      : "bg-brand-900 hover:bg-brand-800 text-white"
                   }`}
                 >
                   {added ? (
                     <>
-                      <Check className="w-5 h-5 stroke-[3]" />
-                      <span>Ajouté à ma liste !</span>
+                      <Check className="w-4 h-4 stroke-[3]" />
+                      <span>Ajouté à votre liste !</span>
                     </>
                   ) : (
                     <>
-                      <Plus className="w-5 h-5 stroke-[2.5]" />
+                      <Plus className="w-4 h-4 stroke-[2.5]" />
                       <span>Ajouter à ma liste de devis ({quantite} {product.unite})</span>
                     </>
                   )}
                 </button>
               </div>
 
-              {/* Boutons Partage & Raccourcis WhatsApp */}
-              <div className="flex items-center justify-between pt-2 text-xs text-acier-600 flex-wrap gap-2">
-                <div className="flex items-center gap-3">
+              {/* Boutons Partage & Raccourcis */}
+              <div className="flex items-center justify-between pt-2 text-xs text-slate-500 flex-wrap gap-2">
+                <div className="flex items-center gap-4">
                   <button
                     onClick={handleShareWhatsApp}
-                    className="inline-flex items-center gap-1.5 text-whatsapp hover:underline font-semibold"
+                    className="inline-flex items-center gap-1.5 text-emerald-700 hover:underline font-semibold"
                   >
                     <MessageCircle className="w-4 h-4 fill-current" />
                     <span>Partager sur WhatsApp</span>
@@ -274,7 +270,7 @@ export default function ProductDetailPage() {
 
                   <button
                     onClick={handleCopyLink}
-                    className="inline-flex items-center gap-1.5 text-acier-600 hover:text-acier font-semibold"
+                    className="inline-flex items-center gap-1.5 text-slate-600 hover:text-slate-900 font-medium"
                   >
                     <Copy className="w-4 h-4" />
                     <span>{copied ? "Lien copié !" : "Copier le lien"}</span>
@@ -283,9 +279,10 @@ export default function ProductDetailPage() {
 
                 <Link
                   href="/ma-liste"
-                  className="font-bold text-bleu hover:underline uppercase tracking-wide"
+                  className="font-semibold text-brand-900 hover:underline inline-flex items-center gap-1"
                 >
-                  Voir ma liste en cours →
+                  <span>Voir ma liste de devis en cours</span>
+                  <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -293,15 +290,15 @@ export default function ProductDetailPage() {
         </div>
       </div>
 
-      {/* Produits liés / Recommandations */}
+      {/* Produits recommandés */}
       {relatedProducts.length > 0 && (
         <div className="mt-12">
-          <div className="border-b-2 border-acier-200 pb-3 mb-6">
-            <h2 className="text-2xl font-heading font-black text-acier uppercase">
-              Matériaux complémentaires recommandés
+          <div className="border-b border-slate-200 pb-3 mb-6">
+            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900">
+              Matériaux Complémentaires Recommandés
             </h2>
-            <p className="text-xs text-acier-500">
-              Souvent commandés ensemble pour les mêmes étapes de chantier.
+            <p className="text-xs text-slate-500">
+              Fréquemment commandés ensemble pour les mêmes étapes de chantier.
             </p>
           </div>
 

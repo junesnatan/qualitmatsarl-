@@ -1,75 +1,75 @@
 import React from "react";
 import Link from "next/link";
-import { HardHat, Building2, Truck, FileText, ArrowRight, ShieldCheck } from "lucide-react";
+import { Building2, Truck, FileText, ArrowRight, ShieldCheck, Briefcase } from "lucide-react";
 
 export default function ProSection() {
   return (
     <section className="py-12 px-4 max-w-7xl mx-auto">
-      <div className="bg-acier-900 rounded-2xl border border-acier-800 overflow-hidden shadow-2xl">
+      <div className="bg-slate-900 text-white rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-12">
           {/* Contenu */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 bg-jaune/20 border border-jaune/40 text-jaune px-3 py-1 rounded text-xs font-black uppercase tracking-wider mb-4">
-              <HardHat className="w-4 h-4" />
-              <span>Service BTP, Artisans & Entreprises</span>
+            <div className="inline-flex items-center gap-2 bg-brand-800 text-amber-400 border border-brand-700 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>Service Entreprises & Artisans BTP</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-black uppercase text-white leading-tight">
-              Vous construisez un chantier à <span className="text-jaune">Calavi ou Cotonou ?</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-white leading-tight">
+              Un partenaire de confiance pour vos chantiers à <span className="text-amber-400">Abomey-Calavi & Cotonou</span>
             </h2>
 
-            <p className="mt-4 text-acier-300 text-sm sm:text-base leading-relaxed">
-              Qualimat SARL accompagne les maîtres d&apos;œuvre, chefs de chantiers, promoteurs et maçons avec des conditions dédiées : devis chantiers personnalisés, bordereaux de prix unitaires, livraison directe sur site et approvisionnement continu.
+            <p className="mt-4 text-slate-300 text-sm leading-relaxed">
+              Qualimat SARL accompagne les conducteurs de travaux, promoteurs, architectes et maîtres d&apos;œuvre : bordereaux quantitatifs, remises sur volumes, facturation normalisée et approvisionnement programmé.
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-start gap-3 bg-acier-800/80 p-3 rounded border border-acier-700">
-                <Truck className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/80">
+                <Truck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-white text-xs font-bold uppercase">Livraison Grue & Benne</h4>
-                  <p className="text-[11px] text-acier-400 mt-0.5">
-                    Dépose de palettes de ciment et barres de fer directement au pied de vos fondations.
+                  <h4 className="text-white text-xs font-bold">Livraison Chantier</h4>
+                  <p className="text-[11px] text-slate-400 mt-0.5">
+                    Dépose de ciment et ferraillage directement sur votre site de construction.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 bg-acier-800/80 p-3 rounded border border-acier-700">
-                <Building2 className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/80">
+                <Building2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-white text-xs font-bold uppercase">Tarifs Gros Volumes</h4>
-                  <p className="text-[11px] text-acier-400 mt-0.5">
-                    Remises quantitatives dès 100 sacs de ciment et 5 tonnes d&apos;acier.
+                  <h4 className="text-white text-xs font-bold">Tarifs Grossiste BTP</h4>
+                  <p className="text-[11px] text-slate-400 mt-0.5">
+                    Conditions préférentielles dès 100 sacs de ciment et lots d&apos;acier.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 bg-acier-800/80 p-3 rounded border border-acier-700">
-                <FileText className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/80">
+                <FileText className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-white text-xs font-bold uppercase">Facturation avec IFU</h4>
-                  <p className="text-[11px] text-acier-400 mt-0.5">
-                    Conformité fiscale complète et factures normalisées pour votre comptabilité.
+                  <h4 className="text-white text-xs font-bold">Factures Normalisées IFU</h4>
+                  <p className="text-[11px] text-slate-400 mt-0.5">
+                    Conformité légale et fiscale complète pour votre comptabilité.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 bg-acier-800/80 p-3 rounded border border-acier-700">
-                <ShieldCheck className="w-5 h-5 text-jaune shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/80">
+                <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-white text-xs font-bold uppercase">Matériaux Certifiés</h4>
-                  <p className="text-[11px] text-acier-400 mt-0.5">
-                    Acier FE E500 haute adhérence contrôlé, ciment frais sans agglomération.
+                  <h4 className="text-white text-xs font-bold">Normes & Certifications</h4>
+                  <p className="text-[11px] text-slate-400 mt-0.5">
+                    Acier FE E500 haute adhérence contrôlé, ciment frais certifié.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8">
               <Link
                 href="/pro"
-                className="btn-touch bg-jaune hover:bg-jaune-hover text-acier-950 font-black uppercase text-xs px-6 py-3 rounded tracking-wider flex items-center gap-2 shadow-lg transition active:scale-95"
+                className="btn-touch bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs uppercase px-6 py-3 rounded-lg tracking-wider inline-flex items-center gap-2 shadow transition active:scale-95"
               >
-                <span>Déposer un devis chantier</span>
+                <span>Accéder à l&apos;Espace Professionnel</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -77,35 +77,33 @@ export default function ProSection() {
 
           {/* Carte visuelle récapitulative */}
           <div className="lg:col-span-5">
-            <div className="bg-acier-950 p-6 rounded-xl border border-acier-700 relative">
-              <div className="h-1.5 stripe-accent w-full rounded-t -mt-6 -mx-6 mb-6" />
-
-              <h3 className="font-heading text-xl text-white font-black uppercase mb-4">
-                Formule Devis Express Chantier
+            <div className="bg-slate-800/90 p-6 sm:p-7 rounded-xl border border-slate-700">
+              <h3 className="font-heading text-lg text-white font-bold mb-4">
+                Comment fonctionne le service Pro ?
               </h3>
 
-              <ul className="space-y-3 text-xs text-acier-300 mb-6">
-                <li className="flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-jaune/20 text-jaune flex items-center justify-center font-bold text-[10px]">1</span>
-                  <span>Envoyez votre liste de besoins ou bordereau quantitatif</span>
+              <ul className="space-y-3.5 text-xs text-slate-300 mb-6">
+                <li className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">1</span>
+                  <span>Transmettez votre bordereau de besoins ou liste estimative</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-jaune/20 text-jaune flex items-center justify-center font-bold text-[10px]">2</span>
+                <li className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">2</span>
                   <span>Chiffrage détaillé avec remises de volume sous 2 heures</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-jaune/20 text-jaune flex items-center justify-center font-bold text-[10px]">3</span>
+                <li className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">3</span>
                   <span>Planification de livraison sur site ou retrait prioritaire</span>
                 </li>
               </ul>
 
-              <div className="bg-acier-900 p-4 rounded text-center border border-acier-800">
-                <p className="text-xs text-acier-400 mb-2">Besoin d&apos;un échange direct maintenant ?</p>
+              <div className="bg-slate-900/80 p-4 rounded-lg text-center border border-slate-700/60">
+                <p className="text-xs text-slate-400 mb-1.5">Un interlocuteur dédié vous répond :</p>
                 <Link
                   href="/contact"
-                  className="text-xs font-bold text-jaune hover:underline uppercase tracking-wide inline-flex items-center gap-1"
+                  className="text-xs font-semibold text-amber-400 hover:underline inline-flex items-center gap-1"
                 >
-                  Contacter le Responsable Chantier Qualimat →
+                  Contacter le Responsable Chantier →
                 </Link>
               </div>
             </div>

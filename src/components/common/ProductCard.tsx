@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Product } from "@/types";
 import { formatFcfa } from "@/lib/storage";
 import { useCart } from "@/context/CartContext";
-import { Plus, Check, Eye, PackageCheck, AlertCircle } from "lucide-react";
+import { Plus, Check, PackageCheck, AlertCircle } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -16,7 +16,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart, items } = useCart();
   const [justAdded, setJustAdded] = useState(false);
 
-  // Vérifier si l'article est déjà dans la liste
   const existingCartItem = items.find((i) => i.product.id === product.id);
 
   const handleAdd = (e: React.MouseEvent) => {
@@ -28,10 +27,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="group bg-white rounded-lg border border-beton-dark hover:border-jaune shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col overflow-hidden relative">
-      {/* Badge promotion / vedette */}
+    <div className="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all duration-200 flex flex-col overflow-hidden relative">
+      {/* Badge Vedette */}
       {product.vedette && (
-        <span className="absolute top-2 left-2 z-10 bg-jaune text-acier-950 text-[10px] font-black uppercase px-2 py-0.5 rounded shadow">
+        <span className="absolute top-2.5 left-2.5 z-10 bg-brand-900 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
           Phare
         </span>
       )}
@@ -39,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Image produit */}
       <Link
         href={`/produit/${product.slug}`}
-        className="relative h-44 w-full bg-acier-100 overflow-hidden block"
+        className="relative h-44 w-full bg-slate-100 overflow-hidden block"
       >
         <Image
           src={product.images[0] || "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80"}
@@ -48,17 +47,16 @@ export default function ProductCard({ product }: ProductCardProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute inset-0 bg-acier-950/0 group-hover:bg-acier-950/10 transition-colors" />
 
-        {/* État du stock */}
+        {/* État du stock épuré */}
         <div className="absolute bottom-2 right-2">
           {product.enStock ? (
-            <span className="inline-flex items-center gap-1 bg-white/95 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1 bg-white/95 text-emerald-700 text-[10px] font-semibold px-2 py-0.5 rounded shadow-sm">
               <PackageCheck className="w-3 h-3 text-emerald-600" />
               <span>En stock</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 bg-white/95 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">
+            <span className="inline-flex items-center gap-1 bg-white/95 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded shadow-sm">
               <AlertCircle className="w-3 h-3 text-amber-600" />
               <span>Sur commande</span>
             </span>
@@ -66,36 +64,36 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
 
-      {/* Détails du produit */}
+      {/* Détails Produit */}
       <div className="p-4 flex-1 flex flex-col justify-between">
         <div>
-          <div className="flex items-center justify-between text-[11px] text-acier-400 mb-1">
-            <span className="font-semibold text-bleu uppercase tracking-wider truncate max-w-[150px]">
+          <div className="flex items-center justify-between text-[11px] text-slate-500 mb-1.5">
+            <span className="font-semibold text-brand-900 uppercase tracking-wide truncate max-w-[140px]">
               {product.marque || "Qualimat"}
             </span>
             {product.reference && (
-              <span className="font-mono text-acier-500">Réf: {product.reference}</span>
+              <span className="font-mono text-slate-400">Réf : {product.reference}</span>
             )}
           </div>
 
-          <Link href={`/produit/${product.slug}`} className="block group-hover:text-bleu transition-colors">
-            <h3 className="font-heading font-bold text-lg text-acier uppercase leading-tight line-clamp-2">
+          <Link href={`/produit/${product.slug}`} className="block group-hover:text-brand-900 transition-colors">
+            <h3 className="font-heading font-bold text-sm text-slate-900 line-clamp-2 leading-snug">
               {product.nom}
             </h3>
           </Link>
 
-          <p className="mt-1 text-xs text-acier-500 font-medium">
-            Unité : <span className="text-acier-800 font-semibold">{product.unite}</span>
+          <p className="mt-1 text-xs text-slate-500">
+            Unité : <span className="font-medium text-slate-700">{product.unite}</span>
           </p>
         </div>
 
         {/* Prix & Bouton Ajout */}
-        <div className="mt-4 pt-3 border-t border-beton flex items-center justify-between gap-2">
+        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
           <div>
-            <div className="text-[10px] text-acier-400 uppercase font-bold">Prix indicatif</div>
-            <div className="text-base font-black text-acier leading-tight">
+            <div className="text-[10px] text-slate-400 uppercase font-medium">Prix unitaire</div>
+            <div className="text-sm font-extrabold text-slate-900 leading-tight">
               {product.modePrix === "sur_devis" || !product.prixFcfa ? (
-                <span className="text-bleu font-bold text-xs uppercase bg-bleu/10 px-2 py-0.5 rounded">
+                <span className="text-brand-900 font-bold text-xs uppercase bg-brand-50 px-2 py-0.5 rounded">
                   Sur devis
                 </span>
               ) : (
@@ -106,29 +104,29 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           <button
             onClick={handleAdd}
-            className={`btn-touch px-3 py-2 rounded text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition active:scale-95 shadow-sm ${
+            className={`btn-touch px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition active:scale-95 shadow-sm ${
               justAdded
                 ? "bg-emerald-600 text-white"
                 : existingCartItem
-                ? "bg-acier-800 text-jaune hover:bg-acier-700"
-                : "bg-jaune hover:bg-jaune-hover text-acier-950"
+                ? "bg-brand-50 text-brand-900 border border-brand-200 hover:bg-brand-100"
+                : "bg-brand-900 hover:bg-brand-800 text-white"
             }`}
             title="Ajouter à ma liste de devis"
             aria-label={`Ajouter ${product.nom} à ma liste`}
           >
             {justAdded ? (
               <>
-                <Check className="w-4 h-4 stroke-[3]" />
+                <Check className="w-3.5 h-3.5 stroke-[3]" />
                 <span className="hidden sm:inline">Ajouté</span>
               </>
             ) : existingCartItem ? (
               <>
-                <Plus className="w-4 h-4" />
+                <Plus className="w-3.5 h-3.5" />
                 <span>({existingCartItem.quantite})</span>
               </>
             ) : (
               <>
-                <Plus className="w-4 h-4 stroke-[2.5]" />
+                <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
                 <span>Ajouter</span>
               </>
             )}
