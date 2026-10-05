@@ -1,9 +1,9 @@
 import { CartItem, Product, Category, Promotion, SiteSettings, QuoteRequest, ProRequest } from "@/types";
 import { initialProducts, initialCategories, initialPromotions, initialSettings } from "@/data/initialData";
 
-const PRODUCTS_KEY = "qualimat_products_v3";
-const CATEGORIES_KEY = "qualimat_categories_v3";
-const PROMOTIONS_KEY = "qualimat_promotions_v3";
+const PRODUCTS_KEY = "qualimat_products_v4";
+const CATEGORIES_KEY = "qualimat_categories_v4";
+const PROMOTIONS_KEY = "qualimat_promotions_v4";
 const SETTINGS_KEY = "qualimat_settings_v4";
 const QUOTES_KEY = "qualimat_quotes";
 const PRO_REQUESTS_KEY = "qualimat_pro_requests";

@@ -1,73 +1,83 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import SafeImage from "@/components/common/SafeImage";
 import { initialCategories } from "@/data/initialData";
-import { ArrowRight, Layers } from "lucide-react";
+import {
+  ArrowRight,
+  Layers,
+  Sparkles,
+} from "lucide-react";
 
 export default function CategoryGrid() {
   return (
     <section className="py-12 px-4 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 pb-4 border-b border-slate-200">
+      {/* En-tête de section */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-900 uppercase tracking-wider mb-1">
             <Layers className="w-4 h-4 text-amber-500" />
-            <span>Catalogue Organisé</span>
-          </span>
+            <span>Rayons & Matériaux de Construction</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">
-            Nos Rayons & Matériaux Spécialisés
+            Explorez nos Catégories Phares
           </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+            Du gros œuvre au second œuvre, trouvez l&apos;ensemble de vos fournitures avec tarifs transparents et fiches techniques.
+          </p>
         </div>
+
         <Link
           href="/catalogue"
-          className="text-xs font-semibold text-brand-900 hover:text-brand-700 flex items-center gap-1 group self-start md:self-auto"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-900 hover:text-brand-700 bg-brand-50 hover:bg-brand-100 px-4 py-2 rounded-xl transition"
         >
-          <span>Consulter toutes les catégories</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <span>Voir tout le catalogue</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Grille Visuelle de 8 Cartes Catégories */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {initialCategories.map((cat) => (
           <Link
             key={cat.id}
-            href={`/catalogue/${cat.slug}`}
-            className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-brand-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col"
+            href={`/catalogue?cat=${cat.slug}`}
+            className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
           >
-            {/* Image */}
-            <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
+            {/* Image avec zoom doux & overlay bleu marine à 10% au survol */}
+            <div className="relative h-36 sm:h-44 w-full bg-slate-100 overflow-hidden">
               <SafeImage
                 src={cat.image}
                 alt={cat.nom}
                 categorySlug={cat.slug}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white">
-                <span className="text-[11px] font-bold bg-white text-slate-900 px-2.5 py-0.5 rounded-full shadow-sm">
-                  {cat.count || 5}+ références
-                </span>
-                <span className="text-[11px] font-medium text-slate-200">
-                  En stock
-                </span>
-              </div>
+              {/* Overlay bleu marine au hover */}
+              <div className="absolute inset-0 bg-brand-900/0 group-hover:bg-brand-900/15 transition-colors duration-300" />
+              
+              {/* Badge nombre d'articles */}
+              <span className="absolute bottom-2.5 right-2.5 bg-white/95 backdrop-blur-sm text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm border border-slate-200">
+                {cat.count || 6}+ réf.
+              </span>
             </div>
 
-            {/* Contenu textuel épuré */}
-            <div className="p-5 flex-1 flex flex-col justify-between">
+            {/* Contenu textuel */}
+            <div className="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-heading font-bold text-lg text-slate-900 group-hover:text-brand-900 transition-colors mb-2">
+                <h3 className="font-heading font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-brand-900 transition-colors leading-snug">
                   {cat.nom}
                 </h3>
-                <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                <p className="mt-1 text-[11px] sm:text-xs text-slate-500 line-clamp-2 leading-relaxed">
                   {cat.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-900 group-hover:text-brand-700">
-                <span>Découvrir les produits</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brand-900 group-hover:text-amber-600 transition-colors">
+                <span>Parcourir</span>
+                <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </Link>

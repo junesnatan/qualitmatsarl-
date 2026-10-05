@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import SafeImage from "@/components/common/SafeImage";
 import { notFound, useParams } from "next/navigation";
-import { initialProducts, initialCategories } from "@/data/initialData";
+import { initialProducts, initialCategories, initialSettings } from "@/data/initialData";
 import { formatFcfa } from "@/lib/storage";
 import { useCart } from "@/context/CartContext";
 import ProductCard from "@/components/common/ProductCard";
@@ -18,12 +18,18 @@ import {
   AlertCircle,
   Copy,
   Layers,
+  ShieldCheck,
+  Truck,
+  Sparkles,
+  Share2,
+  Clock,
+  RotateCcw,
 } from "lucide-react";
 
 export default function ProductDetailPage() {
   const params = useParams();
   const slug = params?.slug as string;
-  const { addToCart } = useCart();
+  const { addToCart, items } = useCart();
 
   const product = initialProducts.find((p) => p.slug === slug);
 
@@ -31,13 +37,19 @@ export default function ProductDetailPage() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [copied, setCopied] = useState(false);
   const [added, setAdded] = useState(false);
+  const [activeTab, setActiveTab] = useState<"desc" | "tech" | "livraison">("desc");
 
   if (!product) {
     notFound();
   }
 
-  const category = initialCategories.find((c) => c.id === product.categoryId);
+  const category = initialCategories.find(
+    (c) => c.id === product.categoryId || c.slug === product.categoryId
+  );
 
+  const existingInCart = items.find((i) => i.product.id === product.id);
+
+  // Produits complémentaires contextuels
   const relatedProducts = initialProducts
     .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
     .slice(0, 4);
@@ -50,7 +62,7 @@ export default function ProductDetailPage() {
 
   const handleShareWhatsApp = () => {
     const url = typeof window !== "undefined" ? window.location.href : "";
-    const text = `Consultez ce produit chez Qualimat SARL (${product.nom}) : ${url}`;
+    const text = `Consultez ce matériau chez QUALITMATSARL (${product.nom}) : ${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
   };
 
@@ -62,183 +74,183 @@ export default function ProductDetailPage() {
     }
   };
 
+  const images = product.images?.length
+    ? product.images
+    : ["https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"];
+
   return (
-    <div className="py-8 px-4 max-w-7xl mx-auto">
-      {/* Fil d'ariane */}
+    <div className="py-8 px-4 max-w-7xl mx-auto pb-28 sm:pb-12">
+      {/* Fil d'ariane enrichi */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6 flex-wrap">
-        <Link href="/" className="hover:text-brand-900">Accueil</Link>
+        <Link href="/" className="hover:text-brand-900 transition">
+          Accueil
+        </Link>
         <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-        <Link href="/catalogue" className="hover:text-brand-900">Catalogue</Link>
+        <Link href="/catalogue" className="hover:text-brand-900 transition">
+          Catalogue
+        </Link>
         {category && (
           <>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <Link href={`/catalogue/${category.slug}`} className="hover:text-brand-900">
+            <Link
+              href={`/catalogue?cat=${category.slug}`}
+              className="hover:text-brand-900 transition"
+            >
               {category.nom}
             </Link>
           </>
         )}
         <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-        <span className="font-semibold text-slate-900 truncate max-w-[200px]">
+        <span className="font-semibold text-slate-900 truncate max-w-[220px]">
           {product.nom}
         </span>
       </nav>
 
       {/* Fiche Produit Principale */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-6 sm:p-8 mb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Galerie Photos (5 cols) */}
+      <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-10 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Galerie Photos avec miniatures et zoom (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
+            <div className="relative h-80 sm:h-96 w-full rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 group shadow-inner">
               <SafeImage
-                src={product.images[selectedImage] || product.images[0]}
+                src={images[selectedImage] || images[0]}
                 alt={product.nom}
                 categorySlug={product.categoryId}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
                 priority
               />
-              <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                {product.vedette && (
-                  <span className="bg-brand-900 text-white text-xs font-bold px-2.5 py-0.5 rounded shadow-sm">
-                    Phare
-                  </span>
-                )}
-                {product.enStock ? (
-                  <span className="bg-emerald-600 text-white text-[11px] font-semibold px-2.5 py-0.5 rounded shadow-sm flex items-center gap-1">
-                    <PackageCheck className="w-3.5 h-3.5" />
-                    <span>En stock</span>
-                  </span>
-                ) : (
-                  <span className="bg-amber-600 text-white text-[11px] font-semibold px-2.5 py-0.5 rounded shadow-sm flex items-center gap-1">
-                    <AlertCircle className="w-3.5 h-3.5" />
-                    <span>Sur commande</span>
-                  </span>
-                )}
-              </div>
+
+              {product.vedette && (
+                <span className="absolute top-3 left-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
+                  Phare Chantier
+                </span>
+              )}
             </div>
 
-            {/* Miniatures si multiples images */}
-            {product.images.length > 1 && (
-              <div className="flex items-center gap-2 overflow-x-auto pb-2">
-                {product.images.map((img, idx) => (
+            {/* Miniatures */}
+            {images.length > 1 && (
+              <div className="flex gap-3 overflow-x-auto pb-1">
+                {images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
-                    className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition ${
-                      selectedImage === idx ? "border-brand-900" : "border-slate-200 opacity-70"
+                    className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition ${
+                      selectedImage === idx
+                        ? "border-brand-900 shadow-sm"
+                        : "border-slate-200 opacity-60 hover:opacity-100"
                     }`}
                   >
-                    <SafeImage src={img} alt={`Photo ${idx + 1}`} fill className="object-cover" />
+                    <SafeImage
+                      src={img}
+                      alt={`${product.nom} miniature ${idx + 1}`}
+                      categorySlug={product.categoryId}
+                      fill
+                      className="object-cover"
+                    />
                   </button>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Informations & Ajout au devis (7 cols) */}
+          {/* Colonne Informations & Ajout au devis (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div>
-              {/* Marques & Référence */}
-              <div className="flex items-center gap-3 text-xs mb-2">
-                <span className="bg-brand-50 text-brand-900 font-bold uppercase px-2.5 py-0.5 rounded">
-                  {product.marque || "Qualimat"}
+              {/* Marque & Réf */}
+              <div className="flex items-center justify-between text-xs mb-2">
+                <span className="font-extrabold text-brand-900 uppercase tracking-wider bg-brand-50 px-2.5 py-0.5 rounded">
+                  {product.marque || "QUALITMATSARL"}
                 </span>
                 {product.reference && (
-                  <span className="font-mono text-slate-500 font-medium">
+                  <span className="font-mono text-slate-400">
                     Réf : {product.reference}
                   </span>
                 )}
               </div>
 
-              <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 leading-snug">
+              {/* Titre */}
+              <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
                 {product.nom}
               </h1>
 
-              {/* Bloc Prix */}
-              <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between flex-wrap gap-4">
+              {/* Bloc Clé : Prix, Stock, Unité, Délai */}
+              <div className="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <span className="text-xs text-slate-500 font-medium uppercase block">
-                    Prix unitaire indicatif
-                  </span>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none mt-1">
+                  <div className="text-[10px] text-slate-400 uppercase font-bold">
+                    Tarif Indicatif Unitaire
+                  </div>
+                  <div className="text-2xl font-black text-brand-900 leading-none mt-1">
                     {product.modePrix === "sur_devis" || !product.prixFcfa ? (
-                      <span className="text-brand-900 font-bold">Sur devis</span>
+                      <span className="text-lg font-bold text-brand-900">Sur devis</span>
                     ) : (
-                      <span>{formatFcfa(product.prixFcfa)}</span>
+                      formatFcfa(product.prixFcfa)
                     )}
                   </div>
-                  <span className="text-xs text-slate-600 mt-1 block">
-                    Unité : <strong className="text-slate-900">{product.unite}</strong>
-                  </span>
-                </div>
-
-                <div className="text-right text-xs text-slate-500">
-                  <p className="font-semibold text-slate-700">Tarif direct magasin</p>
-                  <p className="text-[11px]">Remises quantitatives pour chantiers & entreprises</p>
-                </div>
-              </div>
-
-              {/* Description */}
-              <div className="mt-6">
-                <h3 className="font-heading font-bold text-sm text-slate-900 mb-2">
-                  Description & Spécifications
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-
-              {/* Spécifications techniques */}
-              {product.ficheTechnique && (
-                <div className="mt-6 pt-4 border-t border-slate-100">
-                  <h3 className="font-heading font-bold text-sm text-slate-900 mb-3">
-                    Fiche Technique
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                    {Object.entries(product.ficheTechnique).map(([cle, val]) => (
-                      <div key={cle} className="bg-slate-50 p-2.5 rounded-lg border border-slate-200 flex justify-between">
-                        <span className="text-slate-500 font-medium">{cle} :</span>
-                        <span className="text-slate-900 font-semibold text-right">{val}</span>
-                      </div>
-                    ))}
+                  <div className="text-xs text-slate-500 mt-1">
+                    Conditionnement : <strong className="text-slate-800">{product.unite}</strong>
                   </div>
                 </div>
-              )}
+
+                <div className="space-y-1.5 text-right">
+                  <div>
+                    {product.enStock ? (
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200">
+                        <PackageCheck className="w-4 h-4 text-emerald-600" />
+                        En stock au dépôt
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
+                        <AlertCircle className="w-4 h-4 text-amber-600" />
+                        Disponible sous 24-48h
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-[11px] text-slate-500 flex items-center justify-end gap-1">
+                    <Truck className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Livraison chantier Calavi / Cotonou</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Description courte introductive */}
+              <p className="mt-5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {product.description}
+              </p>
             </div>
 
-            {/* Actions : Quantité et Bouton Ajout Liste */}
-            <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
+            {/* Sélecteur de Quantité & Actions d'Ajout */}
+            <div className="mt-8 pt-6 border-t border-slate-200">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                {/* Sélecteur de quantité */}
-                <div className="flex items-center border border-slate-300 rounded-lg overflow-hidden bg-white shrink-0 h-12">
-                  <button
-                    onClick={() => setQuantite((prev) => Math.max(1, prev - 1))}
-                    className="w-12 h-full flex items-center justify-center hover:bg-slate-100 text-slate-600"
-                    aria-label="Diminuer"
-                  >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantite}
-                    onChange={(e) => setQuantite(Math.max(1, parseInt(e.target.value) || 1))}
-                    className="w-16 h-full text-center font-bold text-sm focus:outline-none bg-transparent text-slate-900"
-                  />
-                  <button
-                    onClick={() => setQuantite((prev) => prev + 1)}
-                    className="w-12 h-full flex items-center justify-center hover:bg-slate-100 text-slate-600"
-                    aria-label="Augmenter"
-                  >
-                    <Plus className="w-4 h-4" />
-                  </button>
+                {/* Stepper Quantité */}
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-bold text-slate-700">Quantité :</span>
+                  <div className="inline-flex items-center border border-slate-300 rounded-xl bg-white overflow-hidden shadow-xs">
+                    <button
+                      onClick={() => setQuantite((q) => Math.max(1, q - 1))}
+                      className="p-2.5 text-slate-600 hover:bg-slate-100 transition active:scale-95"
+                      aria-label="Diminuer la quantité"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="px-4 py-2 font-mono font-bold text-sm text-slate-900 min-w-[3rem] text-center">
+                      {quantite}
+                    </span>
+                    <button
+                      onClick={() => setQuantite((q) => q + 1)}
+                      className="p-2.5 text-slate-600 hover:bg-slate-100 transition active:scale-95"
+                      aria-label="Augmenter la quantité"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
 
-                {/* Bouton Ajout Devis */}
+                {/* Bouton Principal : Ajouter au devis */}
                 <button
                   onClick={handleAddToCart}
-                  className={`btn-touch flex-1 rounded-lg font-bold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-sm transition active:scale-95 h-12 ${
+                  className={`flex-1 btn-touch py-3.5 px-6 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-md ${
                     added
                       ? "bg-emerald-600 text-white"
                       : "bg-brand-900 hover:bg-brand-800 text-white"
@@ -247,69 +259,195 @@ export default function ProductDetailPage() {
                   {added ? (
                     <>
                       <Check className="w-4 h-4 stroke-[3]" />
-                      <span>Ajouté à votre liste !</span>
+                      <span>Ajouté à votre liste de devis !</span>
                     </>
                   ) : (
                     <>
-                      <Plus className="w-4 h-4 stroke-[2.5]" />
-                      <span>Ajouter à ma liste de devis ({quantite} {product.unite})</span>
+                      <Plus className="w-4 h-4" />
+                      <span>Ajouter à ma liste de devis</span>
                     </>
                   )}
                 </button>
               </div>
 
-              {/* Boutons Partage & Raccourcis */}
-              <div className="flex items-center justify-between pt-2 text-xs text-slate-500 flex-wrap gap-2">
-                <div className="flex items-center gap-4">
-                  <button
-                    onClick={handleShareWhatsApp}
-                    className="inline-flex items-center gap-1.5 text-emerald-700 hover:underline font-semibold"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-current" />
-                    <span>Partager sur WhatsApp</span>
-                  </button>
-
-                  <button
-                    onClick={handleCopyLink}
-                    className="inline-flex items-center gap-1.5 text-slate-600 hover:text-slate-900 font-medium"
-                  >
-                    <Copy className="w-4 h-4" />
-                    <span>{copied ? "Lien copié !" : "Copier le lien"}</span>
-                  </button>
-                </div>
-
-                <Link
-                  href="/ma-liste"
-                  className="font-semibold text-brand-900 hover:underline inline-flex items-center gap-1"
+              {/* Boutons secondaires : Partage WhatsApp & Copier lien */}
+              <div className="mt-4 flex items-center gap-3">
+                <button
+                  onClick={handleShareWhatsApp}
+                  className="btn-touch px-4 py-2 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 text-xs font-bold flex items-center gap-1.5 transition"
                 >
-                  <span>Voir ma liste de devis en cours</span>
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Partager sur WhatsApp</span>
+                </button>
+
+                <button
+                  onClick={handleCopyLink}
+                  className="btn-touch px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 text-xs font-bold flex items-center gap-1.5 transition"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Lien copié !</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5 text-slate-500" />
+                      <span>Copier le lien</span>
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Système d'Onglets : Description / Fiche Technique / Livraison */}
+        <div className="mt-12 pt-8 border-t border-slate-200">
+          <div className="flex border-b border-slate-200 gap-6 text-xs sm:text-sm font-bold">
+            <button
+              onClick={() => setActiveTab("desc")}
+              className={`pb-3 border-b-2 transition ${
+                activeTab === "desc"
+                  ? "border-brand-900 text-brand-900 font-extrabold"
+                  : "border-transparent text-slate-500 hover:text-slate-800"
+              }`}
+            >
+              Description & Usage
+            </button>
+            <button
+              onClick={() => setActiveTab("tech")}
+              className={`pb-3 border-b-2 transition ${
+                activeTab === "tech"
+                  ? "border-brand-900 text-brand-900 font-extrabold"
+                  : "border-transparent text-slate-500 hover:text-slate-800"
+              }`}
+            >
+              Caractéristiques Techniques
+            </button>
+            <button
+              onClick={() => setActiveTab("livraison")}
+              className={`pb-3 border-b-2 transition ${
+                activeTab === "livraison"
+                  ? "border-brand-900 text-brand-900 font-extrabold"
+                  : "border-transparent text-slate-500 hover:text-slate-800"
+              }`}
+            >
+              Livraison & Manutention
+            </button>
+          </div>
+
+          <div className="py-6 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            {activeTab === "desc" && (
+              <div className="space-y-3">
+                <p>{product.description}</p>
+                <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1 text-xs">
+                  <div className="font-bold text-slate-900">Conseil d&apos;expert chantier :</div>
+                  <p className="text-slate-600">
+                    Pour garantir la performance de ce matériau, veillez à respecter les conditions de stockage (à l&apos;abri de l&apos;humidité pour le ciment et les aciers) et les ratios de dosage indiqués dans notre calculateur de matériaux.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeTab === "tech" && (
+              <div className="space-y-4">
+                {product.ficheTechnique ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {Object.entries(product.ficheTechnique).map(([key, value]) => (
+                      <div
+                        key={key}
+                        className="p-3 bg-slate-50 rounded-xl border border-slate-100 flex justify-between"
+                      >
+                        <span className="font-semibold text-slate-500">{key}</span>
+                        <span className="font-bold text-slate-900 text-right">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-slate-500">
+                    Fiche technique conforme aux normes en vigueur pour la référence {product.reference || product.nom}. Contactez-nous pour la fiche de données de sécurité.
+                  </p>
+                )}
+              </div>
+            )}
+
+            {activeTab === "livraison" && (
+              <div className="space-y-3">
+                <p>
+                  <strong>Enlèvement magasin :</strong> Disponible immédiatement à notre dépôt situé à <strong>Allègléta / Pavé de Tankpè</strong> (Abomey-Calavi).
+                </p>
+                <p>
+                  <strong>Livraison sur chantier :</strong> Assurée par camion benne (pour sable, gravier, ciment) ou camion plateau (pour fers à béton de 12 m). Déchargement au pied d&apos;œuvre possible selon accès camion.
+                </p>
+                <div className="flex items-center gap-2 text-emerald-700 text-xs font-semibold pt-1">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>Assurance transport et contrôle qualitatif avant déchargement.</span>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* Produits recommandés */}
+      {/* Section Produits complémentaires (Cross-Sell BTP) */}
       {relatedProducts.length > 0 && (
         <div className="mt-12">
-          <div className="border-b border-slate-200 pb-3 mb-6">
-            <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900">
-              Matériaux Complémentaires Recommandés
-            </h2>
-            <p className="text-xs text-slate-500">
-              Fréquemment commandés ensemble pour les mêmes étapes de chantier.
-            </p>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span>Compléments de chantier</span>
+              </span>
+              <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900">
+                Matériaux Souvent Associés
+              </h2>
+            </div>
+            <Link
+              href={`/catalogue?cat=${category?.slug || ""}`}
+              className="text-xs font-bold text-brand-900 hover:underline"
+            >
+              Voir la catégorie →
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relatedProducts.map((p) => (
-              <ProductCard key={p.id} product={p} />
+            {relatedProducts.map((rel) => (
+              <ProductCard key={rel.id} product={rel} />
             ))}
           </div>
         </div>
       )}
+
+      {/* Barre Sticky Mobile en Bas d'Écran */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 sm:hidden shadow-2xl flex items-center justify-between gap-3">
+        <div>
+          <div className="text-[10px] text-slate-400 uppercase font-bold">Prix unitaire</div>
+          <div className="text-sm font-extrabold text-brand-900">
+            {product.prixFcfa ? formatFcfa(product.prixFcfa) : "Sur devis"}
+          </div>
+        </div>
+
+        <button
+          onClick={handleAddToCart}
+          className={`btn-touch px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition shadow-md ${
+            added
+              ? "bg-emerald-600 text-white"
+              : "bg-brand-900 text-white"
+          }`}
+        >
+          {added ? (
+            <>
+              <Check className="w-4 h-4 stroke-[3]" />
+              <span>Ajouté !</span>
+            </>
+          ) : (
+            <>
+              <Plus className="w-4 h-4" />
+              <span>Ajouter au devis</span>
+            </>
+          )}
+        </button>
+      </div>
     </div>
   );
 }

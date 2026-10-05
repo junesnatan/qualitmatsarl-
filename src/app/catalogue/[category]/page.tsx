@@ -25,7 +25,7 @@ export default function CategoryDetailPage({ params }: CategoryPageProps) {
   }
 
   const categoryProducts = initialProducts.filter(
-    (p) => p.categoryId === currentCategory.id
+    (p) => p.categoryId === currentCategory.id || p.categoryId === currentCategory.slug
   );
 
   return (

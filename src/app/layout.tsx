@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
+import { QuickViewProvider } from "@/context/QuickViewContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileStickyBar from "@/components/layout/MobileStickyBar";
 import FloatingWhatsApp from "@/components/common/FloatingWhatsApp";
 import Toast from "@/components/common/Toast";
+import QuickViewModal from "@/components/common/QuickViewModal";
 
 export const viewport = {
   width: "device-width",
@@ -17,7 +19,7 @@ export const viewport = {
 export const metadata: Metadata = {
   title: "QUALITMATSARL — Quincaillerie & Matériaux de Construction à Abomey-Calavi (Bénin)",
   description:
-    "Quincaillerie et vente de matériaux de construction à Abomey-Calavi. Ciment CPJ 35/45, fer à béton HA, tuyaux PVC, câblerie électrique, outillage et peinture. Préparez votre liste et demandez votre devis direct sur WhatsApp (01 96 53 84 55) !",
+    "Quincaillerie et vente de matériaux de construction à Abomey-Calavi. Ciment CPJ 35/45, fer à béton HA, tuyaux PVC, câblerie électrique, outillage et peinture. Préparez votre liste et demandez votre devis direct sur WhatsApp (+229 96 53 84 55) !",
   keywords: [
     "quincaillerie Abomey-Calavi",
     "matériaux de construction Calavi",
@@ -40,12 +42,15 @@ export default function RootLayout({
     <html lang="fr" className="scroll-smooth">
       <body className="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
         <CartProvider>
-          <Header />
-          <main className="flex-1 w-full pb-16 md:pb-0">{children}</main>
-          <Footer />
-          <MobileStickyBar />
-          <FloatingWhatsApp />
-          <Toast />
+          <QuickViewProvider>
+            <Header />
+            <main className="flex-1 w-full pb-16 md:pb-0">{children}</main>
+            <Footer />
+            <MobileStickyBar />
+            <FloatingWhatsApp />
+            <Toast />
+            <QuickViewModal />
+          </QuickViewProvider>
         </CartProvider>
       </body>
     </html>

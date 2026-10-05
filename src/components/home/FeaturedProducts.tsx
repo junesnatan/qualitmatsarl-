@@ -4,73 +4,102 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { initialProducts } from "@/data/initialData";
 import ProductCard from "@/components/common/ProductCard";
-import { Sparkles, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  TrendingUp,
+  Percent,
+} from "lucide-react";
 
 export default function FeaturedProducts() {
-  const [selectedFilter, setSelectedFilter] = useState<string>("all");
+  const [activeTab, setActiveTab] = useState<"tous" | "gros-oeuvre" | "second-oeuvre">("tous");
 
-  const filterTabs = [
-    { id: "all", label: "Tous les phares" },
-    { id: "cat-gros-oeuvre", label: "Gros Œuvre & Ciment" },
-    { id: "cat-plomberie", label: "Plomberie" },
-    { id: "cat-electricite", label: "Électricité" },
-    { id: "cat-outillage", label: "Outillage" },
-  ];
-
-  const featured = initialProducts.filter((p) => p.vedette);
-
-  const displayedProducts =
-    selectedFilter === "all"
-      ? featured
-      : featured.filter((p) => p.categoryId === selectedFilter);
+  const displayedProducts = initialProducts.filter((product) => {
+    if (activeTab === "tous") return product.vedette;
+    if (activeTab === "gros-oeuvre") {
+      return (
+        (product.categoryId === "cat-gros-oeuvre" ||
+          product.categoryId === "cat-ferraillage") &&
+        product.vedette
+      );
+    }
+    if (activeTab === "second-oeuvre") {
+      return (
+        product.categoryId !== "cat-gros-oeuvre" &&
+        product.categoryId !== "cat-ferraillage" &&
+        product.vedette
+      );
+    }
+    return true;
+  }).slice(0, 8);
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto">
-      {/* En-tête de section */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 pb-4 border-b border-slate-200">
+    <section className="py-12 px-4 max-w-7xl mx-auto border-t border-slate-200">
+      {/* En-tête */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <span className="text-xs font-bold text-amber-600 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-            <Sparkles className="w-4 h-4 text-amber-500 fill-current" />
-            <span>Sélection Qualimat</span>
-          </span>
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-900 uppercase tracking-wider mb-1">
+            <TrendingUp className="w-4 h-4 text-emerald-600" />
+            <span>Matériaux les plus demandés</span>
+          </div>
           <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">
-            Produits Phares Disponibles en Magasin
+            Produits Populaires & Incontournables
           </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+            Retrouvez les indispensables de vos chantiers avec stock disponible en continu à Allègléta / Tankpè.
+          </p>
         </div>
 
-        {/* Filtres par onglets épurés */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
-          {filterTabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setSelectedFilter(tab.id)}
-              className={`text-xs font-medium px-3.5 py-1.5 rounded-full whitespace-nowrap transition-colors ${
-                selectedFilter === tab.id
-                  ? "bg-brand-900 text-white font-semibold shadow-sm"
-                  : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+        {/* Filtres par onglets */}
+        <div className="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 self-start md:self-auto">
+          <button
+            onClick={() => setActiveTab("tous")}
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              activeTab === "tous"
+                ? "bg-white text-brand-900 shadow-sm"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Tous les phares
+          </button>
+          <button
+            onClick={() => setActiveTab("gros-oeuvre")}
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              activeTab === "gros-oeuvre"
+                ? "bg-white text-brand-900 shadow-sm"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Ciment & Fers
+          </button>
+          <button
+            onClick={() => setActiveTab("second-oeuvre")}
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              activeTab === "second-oeuvre"
+                ? "bg-white text-brand-900 shadow-sm"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            Plomberie, Câbles & Outillage
+          </button>
         </div>
       </div>
 
-      {/* Grille de produits */}
+      {/* Grille de cartes produits v2 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {displayedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
 
-      {/* Pied de section */}
+      {/* Bouton voir tout */}
       <div className="mt-10 text-center">
         <Link
           href="/catalogue"
-          className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs px-6 py-3 rounded-lg border border-slate-300 shadow-sm transition"
+          className="btn-touch inline-flex items-center gap-2 bg-slate-900 hover:bg-brand-900 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md transition active:scale-95"
         >
-          <span>Consulter le catalogue complet (plus de 30 références)</span>
-          <ArrowRight className="w-4 h-4 text-brand-900" />
+          <span>Consulter les {initialProducts.length} références du catalogue</span>
+          <ArrowRight className="w-4 h-4 text-amber-400" />
         </Link>
       </div>
     </section>

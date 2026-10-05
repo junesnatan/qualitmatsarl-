@@ -2,171 +2,193 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import {
-  Search,
-  MessageCircle,
-  Truck,
-  CheckCircle2,
-  Building2,
-  ArrowRight,
-  ShieldCheck,
-  Phone,
-} from "lucide-react";
+import SafeImage from "@/components/common/SafeImage";
 import { initialSettings } from "@/data/initialData";
+import {
+  ArrowRight,
+  MessageCircle,
+  Building2,
+  CheckCircle2,
+  Clock,
+  Truck,
+  Sparkles,
+  ShieldCheck,
+  ChevronRight,
+  MapPin,
+} from "lucide-react";
+
+const HERO_IMAGES = [
+  {
+    url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+    caption: "Dépôt Allègléta — Stock permanent de ciments & agrégats",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1200&q=80",
+    caption: "Livraison directe sur chantier — Camions bennes et plateaux",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=80",
+    caption: "Aciers certifiés FE E500 haute adhérence pour dalles & fondations",
+  },
+];
 
 export default function Hero() {
-  const router = useRouter();
-  const [query, setQuery] = useState("");
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (query.trim()) {
-      router.push(`/catalogue?q=${encodeURIComponent(query.trim())}`);
-    }
-  };
-
-  const fastTags = [
-    { label: "Ciment CPJ 35", href: "/catalogue?q=ciment" },
-    { label: "Fer à béton Ø10", href: "/catalogue?q=fer" },
-    { label: "Tuyau PVC Ø100", href: "/catalogue?q=pvc" },
-    { label: "Câble 2.5 mm²", href: "/catalogue?q=cable" },
-    { label: "Peinture Façade", href: "/catalogue?q=peinture" },
-  ];
+  const whatsappDirectUrl = `https://wa.me/${initialSettings.whatsappNumber}?text=${encodeURIComponent(
+    "Bonjour QUALITMATSARL, je souhaite me renseigner sur vos matériaux et disponibilités."
+  )}`;
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100/70 border-b border-slate-200 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Colonne Gauche : Titre Corporate & Recherche */}
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 text-brand-900 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Magasin & Entrepôt ouverts • Abomey-Calavi (Allègléta / Pavé de Tankpè)</span>
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/40 border-b border-slate-200/80 py-10 lg:py-16">
+      {/* Motif de grille architectural en arrière-plan */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(#0F2C59 1px, transparent 1px), linear-gradient(90deg, #0F2C59 1px, transparent 1px)`,
+          backgroundSize: "32px 32px",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Colonne Gauche : Titre, Positionnement, CTAs, Stats (7 cols) */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            {/* Tag Badge de Localisation & Autorité */}
+            <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-200/70 text-brand-900 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+              <MapPin className="w-3.5 h-3.5 text-brand-900" />
+              <span>Quincaillerie & Matériaux — Allègléta / Pavé de Tankpè (Calavi)</span>
             </div>
 
-            <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 leading-[1.15] tracking-tight">
-              Quincaillerie, Ciments & Matériaux de Construction à <span className="text-brand-900">Abomey-Calavi</span>
+            {/* Titre fort */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+              Vos matériaux de construction,{" "}
+              <span className="text-brand-900 relative">
+                livrés sans détour
+                <svg
+                  className="absolute left-0 -bottom-1.5 w-full h-2 text-amber-400 -z-10"
+                  viewBox="0 0 100 10"
+                  preserveAspectRatio="none"
+                >
+                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="6" fill="transparent" />
+                </svg>
+              </span>
+              .
             </h1>
 
-            <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
-              Achat et vente d&apos;articles de quincaillerie, ciments d&apos;usine, fers à béton certifiés et outillage professionnel. Consultez nos tarifs en FCFA et transmettez votre liste à notre équipe sur <strong>WhatsApp (+229 96 53 84 55)</strong> en 1 clic.
+            {/* Sous-titre percutant */}
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+              Ciment frais CPJ 35 & 45, fers à béton haute adhérence, tuyauterie PVC, câblerie cuivre et outillage professionnel. Obtenez votre devis chiffré en FCFA et faites-vous livrer directement sur chantier à Abomey-Calavi et Cotonou.
             </p>
 
-            {/* Moteur de recherche clair et épuré */}
-            <form
-              onSubmit={handleSearch}
-              className="mt-7 bg-white p-2 rounded-xl border border-slate-300 shadow-md flex flex-col sm:flex-row gap-2 max-w-xl"
-            >
-              <div className="relative flex-1 flex items-center">
-                <Search className="w-5 h-5 text-slate-400 absolute left-3 shrink-0" />
-                <input
-                  type="text"
-                  placeholder="Rechercher ciment, fer, tuyau PVC, câble..."
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  className="w-full bg-transparent text-slate-900 placeholder-slate-400 pl-11 pr-3 py-2.5 text-sm focus:outline-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-brand-900 hover:bg-brand-800 text-white font-semibold text-xs uppercase px-5 py-3 rounded-lg tracking-wider flex items-center justify-center gap-2 transition active:scale-95 shadow-sm"
-              >
-                <span>Rechercher</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
-
-            {/* Mots-clés fréquents */}
-            <div className="mt-3 flex items-center gap-2 flex-wrap text-xs text-slate-500">
-              <span className="font-medium text-slate-400">Suggestions :</span>
-              {fastTags.map((tag) => (
-                <Link
-                  key={tag.label}
-                  href={tag.href}
-                  className="bg-white hover:bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md border border-slate-200 transition text-[11px] font-medium"
-                >
-                  {tag.label}
-                </Link>
-              ))}
-            </div>
-
-            {/* Boutons d'action principaux */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* Double Call-To-Action */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+              {/* CTA Primaire Ambre */}
               <Link
                 href="/catalogue"
-                className="btn-touch bg-brand-900 hover:bg-brand-800 text-white font-semibold px-6 py-3 rounded-lg text-sm flex items-center gap-2 shadow-sm transition"
+                className="btn-touch px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-brand-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-95 group"
               >
-                <span>Accéder au catalogue complet</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Voir le catalogue de prix</span>
+                <ArrowRight className="w-4 h-4 text-brand-950 group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              <Link
-                href="/pro"
-                className="btn-touch bg-white hover:bg-slate-50 text-slate-800 font-semibold px-6 py-3 rounded-lg text-sm border border-slate-300 shadow-sm transition"
+              {/* CTA Secondaire WhatsApp */}
+              <a
+                href={whatsappDirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-touch px-6 py-3.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-600/80 font-bold text-sm flex items-center justify-center gap-2 shadow-sm hover:shadow transition-all active:scale-95"
               >
-                <Building2 className="w-4 h-4 text-brand-900" />
-                <span>Espace Pro & Entreprises BTP</span>
-              </Link>
+                <MessageCircle className="w-5 h-5 text-emerald-600" />
+                <span>Discuter sur WhatsApp</span>
+              </a>
+            </div>
+
+            {/* 3 Chiffres Clés en ligne (Stats) */}
+            <div className="pt-6 border-t border-slate-200/90 grid grid-cols-3 gap-4">
+              <div>
+                <div className="font-heading font-black text-2xl sm:text-3xl text-brand-900">
+                  15+ ans
+                </div>
+                <div className="text-xs text-slate-500 font-medium mt-0.5">
+                  D&apos;expertise et présence
+                </div>
+              </div>
+
+              <div>
+                <div className="font-heading font-black text-2xl sm:text-3xl text-brand-900">
+                  1000+
+                </div>
+                <div className="text-xs text-slate-500 font-medium mt-0.5">
+                  Chantiers approvisionnés
+                </div>
+              </div>
+
+              <div>
+                <div className="font-heading font-black text-2xl sm:text-3xl text-brand-900">
+                  24-48h
+                </div>
+                <div className="text-xs text-slate-500 font-medium mt-0.5">
+                  Livraison sur site
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Colonne Droite : Carte Corporate Devis Rapide */}
+          {/* Colonne Droite : Slider Réel / Visuel Dépôt & Camion (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-lg">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
-                <div>
-                  <h3 className="font-heading font-bold text-lg text-slate-900">
-                    Service Devis Instantané
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Réponse tarifaire officielle sur votre téléphone
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+              {/* Image principale */}
+              <div className="relative h-72 sm:h-96 w-full">
+                <SafeImage
+                  src={HERO_IMAGES[activeSlide].url}
+                  alt={HERO_IMAGES[activeSlide].caption}
+                  categorySlug="cat-gros-oeuvre"
+                  fill
+                  priority
+                  className="object-cover transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20" />
+
+                {/* Légende en bas de l'image */}
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="inline-flex items-center gap-1.5 bg-amber-400 text-brand-950 text-[10px] font-bold px-2 py-0.5 rounded-full mb-1">
+                    <ShieldCheck className="w-3 h-3 text-brand-950" />
+                    QUALITMATSARL
+                  </span>
+                  <p className="text-xs sm:text-sm font-semibold leading-snug drop-shadow-sm">
+                    {HERO_IMAGES[activeSlide].caption}
                   </p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 fill-current" />
-                </div>
               </div>
 
-              <div className="space-y-3.5 mb-6 text-xs text-slate-700">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Tarifs transparents :</strong> Prix fermes au sac, à la barre ou au camion.
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Truck className="w-4 h-4 text-brand-900 shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Livraison sur site :</strong> Camions bennes et plateaux sur Calavi et environs.
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>
-                    <strong>Régularité fiscale :</strong> Factures normalisées avec IFU pour entreprises.
-                  </span>
-                </div>
+              {/* Sélecteur de diapositives interactif */}
+              <div className="absolute top-4 right-4 flex gap-1.5 z-20">
+                {HERO_IMAGES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveSlide(idx)}
+                    className={`h-2 rounded-full transition-all ${
+                      activeSlide === idx
+                        ? "w-6 bg-amber-400"
+                        : "w-2 bg-white/60 hover:bg-white"
+                    }`}
+                    aria-label={`Afficher la photo ${idx + 1}`}
+                  />
+                ))}
               </div>
 
-              <a
-                href={`https://wa.me/${initialSettings.whatsappNumber}?text=${encodeURIComponent(
-                  "Bonjour QUALITMATSARL, je souhaite demander une cotation pour des matériaux."
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full btn-touch bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow transition active:scale-95"
-              >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Demander un devis sur WhatsApp</span>
-              </a>
-
-              <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-center gap-2 text-xs text-slate-500">
-                <Phone className="w-3.5 h-3.5 text-brand-900" />
-                <span>
-                  Ou contactez le magasin au{" "}
-                  <strong className="text-slate-900 font-semibold">{initialSettings.telephonePrincipal}</strong>
-                </span>
+              {/* Badge flottant Livraison */}
+              <div className="absolute top-4 left-4 z-20 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-lg border border-slate-100 flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                  <Truck className="w-4 h-4" />
+                </div>
+                <div className="text-left">
+                  <div className="text-[10px] text-slate-400 uppercase font-bold">Flotte dédiée</div>
+                  <div className="text-xs font-bold text-slate-900">Livraison Calavi & Cotonou</div>
+                </div>
               </div>
             </div>
           </div>
