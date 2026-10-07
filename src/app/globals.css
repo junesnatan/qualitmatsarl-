@@ -9,6 +9,11 @@
   --solar-color: #f59e0b;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   background-color: #f8fafc;
   color: #0f172a;
@@ -17,6 +22,9 @@ body {
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Typographie d'impact inspirée de La Roche & La Tour */

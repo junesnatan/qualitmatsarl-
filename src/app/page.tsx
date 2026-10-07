@@ -1,27 +1,27 @@
 import React from "react";
-import VibrantHero from "@/components/home/VibrantHero";
-import LaRocheProductRibbon from "@/components/home/LaRocheProductRibbon";
-import LaTourTabsProducts from "@/components/home/LaTourTabsProducts";
-import BatimatServices from "@/components/home/BatimatServices";
-import VibrantCtaBanner from "@/components/home/VibrantCtaBanner";
+import LandingHero from "@/components/home/LandingHero";
+import LandingCategories from "@/components/home/LandingCategories";
+import LandingBenefits from "@/components/home/LandingBenefits";
+import LandingToolsTeaser from "@/components/home/LandingToolsTeaser";
+import LandingFinalCta from "@/components/home/LandingFinalCta";
 
 export default function HomePage() {
   return (
-    <div className="space-y-0">
-      {/* 1. Hero Slider Grand Format d'Impact (Style La Roche & Batimat) */}
-      <VibrantHero />
+    <div className="space-y-0 w-full overflow-hidden">
+      {/* 1. Hero Landing Page Percutante & Légère */}
+      <LandingHero />
 
-      {/* 2. Ruban des Produits & Showcase Dynamique 50/50 (Signature La Roche Bénin) */}
-      <LaRocheProductRibbon />
+      {/* 2. Rayons Phares & Catégories (Cartes avec liens directs vers le catalogue) */}
+      <LandingCategories />
 
-      {/* 3. Sélection Produits en Onglets Dynamiques & Prix Visibles (Signature La Tour Boutique) */}
-      <LaTourTabsProducts />
+      {/* 3. Engagements & Atouts BTP QUALITMAT SARL */}
+      <LandingBenefits />
 
-      {/* 4. Logistique BTP & Engagements de Qualité (Style Batimat & Jafco) */}
-      <BatimatServices />
+      {/* 4. Outils Utiles : Teaser Calculateur de Chantier & Espace Pro */}
+      <LandingToolsTeaser />
 
-      {/* 5. Bannière Flash d'Appel à l'Action & WhatsApp Direct */}
-      <VibrantCtaBanner />
+      {/* 5. Appel à l'action final pour entrer dans le catalogue ou devis WhatsApp */}
+      <LandingFinalCta />
     </div>
   );
 }
