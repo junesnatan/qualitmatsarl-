@@ -10,66 +10,74 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Bleu Nuit Saphir Sombre Prestige (Inspiration Batimat & Jafco)
+        // Rouge Éclatant Signature Showroom BTP (Inspiration La Roche & La Tour Boutique)
+        primary: {
+          50: "#fef2f2",
+          100: "#fee2e2",
+          200: "#fecaca",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#ef4444",
+          600: "#dc2626", // Rouge Vif Puissant
+          700: "#b91c1c", // Rouge BTP Intense
+          800: "#991b1b",
+          900: "#7f1d1d",
+          950: "#450a0a",
+        },
+        // Alias brand pour compatibilité avec le rouge BTP et contraste
         brand: {
-          50: "#f0f4f9",
-          100: "#dbe4ef",
-          200: "#b8cbdf",
-          300: "#8ca9ca",
-          400: "#5d83b1",
-          500: "#3d6495",
-          600: "#2d4e78",
-          700: "#203a5b",
-          800: "#14253b",
-          900: "#0b1728", // Deep Navy Prestige
-          950: "#060d17",
+          50: "#fef2f2",
+          100: "#fee2e2",
+          200: "#fecaca",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#ef4444",
+          600: "#dc2626",
+          700: "#b91c1c",
+          800: "#1f2937",
+          900: "#111827",
+          950: "#030712",
         },
-        // Doré Champagne Mat & Bronze Brossé Showroom (Inspiration La Roche & La Tour Boutique)
+        // Jaune Solaire & Or Éclatant (Inspiration La Tour Boutique & Batimat)
+        solar: {
+          50: "#fffbeb",
+          100: "#fef3c7",
+          200: "#fde68a",
+          300: "#fcd34d",
+          400: "#fbbf24",
+          500: "#f59e0b", // Jaune Éclatant
+          600: "#d97706",
+          700: "#b45309",
+          800: "#92400e",
+          900: "#78350f",
+        },
+        // Alias gold vers solar pour éclat immédiat
         gold: {
-          50: "#fbf9f4",
-          100: "#f6f1e6",
-          200: "#ede2ce",
-          300: "#e0cdb0",
-          400: "#cfb38c",
-          500: "#be9b6b", // Doré Champagne Signature
-          600: "#aa8351",
-          700: "#8a663d",
-          800: "#6e5033",
-          900: "#583f2a",
-          950: "#342315",
+          50: "#fffbeb",
+          100: "#fef3c7",
+          200: "#fde68a",
+          300: "#fcd34d",
+          400: "#fbbf24",
+          500: "#f59e0b",
+          600: "#d97706",
+          700: "#b45309",
+          800: "#92400e",
+          900: "#78350f",
         },
-        // Noir d'Ébène & Ardoise douce
-        charcoal: {
-          DEFAULT: "#181e25",
-          50: "#f7f8f9",
-          100: "#edf0f2",
-          200: "#d7dde2",
-          300: "#b5c0cb",
-          400: "#8d9dae",
-          500: "#6e8093",
-          600: "#566677",
-          700: "#455361",
-          800: "#39444f",
-          900: "#181e25",
-          950: "#0f1318",
-        },
-        // Nuances Craie & Travertin lumineux
-        sand: {
-          50: "#faf9f6",
-          100: "#f5f2eb",
-          200: "#ebe4d5",
-          300: "#ded2bd",
-        },
-        accent: {
-          DEFAULT: "#be9b6b",
-          hover: "#aa8351",
-          light: "#f6f1e6",
-        },
-        surface: {
-          DEFAULT: "#FFFFFF",
-          muted: "#FAF9F6",
-          subtle: "#F4F2EC",
-          border: "#E7E4DC",
+        // Noir Graphique & Contraste Franc
+        dark: {
+          DEFAULT: "#111827",
+          50: "#f9fafb",
+          100: "#f3f4f6",
+          200: "#e5e7eb",
+          300: "#d1d5db",
+          400: "#9ca3af",
+          500: "#6b7280",
+          600: "#4b5563",
+          700: "#374151",
+          800: "#1f2937",
+          900: "#111827",
+          950: "#030712",
         },
         whatsapp: {
           DEFAULT: "#25D366",
@@ -78,13 +86,13 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ["'Plus Jakarta Sans'", "sans-serif"],
+        heading: ["'Plus Jakarta Sans'", "'Montserrat'", "sans-serif"],
         sans: ["'Plus Jakarta Sans'", "'Inter'", "system-ui", "-apple-system", "sans-serif"],
       },
       boxShadow: {
-        'showroom': '0 4px 20px -2px rgba(11, 23, 40, 0.05), 0 2px 6px -1px rgba(11, 23, 40, 0.03)',
-        'showroom-hover': '0 20px 30px -10px rgba(11, 23, 40, 0.10), 0 10px 15px -5px rgba(190, 155, 107, 0.12)',
-        'gold-glow': '0 4px 18px 0 rgba(190, 155, 107, 0.28)',
+        'vibrant': '0 10px 25px -5px rgba(220, 38, 38, 0.25), 0 8px 10px -6px rgba(220, 38, 38, 0.15)',
+        'solar': '0 10px 25px -5px rgba(245, 158, 11, 0.3), 0 8px 10px -6px rgba(245, 158, 11, 0.15)',
+        'card-pop': '0 8px 24px -4px rgba(17, 24, 39, 0.08)',
       },
     },
   },

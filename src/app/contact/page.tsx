@@ -81,12 +81,12 @@ export default function ContactPage() {
     <div className="py-8 px-4 max-w-7xl mx-auto space-y-8">
       {/* En-tête */}
       <div className="border-b border-slate-200 pb-6">
-        <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-          <MapPin className="w-4 h-4 text-amber-500" />
+        <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-primary-600 uppercase tracking-widest bg-primary-50 border border-primary-200 px-3 py-1 rounded-full mb-3">
+          <MapPin className="w-4 h-4 text-primary-600" />
           <span>Accueil Magasin & Contact</span>
         </span>
         <h1 className="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900">
-          Contact & Accès Magasin QUALITMATSARL
+          Contact & Accès Magasin <span className="text-primary-600">QUALITMAT SARL</span>
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
           Une question sur les stocks au dépôt, un itinéraire pour votre camion benne ou une cotation spéciale ? Nos conseillers sont à votre écoute par téléphone, WhatsApp ou au comptoir.
@@ -131,9 +131,9 @@ export default function ContactPage() {
         {/* Téléphone */}
         <a
           href={`tel:${cleanPhone}`}
-          className="group bg-white rounded-3xl p-6 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-4"
+          className="group bg-white rounded-3xl p-6 border border-slate-200 hover:border-primary-500 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-4"
         >
-          <div className="w-12 h-12 rounded-2xl bg-brand-50 text-brand-900 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+          <div className="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
             <Phone className="w-6 h-6" />
           </div>
           <div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
           href={`https://wa.me/${initialSettings.whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="group bg-white rounded-3xl p-6 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-4"
+          className="group bg-white rounded-3xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-4"
         >
           <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
             <MessageCircle className="w-6 h-6" />
@@ -173,9 +173,9 @@ export default function ContactPage() {
           href={initialSettings.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group bg-white rounded-3xl p-6 border border-sand-200 hover:border-gold-400 shadow-sm hover:shadow-showroom-hover transition-all duration-300 flex items-start gap-4"
+          className="group bg-white rounded-3xl p-6 border border-slate-200 hover:border-solar-500 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-4"
         >
-          <div className="w-12 h-12 rounded-2xl bg-sand-50 text-gold-700 border border-sand-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+          <div className="w-12 h-12 rounded-2xl bg-solar-50 text-solar-600 border border-solar-200 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
             <Navigation className="w-6 h-6" />
           </div>
           <div>
@@ -196,7 +196,7 @@ export default function ContactPage() {
         <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200 shadow-xl p-6 sm:p-8 space-y-5">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-heading font-extrabold text-lg text-slate-900 flex items-center gap-2">
-              <Clock className="w-5 h-5 text-brand-900" />
+              <Clock className="w-5 h-5 text-primary-600" />
               <span>Horaires du Dépôt</span>
             </h3>
 
@@ -227,8 +227,8 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <div className="p-3.5 bg-brand-50 rounded-2xl border border-brand-200 text-xs text-brand-900 space-y-1">
-            <div className="font-bold flex items-center gap-1">
+          <div className="p-3.5 bg-primary-50 rounded-2xl border border-primary-200 text-xs text-slate-800 space-y-1">
+            <div className="font-bold flex items-center gap-1 text-primary-700">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               Service Express Chantiers Dimanche
             </div>
@@ -260,7 +260,7 @@ export default function ContactPage() {
               </p>
               <button
                 onClick={() => setSent(false)}
-                className="btn-touch bg-brand-900 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-sm"
+                className="btn-touch bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md transition"
               >
                 Envoyer un autre message
               </button>
@@ -278,7 +278,7 @@ export default function ContactPage() {
                     placeholder="Ex : M. Paul Dossou"
                     value={nom}
                     onChange={(e) => setNom(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-primary-600"
                   />
                 </div>
 
@@ -292,7 +292,7 @@ export default function ContactPage() {
                     placeholder="Ex : +229 97 00 00 00"
                     value={telephone}
                     onChange={(e) => setTelephone(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-primary-600"
                   />
                 </div>
               </div>
@@ -307,7 +307,7 @@ export default function ContactPage() {
                     placeholder="paul@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-primary-600"
                   />
                 </div>
 
@@ -318,7 +318,7 @@ export default function ContactPage() {
                   <select
                     value={sujet}
                     onChange={(e) => setSujet(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-primary-600"
                   >
                     <option value="Disponibilité matériaux & prix">Disponibilité matériaux & prix</option>
                     <option value="Livraison camion sur chantier">Livraison camion sur chantier</option>
@@ -338,15 +338,15 @@ export default function ContactPage() {
                   placeholder="Décrivez votre besoin en matériaux ou posez vos questions à notre équipe..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-brand-900 resize-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-primary-600 resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full btn-touch py-3.5 px-6 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
+                className="w-full btn-touch py-3.5 px-6 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary-600/25 transition active:scale-95"
               >
-                <Send className="w-4 h-4 text-amber-400" />
+                <Send className="w-4 h-4 text-solar-400" />
                 <span>Envoyer le message</span>
               </button>
             </form>

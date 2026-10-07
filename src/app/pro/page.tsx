@@ -77,35 +77,36 @@ export default function EspaceProPage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* Bannière Corporate Pro */}
-      <div className="bg-brand-900 text-white rounded-3xl p-6 sm:p-12 mb-12 border border-brand-800 shadow-2xl relative overflow-hidden">
-        {/* Décors */}
-        <div className="absolute right-0 bottom-0 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="bg-slate-950 text-white rounded-3xl p-6 sm:p-12 mb-12 border-2 border-primary-600/30 shadow-2xl relative overflow-hidden">
+        {/* Décors vibrants */}
+        <div className="absolute -right-10 -bottom-10 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-48 h-48 bg-solar-500/10 rounded-full blur-2xl pointer-events-none" />
 
         <div className="max-w-3xl relative z-10">
-          <div className="inline-flex items-center gap-2 bg-brand-800 text-gold-300 border border-brand-700 text-xs font-semibold px-3.5 py-1 rounded-full mb-4">
-            <Briefcase className="w-4 h-4 text-gold-400" />
+          <div className="inline-flex items-center gap-2 bg-solar-500/10 text-solar-400 border border-solar-500/30 text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
+            <Briefcase className="w-4 h-4 text-solar-400" />
             <span>Service Dédié Entreprises & Artisans BTP</span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-heading font-black text-white leading-tight">
-            Espace Professionnel & Tarifs Grossistes Chantiers
+            Espace Professionnel & Tarifs Grossistes Chantiers <span className="text-primary-500">QUALITMAT SARL</span>
           </h1>
 
           <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
             Vous pilotez un chantier d&apos;immeuble, de lotissement, de villa ou des travaux de second œuvre à Abomey-Calavi, Cotonou ou dans l&apos;Atlantique ? Bénéficiez d&apos;un compte pro avec tarifs dégressifs, facturation normalisée et livraison continue par camions bennes et plateaux.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-gold-400 font-bold">
+          <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-solar-400 font-bold">
             <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-white" />
+              <Clock className="w-4 h-4 text-primary-400" />
               <span>Chiffrage officiel &lt; 2h ouvrées</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <Truck className="w-4 h-4 text-white" />
+              <Truck className="w-4 h-4 text-solar-400" />
               <span>Flotte bennes & plateaux dédiée</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <FileCheck className="w-4 h-4 text-white" />
+              <FileCheck className="w-4 h-4 text-emerald-400" />
               <span>Facture normalisée avec IFU & RCCM</span>
             </span>
           </div>
@@ -272,9 +273,9 @@ export default function EspaceProPage() {
 
                 <button
                   type="submit"
-                  className="w-full btn-touch py-3.5 px-6 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
+                  className="w-full btn-touch py-3.5 px-6 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary-600/25 transition active:scale-95"
                 >
-                  <Send className="w-4 h-4 text-amber-400" />
+                  <Send className="w-4 h-4 text-solar-400" />
                   <span>Transmettre ma demande de devis pro</span>
                 </button>
               </form>
@@ -349,7 +350,7 @@ export default function EspaceProPage() {
                   &ldquo;{partner.quote}&rdquo;
                 </p>
                 <div className="mt-3 font-bold text-slate-900">
-                  {partner.author} — <span className="text-brand-900">{partner.company}</span>
+                  {partner.author} — <span className="text-primary-600 font-extrabold">{partner.company}</span>
                 </div>
               </div>
             ))}

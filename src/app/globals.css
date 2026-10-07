@@ -1,85 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-brand: #0b1728;
-  --color-gold: #be9b6b;
-  --color-surface: #ffffff;
+  --primary-color: #dc2626;
+  --solar-color: #f59e0b;
 }
 
 body {
-  background-color: #faf9f6;
-  color: #181e25;
-  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Typographie Haute Couture & Statutaire */
+/* Typographie d'impact inspirée de La Roche & La Tour */
 h1, h2, h3, h4, .font-heading {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+/* Boutons Rouge Vif d'Action (Style La Roche redBtn) */
+.btn-red {
+  background-color: #dc2626;
+  color: #ffffff;
   font-weight: 700;
+  transition: all 0.2s ease-in-out;
 }
-
-/* Boutons tactiles */
-.btn-touch {
-  min-height: 44px;
-  min-width: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Cartes Showroom Raffinées */
-.card-showroom {
-  background-color: #ffffff;
-  border: 1px solid #e7e4dc;
-  border-radius: 1rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px -2px rgba(11, 23, 40, 0.04);
-}
-
-.card-showroom:hover {
-  border-color: #cfb38c;
-  box-shadow: 0 16px 32px -8px rgba(11, 23, 40, 0.09), 0 6px 12px -4px rgba(190, 155, 107, 0.12);
-  transform: translateY(-3px);
-}
-
-/* Pastille & Médaillon Décoratif */
-.medallion-gold {
-  position: relative;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, #ffffff 0%, #f6f1e6 100%);
-  border: 1.5px solid #e0cdb0;
-  transition: all 0.3s ease;
-}
-
-.medallion-gold:hover {
-  border-color: #be9b6b;
-  box-shadow: 0 8px 20px -4px rgba(190, 155, 107, 0.25);
+.btn-red:hover {
+  background-color: #b91c1c;
+  box-shadow: 0 10px 20px -5px rgba(220, 38, 38, 0.35);
   transform: translateY(-2px);
 }
 
-/* Scrollbar soyeuse */
+/* Bouton Jaune Solaire (Style La Tour Boutique) */
+.btn-solar {
+  background-color: #f59e0b;
+  color: #111827;
+  font-weight: 800;
+  transition: all 0.2s ease-in-out;
+}
+.btn-solar:hover {
+  background-color: #d97706;
+  color: #ffffff;
+  box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Cartes éclatantes */
+.card-vibrant {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-vibrant:hover {
+  border-color: #dc2626;
+  box-shadow: 0 16px 30px -8px rgba(220, 38, 38, 0.12), 0 4px 12px -2px rgba(17, 24, 39, 0.05);
+  transform: translateY(-4px);
+}
+
+/* Scrollbar discrète */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f2eb;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d7dde2;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #be9b6b;
+  background: #dc2626;
 }
 
 /* Animations */
@@ -89,14 +89,14 @@ h1, h2, h3, h4, .font-heading {
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

@@ -82,11 +82,11 @@ export default function ProductDetailPage() {
     <div className="py-8 px-4 max-w-7xl mx-auto pb-28 sm:pb-12">
       {/* Fil d'ariane enrichi */}
       <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6 flex-wrap">
-        <Link href="/" className="hover:text-brand-900 transition">
+        <Link href="/" className="hover:text-primary-600 transition">
           Accueil
         </Link>
         <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-        <Link href="/catalogue" className="hover:text-brand-900 transition">
+        <Link href="/catalogue" className="hover:text-primary-600 transition">
           Catalogue
         </Link>
         {category && (
@@ -94,7 +94,7 @@ export default function ProductDetailPage() {
             <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
             <Link
               href={`/catalogue?cat=${category.slug}`}
-              className="hover:text-brand-900 transition"
+              className="hover:text-primary-600 transition"
             >
               {category.nom}
             </Link>
@@ -123,7 +123,7 @@ export default function ProductDetailPage() {
               />
 
               {product.vedette && (
-                <span className="absolute top-3 left-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
+                <span className="absolute top-3 left-3 bg-primary-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-md">
                   Phare Chantier
                 </span>
               )}
@@ -138,7 +138,7 @@ export default function ProductDetailPage() {
                     onClick={() => setSelectedImage(idx)}
                     className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition ${
                       selectedImage === idx
-                        ? "border-brand-900 shadow-sm"
+                        ? "border-primary-600 ring-2 ring-primary-600/30 shadow-sm"
                         : "border-slate-200 opacity-60 hover:opacity-100"
                     }`}
                   >
@@ -160,7 +160,7 @@ export default function ProductDetailPage() {
             <div>
               {/* Marque & Réf */}
               <div className="flex items-center justify-between text-xs mb-2">
-                <span className="font-extrabold text-brand-900 uppercase tracking-wider bg-brand-50 px-2.5 py-0.5 rounded">
+                <span className="font-extrabold text-primary-600 uppercase tracking-wider bg-primary-50 border border-primary-200 px-2.5 py-0.5 rounded">
                   {product.marque || "QUALITMATSARL"}
                 </span>
                 {product.reference && (
@@ -181,9 +181,9 @@ export default function ProductDetailPage() {
                   <div className="text-[10px] text-slate-400 uppercase font-bold">
                     Tarif Indicatif Unitaire
                   </div>
-                  <div className="text-2xl font-black text-brand-900 leading-none mt-1">
+                  <div className="text-2xl font-black text-primary-600 leading-none mt-1">
                     {product.modePrix === "sur_devis" || !product.prixFcfa ? (
-                      <span className="text-lg font-bold text-brand-900">Sur devis</span>
+                      <span className="text-lg font-bold text-primary-600">Sur devis</span>
                     ) : (
                       formatFcfa(product.prixFcfa)
                     )}
@@ -250,10 +250,10 @@ export default function ProductDetailPage() {
                 {/* Bouton Principal : Ajouter au devis */}
                 <button
                   onClick={handleAddToCart}
-                  className={`flex-1 btn-touch py-3.5 px-6 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-md ${
+                  className={`flex-1 btn-touch py-3.5 px-6 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-lg shadow-primary-600/25 ${
                     added
                       ? "bg-emerald-600 text-white"
-                      : "bg-brand-900 hover:bg-brand-800 text-white"
+                      : "bg-primary-600 hover:bg-primary-700 text-white"
                   }`}
                 >
                   {added ? (
@@ -308,7 +308,7 @@ export default function ProductDetailPage() {
               onClick={() => setActiveTab("desc")}
               className={`pb-3 border-b-2 transition ${
                 activeTab === "desc"
-                  ? "border-brand-900 text-brand-900 font-extrabold"
+                  ? "border-primary-600 text-primary-600 font-extrabold"
                   : "border-transparent text-slate-500 hover:text-slate-800"
               }`}
             >
@@ -318,7 +318,7 @@ export default function ProductDetailPage() {
               onClick={() => setActiveTab("tech")}
               className={`pb-3 border-b-2 transition ${
                 activeTab === "tech"
-                  ? "border-brand-900 text-brand-900 font-extrabold"
+                  ? "border-primary-600 text-primary-600 font-extrabold"
                   : "border-transparent text-slate-500 hover:text-slate-800"
               }`}
             >
@@ -328,7 +328,7 @@ export default function ProductDetailPage() {
               onClick={() => setActiveTab("livraison")}
               className={`pb-3 border-b-2 transition ${
                 activeTab === "livraison"
-                  ? "border-brand-900 text-brand-900 font-extrabold"
+                  ? "border-primary-600 text-primary-600 font-extrabold"
                   : "border-transparent text-slate-500 hover:text-slate-800"
               }`}
             >
@@ -394,8 +394,8 @@ export default function ProductDetailPage() {
         <div className="mt-12">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span className="text-xs font-bold text-primary-600 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                <Sparkles className="w-3.5 h-3.5 text-solar-500" />
                 <span>Compléments de chantier</span>
               </span>
               <h2 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900">
@@ -404,7 +404,7 @@ export default function ProductDetailPage() {
             </div>
             <Link
               href={`/catalogue?cat=${category?.slug || ""}`}
-              className="text-xs font-bold text-brand-900 hover:underline"
+              className="text-xs font-bold text-primary-600 hover:underline"
             >
               Voir la catégorie →
             </Link>
@@ -422,7 +422,7 @@ export default function ProductDetailPage() {
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 sm:hidden shadow-2xl flex items-center justify-between gap-3">
         <div>
           <div className="text-[10px] text-slate-400 uppercase font-bold">Prix unitaire</div>
-          <div className="text-sm font-extrabold text-brand-900">
+          <div className="text-sm font-extrabold text-primary-600">
             {product.prixFcfa ? formatFcfa(product.prixFcfa) : "Sur devis"}
           </div>
         </div>
@@ -432,7 +432,7 @@ export default function ProductDetailPage() {
           className={`btn-touch px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition shadow-md ${
             added
               ? "bg-emerald-600 text-white"
-              : "bg-brand-900 text-white"
+              : "bg-primary-600 text-white"
           }`}
         >
           {added ? (

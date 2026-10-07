@@ -59,15 +59,15 @@ export default function ServicesPage() {
       {/* En-tête */}
       <div className="bg-white rounded-2xl p-6 sm:p-12 mb-12 border border-slate-200 shadow-sm relative overflow-hidden">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-900 border border-brand-200 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-600 border border-primary-200 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
             <Building2 className="w-4 h-4" />
-            <span>Nos Services aux Professionnels & Particuliers</span>
+            <span>Nos Services aux Professionnels & Particuliers BTP</span>
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
-            Des prestations conçues pour fluidifier vos opérations de chantier
+            Des prestations conçues pour fluidifier vos opérations de chantier avec <span className="text-primary-600">QUALITMAT SARL</span>
           </h1>
           <p className="mt-3 text-xs sm:text-base text-slate-600 leading-relaxed">
-            Au-delà de la vente de matériaux, QUALITMATSARL est un partenaire logistique et technique fiable à chaque étape de votre construction.
+            Au-delà de la vente de matériaux, QUALITMATSARL est un partenaire logistique et technique fiable à chaque étape de votre construction à Abomey-Calavi et dans l&apos;Atlantique.
           </p>
         </div>
       </div>
@@ -79,16 +79,16 @@ export default function ServicesPage() {
           return (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:border-slate-300 hover:shadow-md transition"
+              className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:border-primary-500 hover:shadow-md transition"
             >
               <div>
-                <div className="w-12 h-12 bg-brand-50 border border-brand-100 rounded-xl flex items-center justify-center text-brand-900 mb-4">
+                <div className="w-12 h-12 bg-primary-50 border border-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-4">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="font-heading font-bold text-xl text-slate-900 mb-1">
                   {srv.title}
                 </h3>
-                <p className="text-xs text-amber-600 font-semibold mb-4">
+                <p className="text-xs text-solar-600 font-bold mb-4">
                   {srv.subtitle}
                 </p>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -98,7 +98,7 @@ export default function ServicesPage() {
                 <ul className="space-y-2 text-xs text-slate-700 mb-6">
                   {srv.features.map((feat, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-900" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-600" />
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -108,7 +108,7 @@ export default function ServicesPage() {
               <div className="pt-4 border-t border-slate-100">
                 <Link
                   href="/contact"
-                  className="text-xs font-semibold text-brand-900 hover:underline inline-flex items-center gap-1.5"
+                  className="text-xs font-bold text-primary-600 hover:underline inline-flex items-center gap-1.5"
                 >
                   <span>Demander un renseignement</span>
                   <ArrowRight className="w-4 h-4" />

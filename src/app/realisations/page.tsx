@@ -34,12 +34,12 @@ export default function RealisationsPage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       <div className="border-b border-slate-200 pb-6 mb-8">
-        <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-          <Building2 className="w-4 h-4 text-amber-500" />
+        <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-primary-600 uppercase tracking-widest bg-primary-50 border border-primary-200 px-3 py-1 rounded-full mb-3">
+          <Building2 className="w-4 h-4 text-primary-600" />
           <span>Références & Projets Réalisés</span>
         </span>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900">
-          Chantiers Approvisionnés par QUALITMATSARL
+          Chantiers Approvisionnés par <span className="text-primary-600">QUALITMAT SARL</span>
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
           Découvrez quelques-uns des projets résidentiels et tertiaires approvisionnés par notre équipe à Abomey-Calavi et dans le Grand Cotonou.
@@ -50,13 +50,13 @@ export default function RealisationsPage() {
         {chantiers.map((c, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:border-slate-300 hover:shadow-md transition"
+            className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:border-primary-500 hover:shadow-md transition"
           >
             <div className="relative h-48 w-full bg-slate-100">
               <SafeImage src={c.image} alt={c.titre} fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-3 left-3 flex items-center gap-1 text-white text-xs font-medium">
-                <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                <MapPin className="w-3.5 h-3.5 text-solar-400" />
                 <span>{c.lieu}</span>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function RealisationsPage() {
         </p>
         <Link
           href="/pro"
-          className="btn-touch inline-flex items-center gap-2 bg-brand-900 hover:bg-brand-800 text-white font-semibold text-xs px-6 py-3 rounded-lg shadow-sm"
+          className="btn-red text-xs px-6 py-3 rounded-xl inline-flex items-center gap-2 shadow-lg shadow-primary-600/25 font-bold"
         >
           <span>Déposer une demande de devis pro</span>
           <ArrowRight className="w-4 h-4" />

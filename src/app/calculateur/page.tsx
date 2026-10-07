@@ -118,11 +118,11 @@ export default function CalculateurPage() {
     <div className="py-8 px-4 max-w-5xl mx-auto">
       {/* En-tête */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-700 uppercase tracking-widest mb-2 bg-sand-100 px-3.5 py-1 rounded-full border border-sand-200">
-          <Calculator className="w-4 h-4 text-gold-600" />
+        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-primary-600 uppercase tracking-widest mb-2 bg-primary-50 px-3.5 py-1 rounded-full border border-primary-200">
+          <Calculator className="w-4 h-4 text-primary-600" />
           <span>Studio d&apos;Ingénierie & Calculateur BTP</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-heading font-black text-brand-900 leading-tight">
+        <h1 className="text-2xl sm:text-4xl font-heading font-black text-slate-900 leading-tight">
           Estimez vos Quantités & Votre Devis en 3 Étapes
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 mt-2">
@@ -137,7 +137,7 @@ export default function CalculateurPage() {
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-200 -translate-y-1/2 -z-10" />
           {/* Ligne active */}
           <div
-            className="absolute top-1/2 left-0 h-1 bg-brand-900 -translate-y-1/2 -z-10 transition-all duration-300"
+            className="absolute top-1/2 left-0 h-1 bg-primary-600 -translate-y-1/2 -z-10 transition-all duration-300"
             style={{ width: step === 1 ? "0%" : step === 2 ? "50%" : "100%" }}
           />
 
@@ -146,7 +146,7 @@ export default function CalculateurPage() {
             onClick={() => setStep(1)}
             className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition shadow-sm ${
               step >= 1
-                ? "bg-brand-900 text-white ring-4 ring-brand-100"
+                ? "bg-primary-600 text-white ring-4 ring-primary-100"
                 : "bg-white border-2 border-slate-300 text-slate-500"
             }`}
           >
@@ -158,7 +158,7 @@ export default function CalculateurPage() {
             onClick={() => setStep(2)}
             className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition shadow-sm ${
               step >= 2
-                ? "bg-brand-900 text-white ring-4 ring-brand-100"
+                ? "bg-primary-600 text-white ring-4 ring-primary-100"
                 : "bg-white border-2 border-slate-300 text-slate-500"
             }`}
           >
@@ -170,7 +170,7 @@ export default function CalculateurPage() {
             onClick={() => setStep(3)}
             className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs transition shadow-sm ${
               step === 3
-                ? "bg-brand-900 text-white ring-4 ring-brand-100"
+                ? "bg-primary-600 text-white ring-4 ring-primary-100"
                 : "bg-white border-2 border-slate-300 text-slate-500"
             }`}
           >
@@ -179,9 +179,9 @@ export default function CalculateurPage() {
         </div>
 
         <div className="flex justify-between text-[11px] font-bold text-slate-600 mt-2 px-1">
-          <span className={step === 1 ? "text-brand-900" : ""}>1. Projet</span>
-          <span className={step === 2 ? "text-brand-900" : ""}>2. Dimensions</span>
-          <span className={step === 3 ? "text-brand-900" : ""}>3. Résultat</span>
+          <span className={step === 1 ? "text-primary-600 font-extrabold" : ""}>1. Projet</span>
+          <span className={step === 2 ? "text-primary-600 font-extrabold" : ""}>2. Dimensions</span>
+          <span className={step === 3 ? "text-primary-600 font-extrabold" : ""}>3. Résultat</span>
         </div>
       </div>
 
@@ -200,7 +200,7 @@ export default function CalculateurPage() {
                 onClick={() => setProjectType("dalle")}
                 className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
                   projectType === "dalle"
-                    ? "border-brand-900 bg-brand-50/50 shadow-md ring-2 ring-brand-900/10"
+                    ? "border-primary-600 bg-primary-50/50 shadow-md ring-2 ring-primary-600/20"
                     : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                 }`}
               >
@@ -209,7 +209,7 @@ export default function CalculateurPage() {
                     🏗️
                   </div>
                   {projectType === "dalle" && (
-                    <CheckCircle2 className="w-5 h-5 text-brand-900" />
+                    <CheckCircle2 className="w-5 h-5 text-primary-600" />
                   )}
                 </div>
                 <h3 className="font-heading font-extrabold text-base text-slate-900">
@@ -225,7 +225,7 @@ export default function CalculateurPage() {
                 onClick={() => setProjectType("mur")}
                 className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
                   projectType === "mur"
-                    ? "border-brand-900 bg-brand-50/50 shadow-md ring-2 ring-brand-900/10"
+                    ? "border-primary-600 bg-primary-50/50 shadow-md ring-2 ring-primary-600/20"
                     : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                 }`}
               >
@@ -234,7 +234,7 @@ export default function CalculateurPage() {
                     🧱
                   </div>
                   {projectType === "mur" && (
-                    <CheckCircle2 className="w-5 h-5 text-brand-900" />
+                    <CheckCircle2 className="w-5 h-5 text-primary-600" />
                   )}
                 </div>
                 <h3 className="font-heading font-extrabold text-base text-slate-900">
@@ -250,7 +250,7 @@ export default function CalculateurPage() {
                 onClick={() => setProjectType("peinture")}
                 className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
                   projectType === "peinture"
-                    ? "border-brand-900 bg-brand-50/50 shadow-md ring-2 ring-brand-900/10"
+                    ? "border-primary-600 bg-primary-50/50 shadow-md ring-2 ring-primary-600/20"
                     : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                 }`}
               >
@@ -259,7 +259,7 @@ export default function CalculateurPage() {
                     🎨
                   </div>
                   {projectType === "peinture" && (
-                    <CheckCircle2 className="w-5 h-5 text-brand-900" />
+                    <CheckCircle2 className="w-5 h-5 text-primary-600" />
                   )}
                 </div>
                 <h3 className="font-heading font-extrabold text-base text-slate-900">
@@ -275,7 +275,7 @@ export default function CalculateurPage() {
                 onClick={() => setProjectType("carrelage")}
                 className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
                   projectType === "carrelage"
-                    ? "border-brand-900 bg-brand-50/50 shadow-md ring-2 ring-brand-900/10"
+                    ? "border-primary-600 bg-primary-50/50 shadow-md ring-2 ring-primary-600/20"
                     : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                 }`}
               >
@@ -284,7 +284,7 @@ export default function CalculateurPage() {
                     📐
                   </div>
                   {projectType === "carrelage" && (
-                    <CheckCircle2 className="w-5 h-5 text-brand-900" />
+                    <CheckCircle2 className="w-5 h-5 text-primary-600" />
                   )}
                 </div>
                 <h3 className="font-heading font-extrabold text-base text-slate-900">
@@ -299,7 +299,7 @@ export default function CalculateurPage() {
             <div className="flex justify-end pt-4">
               <button
                 onClick={() => setStep(2)}
-                className="btn-touch px-6 py-3 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md transition active:scale-95"
+                className="btn-touch px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md transition active:scale-95"
               >
                 <span>Étape suivante : Dimensions</span>
                 <ArrowRight className="w-4 h-4" />
@@ -755,9 +755,9 @@ export default function CalculateurPage() {
             </div>
 
             {/* Actions : Ajouter Tout au Devis + Lien WhatsApp */}
-            <div className="p-6 bg-brand-50 rounded-2xl border border-brand-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-6 bg-primary-50/40 rounded-2xl border border-primary-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <div className="text-xs font-bold text-brand-900 flex items-center gap-1.5">
+                <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   Prêt à envoyer à QUALITMATSARL ?
                 </div>
@@ -772,7 +772,7 @@ export default function CalculateurPage() {
                   className={`flex-1 sm:flex-none btn-touch px-5 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-md ${
                     allAdded
                       ? "bg-emerald-600 text-white"
-                      : "bg-brand-900 hover:bg-brand-800 text-white"
+                      : "bg-primary-600 hover:bg-primary-700 text-white shadow-primary-600/30"
                   }`}
                 >
                   {allAdded ? (
@@ -790,7 +790,7 @@ export default function CalculateurPage() {
 
                 <Link
                   href="/ma-liste"
-                  className="btn-touch px-4 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-brand-950 font-bold text-xs flex items-center gap-1.5 shadow-sm transition"
+                  className="btn-touch px-4 py-3 rounded-xl btn-solar font-bold text-xs flex items-center gap-1.5 shadow-sm transition"
                 >
                   <ClipboardList className="w-4 h-4" />
                   <span>Voir ma liste</span>

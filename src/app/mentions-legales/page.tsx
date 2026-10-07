@@ -6,7 +6,7 @@ export default function MentionsLegalesPage() {
   return (
     <div className="py-8 px-4 max-w-5xl mx-auto">
       <div className="border-b border-slate-200 pb-6 mb-8">
-        <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+        <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-primary-600 uppercase tracking-widest bg-primary-50 border border-primary-200 px-3 py-1 rounded-full mb-3">
           <ShieldCheck className="w-4 h-4 text-emerald-600" />
           <span>Cadre Juridique</span>
         </span>
@@ -22,10 +22,10 @@ export default function MentionsLegalesPage() {
         {/* Éditeur */}
         <section>
           <h2 className="font-heading font-bold text-lg text-slate-900 mb-3 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-brand-900" />
+            <FileText className="w-5 h-5 text-primary-600" />
             <span>1. Informations Légales sur la Société</span>
           </h2>
-          <div className="space-y-1.5 pl-4 border-l-2 border-brand-900 text-slate-700">
+          <div className="space-y-1.5 pl-4 border-l-2 border-primary-600 text-slate-700">
             <p><strong>Dénomination sociale :</strong> QUALITMATSARL (Société à Responsabilité Limitée)</p>
             <p><strong>Activité :</strong> Commerce général de quincaillerie, vente et distribution de matériaux de construction et outillage</p>
             <p><strong>Siège social :</strong> {initialSettings.adresse}, {initialSettings.ville}</p>
@@ -39,7 +39,7 @@ export default function MentionsLegalesPage() {
         {/* Hébergement */}
         <section>
           <h2 className="font-heading font-bold text-lg text-slate-900 mb-3 flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-brand-900" />
+            <ShieldCheck className="w-5 h-5 text-primary-600" />
             <span>2. Hébergement de la Plateforme</span>
           </h2>
           <p>
@@ -50,7 +50,7 @@ export default function MentionsLegalesPage() {
         {/* Données personnelles */}
         <section>
           <h2 className="font-heading font-bold text-lg text-slate-900 mb-3 flex items-center gap-2">
-            <Lock className="w-5 h-5 text-brand-900" />
+            <Lock className="w-5 h-5 text-primary-600" />
             <span>3. Protection des Données Personnelles (Code du Numérique Bénin / APDP)</span>
           </h2>
           <p className="mb-3">
@@ -64,7 +64,7 @@ export default function MentionsLegalesPage() {
               <strong>Stockage local :</strong> Vos sélections d&apos;articles sont mémorisées sur votre propre appareil pour votre confort. Vous conservez le contrôle total pour vider votre liste à tout moment.
             </li>
             <li>
-              <strong>Droits d&apos;accès :</strong> Vous pouvez exercer vos droits d&apos;accès, de modification ou de suppression en écrivant à <a href={`mailto:${initialSettings.email}`} className="text-brand-900 font-semibold underline">{initialSettings.email}</a>.
+              <strong>Droits d&apos;accès :</strong> Vous pouvez exercer vos droits d&apos;accès, de modification ou de suppression en écrivant à <a href={`mailto:${initialSettings.email}`} className="text-primary-600 font-bold underline">{initialSettings.email}</a>.
             </li>
           </ul>
         </section>

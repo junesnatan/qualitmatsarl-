@@ -119,18 +119,18 @@ function CatalogueContent() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* En-tête de page épuré */}
-      <div className="mb-8 pb-6 border-b border-sand-200">
-        <span className="text-xs font-bold text-gold-700 uppercase tracking-widest flex items-center gap-1.5 mb-1">
-          <Layers className="w-4 h-4 text-gold-600" />
-          <span>Matériaux & Quincaillerie en Stock</span>
+      <div className="mb-8 pb-6 border-b border-slate-200">
+        <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-primary-600 uppercase tracking-widest bg-primary-50 border border-primary-200 px-3 py-1 rounded-full mb-3">
+          <Layers className="w-4 h-4 text-primary-600" />
+          <span>Matériaux & Quincaillerie en Stock Réel</span>
         </span>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-brand-900">
-              Catalogue Général des Matériaux
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-slate-900">
+              Catalogue des Matériaux <span className="text-primary-600">QUALITMAT SARL</span>
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Consultez nos prix unitaires indicatifs en FCFA et préparez votre devis direct. {filteredProducts.length} référence(s) disponible(s).
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              Tarifs transparents en FCFA, fiches techniques et devis instantané par WhatsApp. <strong>{filteredProducts.length}</strong> référence(s) disponible(s).
             </p>
           </div>
 
@@ -141,7 +141,7 @@ function CatalogueContent() {
               placeholder="Filtrer un nom ou une réf..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-white text-slate-900 placeholder-slate-400 text-xs px-3.5 py-2.5 pl-9 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-900 shadow-sm"
+              className="w-full bg-white text-slate-900 placeholder-slate-400 text-xs px-3.5 py-2.5 pl-9 rounded-xl border border-slate-300 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 shadow-sm"
             />
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
             {search && (
@@ -162,14 +162,14 @@ function CatalogueContent() {
           {/* Bouton filtre mobile */}
           <button
             onClick={() => setMobileFilterOpen(true)}
-            className="lg:hidden btn-touch flex items-center gap-2 bg-brand-900 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-sm"
+            className="lg:hidden btn-touch flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl shadow-sm transition"
           >
             <SlidersHorizontal className="w-4 h-4" />
             <span>Filtres {activeFiltersCount > 0 ? `(${activeFiltersCount})` : ""}</span>
           </button>
 
           <span className="text-xs sm:text-sm font-bold text-slate-800">
-            Résultats : <strong className="text-brand-900">{filteredProducts.length}</strong> produit(s)
+            Disponibles : <strong className="text-primary-600 font-extrabold">{filteredProducts.length}</strong> référence(s)
           </span>
 
           {activeFiltersCount > 0 && (
@@ -235,13 +235,13 @@ function CatalogueContent() {
         <aside className="hidden lg:block lg:col-span-3 bg-white rounded-2xl border border-slate-200 p-5 shadow-xs sticky top-24 space-y-6">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="font-heading font-extrabold text-sm text-slate-900 flex items-center gap-2">
-              <Filter className="w-4 h-4 text-brand-900" />
+              <Filter className="w-4 h-4 text-primary-600" />
               <span>Filtres de recherche</span>
             </h3>
             {activeFiltersCount > 0 && (
               <button
                 onClick={resetFilters}
-                className="text-[11px] text-amber-600 hover:underline font-bold"
+                className="text-[11px] text-primary-600 hover:underline font-bold"
               >
                 Tout effacer
               </button>
@@ -258,7 +258,7 @@ function CatalogueContent() {
                 onClick={() => setSelectedCategory("all")}
                 className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition ${
                   selectedCategory === "all"
-                    ? "bg-brand-900 text-white font-bold shadow-xs"
+                    ? "bg-primary-600 text-white font-bold shadow-md shadow-primary-600/20"
                     : "text-slate-700 hover:bg-slate-100"
                 }`}
               >
@@ -277,7 +277,7 @@ function CatalogueContent() {
                     onClick={() => setSelectedCategory(c.slug)}
                     className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition ${
                       isSelected
-                        ? "bg-brand-900 text-white font-bold shadow-xs"
+                        ? "bg-primary-600 text-white font-bold shadow-md shadow-primary-600/20"
                         : "text-slate-700 hover:bg-slate-100"
                     }`}
                   >
@@ -295,7 +295,7 @@ function CatalogueContent() {
           <div className="pt-4 border-t border-slate-100">
             <div className="flex items-center justify-between text-xs font-bold text-slate-700 mb-2">
               <span>Prix max unitaire :</span>
-              <span className="text-brand-900 font-mono font-extrabold">
+              <span className="text-primary-600 font-mono font-extrabold">
                 {priceMax.toLocaleString()} FCFA
               </span>
             </div>
@@ -306,7 +306,7 @@ function CatalogueContent() {
               step="2000"
               value={priceMax}
               onChange={(e) => setPriceMax(Number(e.target.value))}
-              className="w-full accent-brand-900 h-2 bg-slate-100 rounded-lg cursor-pointer"
+              className="w-full accent-primary-600 h-2 bg-slate-100 rounded-lg cursor-pointer"
             />
             <div className="flex justify-between text-[10px] text-slate-400 mt-1">
               <span>1 000 FCFA</span>
@@ -324,7 +324,7 @@ function CatalogueContent() {
                 type="checkbox"
                 checked={onlyInStock}
                 onChange={(e) => setOnlyInStock(e.target.checked)}
-                className="w-4 h-4 rounded text-brand-900 focus:ring-brand-900 accent-brand-900"
+                className="w-4 h-4 rounded text-primary-600 focus:ring-primary-600 accent-primary-600"
               />
               <span className="flex items-center gap-1.5">
                 <PackageCheck className="w-3.5 h-3.5 text-emerald-600" />
@@ -342,7 +342,7 @@ function CatalogueContent() {
               <select
                 value={selectedBrand}
                 onChange={(e) => setSelectedBrand(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:border-brand-900"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:border-primary-600"
               >
                 <option value="all">Toutes les marques</option>
                 {allBrands.map((b) => (
@@ -370,7 +370,7 @@ function CatalogueContent() {
               </p>
               <button
                 onClick={resetFilters}
-                className="btn-touch px-5 py-2.5 bg-brand-900 text-white font-bold text-xs rounded-xl shadow-sm hover:bg-brand-800 transition"
+                className="btn-touch px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs rounded-xl shadow-md transition"
               >
                 Réinitialiser tous les filtres
               </button>
@@ -398,7 +398,7 @@ function CatalogueContent() {
                 <div className="mt-12 text-center">
                   <button
                     onClick={() => setVisibleCount((prev) => prev + 12)}
-                    className="btn-touch px-6 py-3 rounded-xl bg-white border border-slate-300 hover:border-brand-900 text-brand-900 font-extrabold text-xs sm:text-sm shadow-sm hover:shadow transition active:scale-95 inline-flex items-center gap-2"
+                    className="btn-touch px-6 py-3 rounded-xl bg-white border border-primary-600 hover:bg-primary-50 text-primary-600 font-extrabold text-xs sm:text-sm shadow-sm hover:shadow transition active:scale-95 inline-flex items-center gap-2"
                   >
                     <span>Charger plus de matériaux ({filteredProducts.length - visibleCount} restants)</span>
                     <ChevronDown className="w-4 h-4" />
@@ -422,7 +422,7 @@ function CatalogueContent() {
           <div className="relative w-full max-h-[85vh] bg-white rounded-t-3xl shadow-2xl p-6 overflow-y-auto z-10 animate-slide-up space-y-6">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200">
               <h3 className="font-heading font-extrabold text-base text-slate-900 flex items-center gap-2">
-                <SlidersHorizontal className="w-4 h-4 text-brand-900" />
+                <SlidersHorizontal className="w-4 h-4 text-primary-600" />
                 <span>Filtrer les matériaux</span>
               </h3>
               <button
@@ -443,7 +443,7 @@ function CatalogueContent() {
                   onClick={() => setSelectedCategory("all")}
                   className={`p-2 rounded-xl text-xs font-semibold text-left border ${
                     selectedCategory === "all"
-                      ? "border-brand-900 bg-brand-50 text-brand-900 font-bold"
+                      ? "border-primary-600 bg-primary-50 text-primary-600 font-bold"
                       : "border-slate-200 text-slate-700"
                   }`}
                 >
@@ -455,7 +455,7 @@ function CatalogueContent() {
                     onClick={() => setSelectedCategory(c.slug)}
                     className={`p-2 rounded-xl text-xs font-semibold text-left border truncate ${
                       selectedCategory === c.slug
-                        ? "border-brand-900 bg-brand-50 text-brand-900 font-bold"
+                        ? "border-primary-600 bg-primary-50 text-primary-600 font-bold"
                         : "border-slate-200 text-slate-700"
                     }`}
                   >
@@ -472,7 +472,7 @@ function CatalogueContent() {
                   type="checkbox"
                   checked={onlyInStock}
                   onChange={(e) => setOnlyInStock(e.target.checked)}
-                  className="w-4 h-4 rounded accent-brand-900"
+                  className="w-4 h-4 rounded text-primary-600 accent-primary-600"
                 />
                 <span>En stock uniquement</span>
               </label>
@@ -482,7 +482,7 @@ function CatalogueContent() {
             <div>
               <div className="flex justify-between text-xs font-bold text-slate-800 mb-1">
                 <span>Prix max :</span>
-                <span className="text-brand-900">{priceMax.toLocaleString()} FCFA</span>
+                <span className="text-primary-600 font-extrabold">{priceMax.toLocaleString()} FCFA</span>
               </div>
               <input
                 type="range"
@@ -491,7 +491,7 @@ function CatalogueContent() {
                 step="2000"
                 value={priceMax}
                 onChange={(e) => setPriceMax(Number(e.target.value))}
-                className="w-full accent-brand-900"
+                className="w-full accent-primary-600"
               />
             </div>
 
@@ -505,7 +505,7 @@ function CatalogueContent() {
               </button>
               <button
                 onClick={() => setMobileFilterOpen(false)}
-                className="btn-touch flex-1 py-3 bg-brand-900 text-white font-bold text-xs rounded-xl shadow-md"
+                className="btn-touch flex-1 py-3 bg-primary-600 text-white font-bold text-xs rounded-xl shadow-md"
               >
                 Voir {filteredProducts.length} résultat(s)
               </button>
@@ -522,7 +522,7 @@ export default function CataloguePage() {
     <Suspense
       fallback={
         <div className="py-20 text-center text-slate-400">
-          <div className="animate-spin w-8 h-8 border-4 border-brand-900 border-t-transparent rounded-full mx-auto mb-2" />
+          <div className="animate-spin w-8 h-8 border-4 border-primary-600 border-t-transparent rounded-full mx-auto mb-2" />
           <span>Chargement du catalogue Qualitmat...</span>
         </div>
       }
