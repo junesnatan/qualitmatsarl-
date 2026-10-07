@@ -119,14 +119,14 @@ function CatalogueContent() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* En-tête de page épuré */}
-      <div className="mb-8 pb-6 border-b border-slate-200">
-        <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-          <Layers className="w-4 h-4 text-amber-500" />
+      <div className="mb-8 pb-6 border-b border-sand-200">
+        <span className="text-xs font-bold text-gold-700 uppercase tracking-widest flex items-center gap-1.5 mb-1">
+          <Layers className="w-4 h-4 text-gold-600" />
           <span>Matériaux & Quincaillerie en Stock</span>
         </span>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-slate-900">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-brand-900">
               Catalogue Général des Matériaux
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">

@@ -173,9 +173,9 @@ export default function ContactPage() {
           href={initialSettings.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group bg-white rounded-3xl p-6 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl transition-all duration-300 flex items-start gap-4"
+          className="group bg-white rounded-3xl p-6 border border-sand-200 hover:border-gold-400 shadow-sm hover:shadow-showroom-hover transition-all duration-300 flex items-start gap-4"
         >
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+          <div className="w-12 h-12 rounded-2xl bg-sand-50 text-gold-700 border border-sand-200 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
             <Navigation className="w-6 h-6" />
           </div>
           <div>

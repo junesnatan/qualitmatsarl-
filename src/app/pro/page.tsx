@@ -79,15 +79,15 @@ export default function EspaceProPage() {
       {/* Bannière Corporate Pro */}
       <div className="bg-brand-900 text-white rounded-3xl p-6 sm:p-12 mb-12 border border-brand-800 shadow-2xl relative overflow-hidden">
         {/* Décors */}
-        <div className="absolute right-0 bottom-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute right-0 bottom-0 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-3xl relative z-10">
-          <div className="inline-flex items-center gap-2 bg-brand-800 text-amber-400 border border-brand-700 text-xs font-semibold px-3.5 py-1 rounded-full mb-4">
-            <Briefcase className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 bg-brand-800 text-gold-300 border border-brand-700 text-xs font-semibold px-3.5 py-1 rounded-full mb-4">
+            <Briefcase className="w-4 h-4 text-gold-400" />
             <span>Service Dédié Entreprises & Artisans BTP</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-heading font-extrabold text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl font-heading font-black text-white leading-tight">
             Espace Professionnel & Tarifs Grossistes Chantiers
           </h1>
 
@@ -95,7 +95,7 @@ export default function EspaceProPage() {
             Vous pilotez un chantier d&apos;immeuble, de lotissement, de villa ou des travaux de second œuvre à Abomey-Calavi, Cotonou ou dans l&apos;Atlantique ? Bénéficiez d&apos;un compte pro avec tarifs dégressifs, facturation normalisée et livraison continue par camions bennes et plateaux.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-amber-400 font-bold">
+          <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-gold-400 font-bold">
             <span className="flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-white" />
               <span>Chiffrage officiel &lt; 2h ouvrées</span>

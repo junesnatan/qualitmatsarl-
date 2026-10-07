@@ -5,13 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --color-brand: #0f2c59;
-  --color-accent: #d97706;
+  --color-brand: #0b1728;
+  --color-gold: #be9b6b;
+  --color-surface: #ffffff;
 }
 
 body {
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #faf9f6;
+  color: #181e25;
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   display: flex;
@@ -19,14 +20,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Typographie Corporate */
+/* Typographie Haute Couture & Statutaire */
 h1, h2, h3, h4, .font-heading {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   font-weight: 700;
 }
 
-/* Boutons tactiles corporate */
+/* Boutons tactiles */
 .btn-touch {
   min-height: 44px;
   min-width: 44px;
@@ -35,49 +36,61 @@ h1, h2, h3, h4, .font-heading {
   justify-content: center;
 }
 
-/* Cartes épurées et transitions douces */
-.card-corporate {
+/* Cartes Showroom Raffinées */
+.card-showroom {
   background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  transition: all 0.2s ease-in-out;
+  border: 1px solid #e7e4dc;
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(11, 23, 40, 0.04);
 }
 
-.card-corporate:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 10px 25px -5px rgba(15, 44, 89, 0.08), 0 8px 10px -6px rgba(15, 44, 89, 0.04);
+.card-showroom:hover {
+  border-color: #cfb38c;
+  box-shadow: 0 16px 32px -8px rgba(11, 23, 40, 0.09), 0 6px 12px -4px rgba(190, 155, 107, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Pastille & Médaillon Décoratif */
+.medallion-gold {
+  position: relative;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f1e6 100%);
+  border: 1.5px solid #e0cdb0;
+  transition: all 0.3s ease;
+}
+
+.medallion-gold:hover {
+  border-color: #be9b6b;
+  box-shadow: 0 8px 20px -4px rgba(190, 155, 107, 0.25);
   transform: translateY(-2px);
 }
 
-/* Scrollbar épurée */
+/* Scrollbar soyeuse */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f5f2eb;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #d7dde2;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #be9b6b;
 }
 
-/* Animations légères */
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scaleUp {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
 }
 
 .animate-fade-in {
@@ -87,8 +100,3 @@ h1, h2, h3, h4, .font-heading {
 .animate-slide-up {
   animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-
-.animate-scale-up {
-  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-

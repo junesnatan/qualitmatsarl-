@@ -1,8 +1,10 @@
 import React from "react";
 import Hero from "@/components/home/Hero";
 import TrustBar from "@/components/home/TrustBar";
-import CategoryGrid from "@/components/home/CategoryGrid";
+import DepartmentRibbon from "@/components/home/DepartmentRibbon";
+import ShowroomSplitSection from "@/components/home/ShowroomSplitSection";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
+import CategoryGrid from "@/components/home/CategoryGrid";
 import CalculatorTeaser from "@/components/home/CalculatorTeaser";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import HomeGallerySection from "@/components/home/HomeGallerySection";
@@ -12,35 +14,41 @@ import FinalCtaBanner from "@/components/home/FinalCtaBanner";
 
 export default function HomePage() {
   return (
-    <div className="space-y-2">
-      {/* 2. Hero dynamique split avec stats et visuels réels */}
+    <div className="space-y-0">
+      {/* 1. Hero Majestueux BTP & Finitions (Inspiration Batimat & La Roche) */}
       <Hero />
 
-      {/* 3. Bande de confiance (trust bar) : IFU, Livraison, WhatsApp, Dépôt Calavi */}
+      {/* 2. Bande de Réassurance & Autorité (IFU, Dépôt Calavi, Flotte dédiée) */}
       <TrustBar />
 
-      {/* 4. Catégories phares (grille visuelle 8 cartes avec photos et hover) */}
-      <CategoryGrid />
+      {/* 3. Ruban des Départements en Médaillons Circulaires (Inspiration La Roche Bénin) */}
+      <DepartmentRibbon />
 
-      {/* 5. Produits populaires / Promotions avec onglets et cartes v2 */}
+      {/* 4. Section Inspirations Showroom 50/50 (Inspiration JAFCO & La Roche) */}
+      <ShowroomSplitSection />
+
+      {/* 5. Incontournables & Onglets Fluides (Inspiration La Tour Boutique) */}
       <FeaturedProducts />
 
-      {/* 6. Calculateur de matériaux (teaser interactif) */}
+      {/* 6. Galerie des Rayons & Familles de Matériaux */}
+      <CategoryGrid />
+
+      {/* 7. Studio Simulateur de Volumes BTP */}
       <CalculatorTeaser />
 
-      {/* 7. Pourquoi nous choisir (4 colonnes illustrées) */}
+      {/* 8. Les 4 Standards d'Excellence Qualitmat SARL */}
       <WhyChooseUs />
 
-      {/* 8. Réalisations / Galerie chantiers livrés avec lightbox */}
+      {/* 9. Galerie des Chantiers Réalisés au Bénin */}
       <HomeGallerySection />
 
-      {/* 9. Témoignages clients avec slider */}
+      {/* 10. Avis & Témoignages Maîtres d'Ouvrage */}
       <TestimonialsSection />
 
-      {/* 10. Zone de couverture & Carte Google Maps interactive */}
+      {/* 11. Accès & Comptoir Allègléta */}
       <LocationSection />
 
-      {/* 11. Bannière CTA finale avant pied de page */}
+      {/* 12. Bannière de Cotation Finale */}
       <FinalCtaBanner />
     </div>
   );

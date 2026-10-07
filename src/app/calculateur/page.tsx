@@ -118,11 +118,11 @@ export default function CalculateurPage() {
     <div className="py-8 px-4 max-w-5xl mx-auto">
       {/* En-tête */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-900 uppercase tracking-wider mb-2 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-200">
-          <Calculator className="w-4 h-4 text-amber-500" />
-          <span>Calculateur BTP & Matériaux de Chantier</span>
+        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-700 uppercase tracking-widest mb-2 bg-sand-100 px-3.5 py-1 rounded-full border border-sand-200">
+          <Calculator className="w-4 h-4 text-gold-600" />
+          <span>Studio d&apos;Ingénierie & Calculateur BTP</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
+        <h1 className="text-2xl sm:text-4xl font-heading font-black text-brand-900 leading-tight">
           Estimez vos Quantités & Votre Devis en 3 Étapes
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 mt-2">

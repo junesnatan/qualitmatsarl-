@@ -130,30 +130,30 @@ export default function MaListePage() {
     return (
       <div className="py-16 px-4 max-w-3xl mx-auto text-center">
         <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-14 shadow-xl">
-          <div className="w-20 h-20 bg-brand-50 text-brand-900 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-inner">
-            <ClipboardList className="w-10 h-10 text-amber-500" />
+          <div className="w-20 h-20 bg-sand-100 text-brand-900 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-inner border border-sand-200">
+            <ClipboardList className="w-10 h-10 text-gold-600" />
           </div>
 
-          <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 mb-3">
+          <h1 className="font-heading font-black text-2xl sm:text-3xl text-brand-900 mb-3">
             Votre Liste de Devis est Actuellement Vide
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-8 leading-relaxed">
-            Parcourez notre catalogue et ajoutez vos matériaux (ciments, fers à béton, tuyauterie PVC, câbles électriques, peinture) ou utilisez notre calculateur de chantier pour composer votre liste en 1 clic.
+            Parcourez notre catalogue et ajoutez vos matériaux (ciments, fers à béton, carrelage, tuyauterie PVC, câbles électriques, peinture) ou utilisez notre calculateur de chantier pour composer votre liste en 1 clic.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/catalogue"
-              className="w-full sm:w-auto btn-touch inline-flex items-center justify-center gap-2 bg-brand-900 hover:bg-brand-800 text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md transition active:scale-95"
+              className="w-full sm:w-auto btn-touch inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-600 text-brand-950 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-gold-glow transition active:scale-95"
             >
               <span>Parcourir le Catalogue</span>
-              <ArrowRight className="w-4 h-4 text-amber-400" />
+              <ArrowRight className="w-4 h-4 text-brand-950" />
             </Link>
 
             <Link
               href="/calculateur"
-              className="w-full sm:w-auto btn-touch inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition"
+              className="w-full sm:w-auto btn-touch inline-flex items-center justify-center gap-2 bg-sand-100 hover:bg-sand-200 text-charcoal-800 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition border border-sand-200"
             >
               <span>Calculer mes besoins de chantier</span>
             </Link>
@@ -166,13 +166,13 @@ export default function MaListePage() {
   return (
     <div className="py-8 px-4 max-w-7xl mx-auto">
       {/* En-tête */}
-      <div className="mb-8 pb-4 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="mb-8 pb-4 border-b border-sand-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-            <ClipboardList className="w-4 h-4 text-amber-500" />
+          <span className="text-xs font-bold text-gold-700 uppercase tracking-widest flex items-center gap-1.5 mb-1">
+            <ClipboardList className="w-4 h-4 text-gold-600" />
             <span>Panier & Cotation Express</span>
           </span>
-          <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">
+          <h1 className="text-2xl sm:text-3xl font-heading font-black text-brand-900">
             Ma Liste de Devis Matériaux ({totalItems} article{totalItems > 1 ? "s" : ""})
           </h1>
         </div>

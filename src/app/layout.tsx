@@ -13,24 +13,24 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0F2C59",
+  themeColor: "#0B1728",
 };
 
 export const metadata: Metadata = {
-  title: "QUALITMATSARL — Quincaillerie & Matériaux de Construction à Abomey-Calavi (Bénin)",
+  title: "QUALITMAT SARL — Showroom & Comptoir Matériaux de Construction à Abomey-Calavi (Bénin)",
   description:
-    "Quincaillerie et vente de matériaux de construction à Abomey-Calavi. Ciment CPJ 35/45, fer à béton HA, tuyaux PVC, câblerie électrique, outillage et peinture. Préparez votre liste et demandez votre devis direct sur WhatsApp (+229 96 53 84 55) !",
+    "Showroom et comptoir de matériaux de construction et finitions à Abomey-Calavi (Allègléta / Tankpè). Ciments certifiés CPJ 35/45, fers à béton HA FE E500, carrelage, sanitaire, tuyauterie PVC et outillage pro. Devis direct sur WhatsApp (+229 96 53 84 55).",
   keywords: [
     "quincaillerie Abomey-Calavi",
-    "matériaux de construction Calavi",
-    "ciment Bénin",
-    "fer à béton Cotonou",
-    "tuyaux PVC Bénin",
-    "câbles électriques Bénin",
+    "showroom carrelage Calavi",
+    "matériaux de construction Bénin",
+    "ciment CPJ 45 Bénin",
+    "fer à béton FE E500 Cotonou",
+    "sanitaire robinetterie Bénin",
     "devis matériaux Bénin",
-    "QUALITMATSARL",
+    "QUALITMAT SARL",
   ],
-  authors: [{ name: "QUALITMATSARL" }],
+  authors: [{ name: "QUALITMAT SARL" }],
 };
 
 export default function RootLayout({
@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+      <body className="bg-sand-50/40 text-charcoal-900 font-sans antialiased min-h-screen flex flex-col">
         <CartProvider>
           <QuickViewProvider>
             <Header />
