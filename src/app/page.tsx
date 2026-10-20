@@ -1,27 +1,31 @@
 import React from "react";
-import LandingHero from "@/components/home/LandingHero";
-import LandingCategories from "@/components/home/LandingCategories";
-import LandingBenefits from "@/components/home/LandingBenefits";
-import LandingToolsTeaser from "@/components/home/LandingToolsTeaser";
-import LandingFinalCta from "@/components/home/LandingFinalCta";
+import VitrineHero from "@/components/home/VitrineHero";
+import VitrineTrustBar from "@/components/home/VitrineTrustBar";
+import VitrineDepartments from "@/components/home/VitrineDepartments";
+import VitrineServicesGrid from "@/components/home/VitrineServicesGrid";
+import VitrineDepotSpotlight from "@/components/home/VitrineDepotSpotlight";
+import VitrineCtaBanner from "@/components/home/VitrineCtaBanner";
 
 export default function HomePage() {
   return (
     <div className="space-y-0 w-full overflow-hidden">
-      {/* 1. Hero Landing Page Percutante & Légère */}
-      <LandingHero />
+      {/* 1. Hero Vitrine Haut Impact */}
+      <VitrineHero />
 
-      {/* 2. Rayons Phares & Catégories (Cartes avec liens directs vers le catalogue) */}
-      <LandingCategories />
+      {/* 2. Bandeau de Réassurance BTP */}
+      <VitrineTrustBar />
 
-      {/* 3. Engagements & Atouts BTP QUALITMAT SARL */}
-      <LandingBenefits />
+      {/* 3. Showroom des 6 Familles de Matériaux */}
+      <VitrineDepartments />
 
-      {/* 4. Outils Utiles : Teaser Calculateur de Chantier & Espace Pro */}
-      <LandingToolsTeaser />
+      {/* 4. Prestations & Services Dédiés aux Chantiers */}
+      <VitrineServicesGrid />
 
-      {/* 5. Appel à l'action final pour entrer dans le catalogue ou devis WhatsApp */}
-      <LandingFinalCta />
+      {/* 5. Le Point de Vente & Dépôt Physique de Tankpè / Allègléta */}
+      <VitrineDepotSpotlight />
+
+      {/* 6. Appel à l'action final : Devis Rapide WhatsApp & Contact */}
+      <VitrineCtaBanner />
     </div>
   );
 }
