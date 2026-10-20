@@ -21,7 +21,7 @@ export const initialCategories: Category[] = [
     slug: "gros-oeuvre",
     nom: "Ciment & Gros Œuvre",
     description: "Ciment CPJ 35 et 45, parpaings vibrés, sable, gravier de carrière et fondations.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/gros-oeuvre.jpg",
     position: 1,
     count: 6,
   },
@@ -30,7 +30,7 @@ export const initialCategories: Category[] = [
     slug: "ferraillage",
     nom: "Fers à Béton & Armatures",
     description: "Fers HA FE E500 certifiés (Ø 8, 10, 12, 14, 16 mm), fil de fer recuit et treillis soudés.",
-    image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/ferraillage.jpg",
     position: 2,
     count: 5,
   },
@@ -39,7 +39,7 @@ export const initialCategories: Category[] = [
     slug: "plomberie",
     nom: "Tuyauterie & Plomberie",
     description: "Tubes PVC assainissement & pression, raccords coudes et tés, vannes et cuves de stockage.",
-    image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/plomberie.jpg",
     position: 3,
     count: 5,
   },
@@ -48,7 +48,7 @@ export const initialCategories: Category[] = [
     slug: "electricite",
     nom: "Électricité & Câblerie",
     description: "Câbles cuivre pur 1,5 et 2,5 mm², gaines ICTA, disjoncteurs divisionnaires et appareillages.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/electricite.jpg",
     position: 4,
     count: 6,
   },
@@ -57,7 +57,7 @@ export const initialCategories: Category[] = [
     slug: "outillage",
     nom: "Outillage & Équipement",
     description: "Brouettes tubulaires renforcées, pelles, disques à tronçonner, meuleuses et équipement de chantier.",
-    image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/outillage.jpg",
     position: 5,
     count: 5,
   },
@@ -66,7 +66,7 @@ export const initialCategories: Category[] = [
     slug: "peinture",
     nom: "Peinture & Finitions",
     description: "Peintures acryliques intérieures et extérieures, enduits de lissage, vernis et rouleaux.",
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/peinture.jpg",
     position: 6,
     count: 5,
   },
@@ -75,7 +75,7 @@ export const initialCategories: Category[] = [
     slug: "toiture",
     nom: "Toiture & Étanchéité",
     description: "Tôles ondulées et bacs alu-zinc, tirefonds étanches avec rondelle néoprène et accessoires.",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/gros-oeuvre.jpg",
     position: 7,
     count: 4,
   },
@@ -84,7 +84,7 @@ export const initialCategories: Category[] = [
     slug: "sanitaire",
     nom: "Sanitaire & Robinetterie",
     description: "Lavabos, packs WC complets, mitigeurs céramiques et accessoires de plomberie sanitaire.",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/sanitaire.jpg",
     position: 8,
     count: 4,
   },
@@ -108,7 +108,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/gros-oeuvre.jpg",
     ],
     ficheTechnique: {
       "Norme": "Bénin Norme / EN 197-1",
@@ -133,7 +133,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/gros-oeuvre.jpg",
     ],
     ficheTechnique: {
       "Classe": "42.5 R (Haute résistance)",
@@ -157,7 +157,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/ferraillage.jpg",
     ],
     ficheTechnique: {
       "Diamètre": "10 mm",
@@ -181,7 +181,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/ferraillage.jpg",
     ],
   },
   {
@@ -200,7 +200,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/ferraillage.jpg",
     ],
   },
   {
@@ -219,7 +219,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/ferraillage.jpg",
     ],
   },
   {
@@ -238,7 +238,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/gros-oeuvre.jpg",
     ],
   },
   {
@@ -257,7 +257,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/gros-oeuvre.jpg",
     ],
   },
 
@@ -278,7 +278,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/plomberie.jpg",
     ],
     ficheTechnique: {
       "Diamètre": "100 mm extérieur",
@@ -302,7 +302,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/plomberie.jpg",
     ],
   },
   {
@@ -321,7 +321,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/plomberie.jpg",
     ],
   },
   {
@@ -340,7 +340,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/plomberie.jpg",
     ],
   },
   {
@@ -359,7 +359,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/plomberie.jpg",
     ],
   },
 
@@ -380,7 +380,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/electricite.jpg",
     ],
     ficheTechnique: {
       "Section": "2,5 mm² cuivre massif",
@@ -404,7 +404,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/electricite.jpg",
     ],
   },
   {
@@ -423,7 +423,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/electricite.jpg",
     ],
   },
   {
@@ -442,7 +442,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/electricite.jpg",
     ],
   },
   {
@@ -461,7 +461,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/electricite.jpg",
     ],
   },
 
@@ -482,7 +482,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/outillage.jpg",
     ],
   },
   {
@@ -501,7 +501,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/outillage.jpg",
     ],
   },
   {
@@ -520,7 +520,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/outillage.jpg",
     ],
   },
 
@@ -541,7 +541,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/peinture.jpg",
     ],
   },
   {
@@ -560,7 +560,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/peinture.jpg",
     ],
   },
 
@@ -581,7 +581,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/gros-oeuvre.jpg",
     ],
   },
   {
@@ -600,7 +600,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/gros-oeuvre.jpg",
     ],
   },
 
@@ -621,7 +621,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/sanitaire.jpg",
     ],
     ficheTechnique: {
       "Matériau": "Corps laiton massif finition chromée",
@@ -645,7 +645,7 @@ export const initialProducts: Product[] = [
     vedette: true,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1585058177595-38b4c9527732?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/sanitaire.jpg",
     ],
   },
   {
@@ -664,7 +664,7 @@ export const initialProducts: Product[] = [
     vedette: false,
     publie: true,
     images: [
-      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=800&q=80",
+      "/images/categories/gros-oeuvre.jpg",
     ],
   },
 ];

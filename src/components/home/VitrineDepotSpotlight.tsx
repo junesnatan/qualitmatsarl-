@@ -74,9 +74,9 @@ export default function VitrineDepotSpotlight() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <a
                 href={`tel:${cleanPhone}`}
-                className="btn-red py-3 px-5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm text-center"
+                className="btn-red py-3.5 px-6 rounded-2xl text-xs sm:text-sm font-black flex items-center justify-center gap-2.5 shadow-md active:scale-95 text-center text-white"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 shrink-0" />
                 <span>Appeler : 01 96 53 84 55</span>
               </a>
 
@@ -84,17 +84,18 @@ export default function VitrineDepotSpotlight() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-solar py-3 px-5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm text-slate-950 text-center"
+                className="btn-solar py-3.5 px-6 rounded-2xl text-xs sm:text-sm font-black flex items-center justify-center gap-2.5 shadow-md active:scale-95 text-slate-950 text-center"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 shrink-0 text-slate-950" />
                 <span>Localisation WhatsApp</span>
               </a>
 
               <Link
                 href="/contact"
-                className="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 transition text-center"
+                className="py-3.5 px-5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border border-slate-700 transition active:scale-95 text-center"
               >
-                <span>Voir le plan d'accès</span>
+                <Navigation className="w-4 h-4 shrink-0 text-slate-400" />
+                <span>Plan d&apos;accès</span>
               </Link>
             </div>
           </div>
@@ -102,7 +103,7 @@ export default function VitrineDepotSpotlight() {
           {/* Colonne Droite : Visuel du dépôt / Stock */}
           <div className="lg:col-span-5 h-72 sm:h-96 lg:h-full relative min-h-[320px]">
             <SafeImage
-              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80"
+              src="/images/hero/depot-magasin.jpg"
               alt="Dépôt et stock QUALITMAT SARL à Tankpè"
               fill
               className="object-cover"

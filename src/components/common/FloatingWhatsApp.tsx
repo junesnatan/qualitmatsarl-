@@ -13,7 +13,7 @@ export default function FloatingWhatsApp() {
   )}`;
 
   return (
-    <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 flex items-end flex-col gap-2">
+    <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex items-end flex-col gap-2">
       {/* Tooltip d'accueil (peut être fermé par l'utilisateur) */}
       {showTooltip && (
         <div className="hidden sm:flex items-center gap-2 bg-white text-slate-800 text-xs px-3.5 py-2 rounded-xl shadow-xl border border-slate-200 animate-fade-in max-w-xs">

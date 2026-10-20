@@ -56,7 +56,7 @@ export default function Header() {
                 </span>
               </div>
               <p className="hidden sm:block text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider mt-0.5 truncate">
-                Quincaillerie & Matériaux de Construction • Abomey-Calavi
+                Matériaux de Construction & Quincaillerie BTP
               </p>
             </div>
           </Link>
@@ -82,14 +82,15 @@ export default function Header() {
           </nav>
 
           {/* Actions Droite : Téléphone Direct + Bouton Demande de Devis Vitrine + Menu Mobile */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Numéro de téléphone direct sur desktop */}
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            {/* Bouton Appel Direct (Toujours accessible et visible sur mobile !) */}
             <a
               href={`tel:${cleanPhone}`}
-              className="hidden sm:flex items-center gap-2 text-slate-800 hover:text-primary-600 transition px-3 py-2 rounded-xl hover:bg-slate-50 border border-slate-200 text-xs font-bold"
-              title="Appeler notre magasin"
+              className="flex items-center gap-1.5 text-slate-800 hover:text-primary-600 transition p-2 sm:px-3 sm:py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-bold"
+              title="Appeler le comptoir : +229 96 53 84 55"
+              aria-label="Appeler le comptoir QUALITMAT SARL"
             >
-              <div className="w-7 h-7 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center">
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center shrink-0">
                 <Phone className="w-3.5 h-3.5" />
               </div>
               <div className="text-left leading-tight hidden md:block">
@@ -101,11 +102,12 @@ export default function Header() {
             {/* Bouton CTA Pure Vitrine : Demande de Devis Rapide */}
             <Link
               href="/contact"
-              className="btn-solar flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-md transition active:scale-95 text-xs font-black"
+              className="btn-solar flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-md transition active:scale-95 text-xs font-black text-slate-950"
               title="Demander un devis pour votre chantier"
             >
-              <FileText className="w-4 h-4 text-dark-900" />
-              <span>Demander un Devis</span>
+              <FileText className="w-4 h-4 text-slate-950" />
+              <span className="hidden sm:inline">Demander un Devis</span>
+              <span className="sm:hidden">Devis</span>
             </Link>
 
             {/* Bouton Hamburger Mobile */}

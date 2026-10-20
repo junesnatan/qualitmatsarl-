@@ -21,7 +21,7 @@ const DEPARTMENTS: Department[] = [
     badge: "Fondations & Maçonnerie",
     description: "Ciment CPJ 35 & 45 haute résistance, parpaings vibrés, sable lagunaire et graviers de carrière.",
     examples: "CIMBENIN, NOCIBE, Agrégats concassés",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/gros-oeuvre.jpg",
   },
   {
     slug: "ferraillage",
@@ -29,7 +29,7 @@ const DEPARTMENTS: Department[] = [
     badge: "Aciers Haute Adhérence",
     description: "Barres de fer HA certifiées FE E500 de 6 mm à 16 mm, rouleaux de fil recuit et treillis soudés.",
     examples: "Barres 12m, Étriers, Cadres sur mesure",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/ferraillage.jpg",
   },
   {
     slug: "plomberie",
@@ -37,7 +37,7 @@ const DEPARTMENTS: Department[] = [
     badge: "Distribution & Évacuation",
     description: "Tubes PVC pression et évacuation, raccords coudes, colles, vannes d'arrêt et équipements sanitaires.",
     examples: "PVC Ø 32 à 160 mm, Sanitaire pro",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/plomberie.jpg",
   },
   {
     slug: "electricite",
@@ -45,7 +45,7 @@ const DEPARTMENTS: Department[] = [
     badge: "100% Cuivre Pur Normé",
     description: "Câbles rigides et souples cuivre pur, disjoncteurs divisionnaires, coffrets modulaires et gaines ICTA.",
     examples: "Câbles 1.5 à 10 mm², Legrand, Schneider",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/electricite.jpg",
   },
   {
     slug: "peinture",
@@ -53,7 +53,7 @@ const DEPARTMENTS: Department[] = [
     badge: "Revêtements & Protection",
     description: "Peintures acryliques façade et intérieur, enduits de lissage, sous-couches et accessoires d'application.",
     examples: "Pots 20 kg, Enduits 25 kg, Rouleaux",
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/peinture.jpg",
   },
   {
     slug: "outillage",
@@ -61,7 +61,7 @@ const DEPARTMENTS: Department[] = [
     badge: "Matériel pour Artisans",
     description: "Bétonnières, disques diamant, meuleuses, truelles, brouettes renforcées et équipements de protection EPI.",
     examples: "Outillage à main, Consommables BTP",
-    image: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80",
+    image: "/images/categories/outillage.jpg",
   },
 ];
 

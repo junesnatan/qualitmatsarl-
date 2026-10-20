@@ -54,10 +54,14 @@ export default function VitrineCtaBanner() {
             </Link>
           </div>
 
-          <div className="pt-2 text-xs text-white/80">
-            <span>Ou joignez-nous directement : </span>
-            <a href={`tel:${cleanPhone}`} className="underline font-bold text-solar-300 hover:text-white">
-              +229 96 53 84 55
+          <div className="pt-3 flex flex-wrap items-center justify-center gap-2 text-xs text-white/90">
+            <span>Besoin d&apos;échanger avec un conseiller ?</span>
+            <a
+              href={`tel:${cleanPhone}`}
+              className="inline-flex items-center gap-1.5 bg-white/20 hover:bg-white/30 text-white font-extrabold px-3.5 py-1.5 rounded-full border border-white/30 transition shadow-sm"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-solar-300" />
+              <span>Appeler : 01 96 53 84 55</span>
             </a>
           </div>
         </div>

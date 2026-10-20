@@ -35,10 +35,10 @@ export default function VitrineHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Colonne Gauche : Positionnement de marque, Titre fort et double CTA */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Badge de réassurance locale */}
+            {/* Badge de réassurance BTP */}
             <div className="inline-flex items-center gap-2 bg-slate-900 border border-slate-700/80 text-solar-400 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-inner">
-              <MapPin className="w-3.5 h-3.5 text-solar-400" />
-              <span>Dépôt & Quincaillerie • Allègléta / Pavé de Tankpè, Abomey-Calavi</span>
+              <Building2 className="w-3.5 h-3.5 text-solar-400" />
+              <span>Comptoir & Showroom Matériaux BTP</span>
             </div>
 
             {/* Titre fort & affirmé */}
@@ -107,7 +107,7 @@ export default function VitrineHero() {
           <div className="lg:col-span-5 space-y-4">
             <div className="relative rounded-3xl overflow-hidden border-2 border-slate-800 shadow-2xl aspect-[4/3] bg-slate-900 group">
               <SafeImage
-                src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1200&q=80"
+                src="/images/hero/hero-chantier.jpg"
                 alt="Matériaux de construction et chantier QUALITMAT SARL"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
