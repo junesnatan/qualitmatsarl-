@@ -16,6 +16,15 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+const TICKER_ITEMS = [
+  { icon: "📦", text: "Stocks disponibles en magasin" },
+  { icon: "🚚", text: "Livraison camion directe sur votre chantier" },
+  { icon: "📜", text: "Facturation officielle avec IFU & RCCM" },
+  { icon: "🧱", text: "Ciments frais d'usines certifiées (CIMBENIN, NOCIBE)" },
+  { icon: "🏗️", text: "Fers à béton haute adhérence FE E500" },
+  { icon: "💬", text: "Devis rapide sous 15 minutes sur WhatsApp" },
+];
+
 export default function VitrineHero() {
   const cleanPhone = initialSettings.telephonePrincipal.replace(/\s+/g, "");
 
@@ -35,13 +44,7 @@ export default function VitrineHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Colonne Gauche : Positionnement de marque, Titre fort et double CTA */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Badge de réassurance BTP */}
-            <div className="inline-flex items-center gap-2 bg-slate-900 border border-slate-700/80 text-solar-400 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-inner">
-              <Building2 className="w-3.5 h-3.5 text-solar-400" />
-              <span>Comptoir & Showroom Matériaux BTP</span>
-            </div>
-
-            {/* Titre fort & affirmé */}
+            {/* Titre fort & affirmé — Rien au-dessus */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-heading font-black tracking-tight leading-[1.12] text-white">
               L&apos;Exigence des Matériaux pour{" "}
               <span className="text-solar-400">Bâtir Durable</span> au Bénin.
@@ -52,20 +55,34 @@ export default function VitrineHero() {
               Distributeur de référence à Abomey-Calavi et Cotonou : ciment d&apos;usines certifiées (CIMBENIN, NOCIBE), fers à béton haute adhérence FE E500, tuyauterie PVC, électricité et outillage professionnel.
             </p>
 
-            {/* Piliers clés sous forme de pastilles */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1 text-xs text-slate-300 font-medium">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Stocks disponibles en permanence</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Livraison camion sur votre chantier</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Facturation officielle avec IFU</span>
-              </span>
+            {/* Ruban horizontal déroulant en continu de droite à gauche */}
+            <div className="relative w-full overflow-hidden py-2.5 bg-slate-900/80 border-y border-slate-800 rounded-2xl">
+              {/* Estompage dégradé aux extrémités */}
+              <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
+
+              <div className="animate-marquee flex items-center gap-4">
+                {/* 1ère séquence */}
+                {TICKER_ITEMS.map((item, idx) => (
+                  <div
+                    key={`ticker-1-${idx}`}
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-slate-200 whitespace-nowrap bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-700/60 shrink-0"
+                  >
+                    <span>{item.icon}</span>
+                    <span>{item.text}</span>
+                  </div>
+                ))}
+                {/* 2ème séquence identique pour la continuité infinie sans à-coup */}
+                {TICKER_ITEMS.map((item, idx) => (
+                  <div
+                    key={`ticker-2-${idx}`}
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-slate-200 whitespace-nowrap bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-700/60 shrink-0"
+                  >
+                    <span>{item.icon}</span>
+                    <span>{item.text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Double CTA Vitrine : Showroom des Matériaux + Devis WhatsApp */}
