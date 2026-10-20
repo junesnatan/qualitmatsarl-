@@ -14,15 +14,17 @@ import {
   Layers,
   MapPin,
   CheckCircle2,
+  PackageCheck,
+  FileCheck,
 } from "lucide-react";
 
 const TICKER_ITEMS = [
-  { icon: "📦", text: "Stocks disponibles en magasin" },
-  { icon: "🚚", text: "Livraison camion directe sur votre chantier" },
-  { icon: "📜", text: "Facturation officielle avec IFU & RCCM" },
-  { icon: "🧱", text: "Ciments frais d'usines certifiées (CIMBENIN, NOCIBE)" },
-  { icon: "🏗️", text: "Fers à béton haute adhérence FE E500" },
-  { icon: "💬", text: "Devis rapide sous 15 minutes sur WhatsApp" },
+  { icon: PackageCheck, text: "Stocks disponibles en magasin", color: "text-emerald-400" },
+  { icon: Truck, text: "Livraison camion directe sur votre chantier", color: "text-solar-400" },
+  { icon: FileCheck, text: "Facturation officielle avec IFU & RCCM", color: "text-blue-400" },
+  { icon: Layers, text: "Ciments frais certifiés (CIMBENIN, NOCIBE)", color: "text-primary-400" },
+  { icon: ShieldCheck, text: "Fers à béton haute adhérence FE E500", color: "text-emerald-400" },
+  { icon: MessageCircle, text: "Devis rapide sous 15 minutes sur WhatsApp", color: "text-solar-400" },
 ];
 
 export default function VitrineHero() {
@@ -63,25 +65,31 @@ export default function VitrineHero() {
 
               <div className="animate-marquee flex items-center gap-4">
                 {/* 1ère séquence */}
-                {TICKER_ITEMS.map((item, idx) => (
-                  <div
-                    key={`ticker-1-${idx}`}
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-slate-200 whitespace-nowrap bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-700/60 shrink-0"
-                  >
-                    <span>{item.icon}</span>
-                    <span>{item.text}</span>
-                  </div>
-                ))}
+                {TICKER_ITEMS.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={`ticker-1-${idx}`}
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-slate-200 whitespace-nowrap bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-700/60 shrink-0"
+                    >
+                      <Icon className={`w-4 h-4 ${item.color} shrink-0`} />
+                      <span>{item.text}</span>
+                    </div>
+                  );
+                })}
                 {/* 2ème séquence identique pour la continuité infinie sans à-coup */}
-                {TICKER_ITEMS.map((item, idx) => (
-                  <div
-                    key={`ticker-2-${idx}`}
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-slate-200 whitespace-nowrap bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-700/60 shrink-0"
-                  >
-                    <span>{item.icon}</span>
-                    <span>{item.text}</span>
-                  </div>
-                ))}
+                {TICKER_ITEMS.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={`ticker-2-${idx}`}
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-slate-200 whitespace-nowrap bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-700/60 shrink-0"
+                    >
+                      <Icon className={`w-4 h-4 ${item.color} shrink-0`} />
+                      <span>{item.text}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
